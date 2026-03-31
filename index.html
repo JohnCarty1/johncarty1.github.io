@@ -9,22 +9,59 @@
       margin: auto;
       padding: 20px;
       line-height: 1.6;
+      background: radial-gradient(circle at top, #0b0f2a, #000000);
+      color: #e6e6e6;
     }
-    h1 { margin-bottom: 0; }
-    .subtitle { color: gray; margin-top: 5px; }
+
+    h1 {
+      margin-bottom: 0;
+      color: #ffffff;
+    }
+
+    .subtitle {
+      color: #9aa3ff;
+      margin-top: 5px;
+    }
+
+    h2 {
+      border-bottom: 1px solid #222;
+      padding-bottom: 5px;
+      margin-top: 40px;
+    }
+
     .project {
-      border: 1px solid #ddd;
+      border: 1px solid #1f2a44;
       padding: 15px;
       margin-top: 20px;
-      border-radius: 8px;
+      border-radius: 10px;
+      background: rgba(20, 30, 60, 0.4);
+      transition: 0.2s;
     }
-    a { text-decoration: none; color: #0366d6; }
+
+    .project:hover {
+      border-color: #4d79ff;
+      transform: translateY(-3px);
+    }
+
+    a {
+      text-decoration: none;
+      color: #6fa3ff;
+    }
+
+    a:hover {
+      color: #a8c8ff;
+    }
+
+    .glow {
+      color: #ffffff;
+      text-shadow: 0 0 8px rgba(100,150,255,0.7);
+    }
   </style>
 </head>
 
 <body>
 
-  <h1>John Carty</h1>
+  <h1 class="glow">John Carty</h1>
   <p class="subtitle">Aerospace Engineering | Plasma Systems | Robotics</p>
 
   <h2>About</h2>
