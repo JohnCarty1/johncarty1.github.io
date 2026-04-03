@@ -1,39 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>John Carty | Aerospace Engineer</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <canvas id="space-background"></canvas>
 
-  <h1 class="glow">John Carty</h1>
-  <p class="subtitle">Aerospace Engineering | Plasma Systems | Robotics</p>
+  <div class="page-overlay"></div>
 
-  <h2>About</h2>
-  <p>
-    I design and build physics-driven systems, with experience in biomimetic robotics
-    and experimental plasma hardware. My work focuses on translating physical principles
-    into real-world engineering designs.
-  </p>
+  <main class="site">
+    <header class="hero">
+      <p class="kicker">John Carty</p>
+      <h1 class="glow">Aerospace Engineering Portfolio</h1>
+      <p class="hero-subtitle">Robotics • Plasma Systems • Controls • Experimental Hardware</p>
+      <p class="hero-text">
+        I design and build physics-driven systems, with interests spanning aerospace,
+        robotics, controls, and experimental hardware.
+      </p>
+    </header>
 
-  <h2>Projects</h2>
+    <section class="home-section intro-section">
+      <div class="section-label">About</div>
+      <p>
+        My work focuses on translating physical principles into engineered systems through
+        design, modeling, testing, and iteration. I am especially drawn to projects that
+        sit at the intersection of mechanics, control, and real-world constraints.
+      </p>
+    </section>
 
-  <div class="project">
-    <h3><a href="plasma.html">Plasma System Design</a></h3>
-    <p>Designed and modeled experimental plasma hardware using SolidWorks, focusing on system constraints and performance.</p>
-  </div>
+    <section class="home-section projects-section">
+      <div class="section-label">Projects</div>
 
-  <div class="project">
-    <h3><a href="robotics.html">Biomimetic Robotics</a></h3>
-    <p>Worked on robotic systems inspired by biological motion, integrating mechanical design and control.</p>
-  </div>
+      <a class="project-row featured" href="robotics.html">
+        <div class="project-meta">14 Months • Research / Robotics</div>
+        <div class="project-main">
+          <h2>Biomimetic Robotics</h2>
+          <p>
+            Long-term work on robotic systems inspired by biological motion, focused on
+            mechanism design, controllability, and iterative development.
+          </p>
+        </div>
+        <div class="project-mark">01</div>
+      </a>
 
-  <h2>Contact</h2>
-  <p>
-    Email: your.email@example.com <br>
-    GitHub: <a href="https://github.com/yourusername">yourusername</a>
-  </p>
+      <a class="project-row" href="hand.html">
+        <div class="project-meta">Mechatronics • Build</div>
+        <div class="project-main">
+          <h2>Gesture-Controlled Robotic Hand</h2>
+          <p>
+            A robotic hand project integrating gesture input, actuation, and real-time
+            electromechanical response.
+          </p>
+        </div>
+        <div class="project-mark">02</div>
+      </a>
 
+      <a class="project-row" href="plasma.html">
+        <div class="project-meta">Summer 2026 • Upcoming Research</div>
+        <div class="project-main">
+          <h2>Plasma Physics Research</h2>
+          <p>
+            Incoming summer research focused on plasma-related hardware, system constraints,
+            and experimental design.
+          </p>
+        </div>
+        <div class="project-mark">03</div>
+      </a>
+
+      <a class="project-row" href="reaction.html">
+        <div class="project-meta">Personal Project • In Progress</div>
+        <div class="project-main">
+          <h2>Reaction Wheel Project</h2>
+          <p>
+            A personal spacecraft-oriented project exploring rotational dynamics, attitude
+            control, and system design.
+          </p>
+        </div>
+        <div class="project-mark">04</div>
+      </a>
+    </section>
+
+    <section class="home-section contact-section">
+      <div class="section-label">Contact</div>
+      <p>
+        Email: your.email@example.com<br>
+        GitHub:
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">yourusername</a><br>
+        LinkedIn:
+        <a href="https://www.linkedin.com/in/yourusername/" target="_blank" rel="noopener noreferrer">yourusername</a>
+      </p>
+    </section>
+  </main>
+
+  <script src="space.js"></script>
 </body>
 </html>
