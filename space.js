@@ -141,7 +141,7 @@ function updateStar(star, layerSpeed) {
 
 function drawStar(star, glowFactor = 1) {
   const hue = star.hue + star.tempShift;
-
+  
   if (star.radius > 1.2) {
     const glow = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, star.radius * 6);
     glow.addColorStop(0, `hsla(${hue}, 85%, 88%, ${star.alpha * 0.14 * glowFactor})`);
