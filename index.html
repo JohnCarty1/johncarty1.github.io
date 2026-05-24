@@ -49,25 +49,39 @@
     <section class="home-section projects-section">
       <div class="section-label">Projects</div>
 
-      <a class="project-row featured" href="robotics.html">
-        <div class="project-meta">14 Months • Research / Robotics</div>
-        <div class="project-main">
-          <h2>Biomimetic Robotics</h2>
-          <p>
-            Long-term work on robotic systems inspired by biological motion, focused on
-            mechanism design, controllability, and iterative development.
-          </p>
-        </div>
-        <div class="project-mark">01</div>
-      </a>
+      <a class="project-row featured project-row-video" href="robotics.html">
+  <div class="project-meta">14 Months • Biomimetic Robotics</div>
+
+  <div class="project-main">
+    <h2>Biomimetic Robotics</h2>
+    <p>
+      Long-term work on a nauplius-inspired swimming robot designed to move through highly
+      viscous environments. The project focused on translating known propulsion strategies into a controllable mechanical system, with potential applications for
+      exploring subsurface oceans on icy moons such as Europa.
+    </p>
+
+    <div class="project-preview">
+      <video
+        class="project-hover-video"
+        muted
+        loop
+        playsinline
+        preload="metadata"
+      >
+        <source src="bot.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <div class="project-mark">01</div>
+</a>
 
       <a class="project-row" href="hand.html">
         <div class="project-meta">Mechatronics • Build</div>
         <div class="project-main">
           <h2>Gesture-Controlled Robotic Hand</h2>
           <p>
-            A robotic hand project integrating gesture input, actuation, and real-time
-            electromechanical response.
+            A robotic hand project focused on mimicing gesture
           </p>
         </div>
         <div class="project-mark">02</div>
@@ -108,5 +122,33 @@
   </main>
 
   <script src="space.js"></script>
+
+  <script src="space.js"></script>
+<script>
+  const videoRow = document.querySelector(".project-row-video");
+  const hoverVideo = document.querySelector(".project-hover-video");
+
+  if (videoRow && hoverVideo) {
+    videoRow.addEventListener("mouseenter", () => {
+      hoverVideo.currentTime = 0;
+      hoverVideo.play().catch(() => {});
+    });
+
+    videoRow.addEventListener("mouseleave", () => {
+      hoverVideo.pause();
+      hoverVideo.currentTime = 0;
+    });
+
+    videoRow.addEventListener("focusin", () => {
+      hoverVideo.currentTime = 0;
+      hoverVideo.play().catch(() => {});
+    });
+
+    videoRow.addEventListener("focusout", () => {
+      hoverVideo.pause();
+      hoverVideo.currentTime = 0;
+    });
+  }
+</script>
 </body>
 </html>

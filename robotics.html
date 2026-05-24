@@ -2,79 +2,247 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Biomimetic Robotics | John Carty</title>
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
   <canvas id="space-background"></canvas>
+  <div class="page-overlay"></div>
 
-  <div class="content project-page">
+  <main class="site project-shell">
     <a class="back-link" href="index.html">← Back to Home</a>
 
-    <h1>Biomimetic Robotics</h1>
-    <p class="subtitle">Robotics | Mechanical Design | Bio-Inspired Systems</p>
+    <!-- HERO -->
+    <header class="project-hero">
+      <p class="project-kicker">Research Project</p>
+      <h1 class="glow">Biomimetic Robotics</h1>
+      <p class="project-subtitle">Robotics • Mechanical Design • Bio-Inspired Systems</p>
 
-    <p>
-      Over 14 months, I worked on biomimetic robotics projects focused on translating
-      biological motion into engineered mechanical systems. The work involved thinking
-      carefully about how natural movement can be simplified, modeled, and implemented
-      in a controllable robotic design.
-    </p>
+      <p class="project-lead">
+        A long-term project focused on translating the propulsion strategies of 
+        a barnacle nauplius into a controllable mechanical system. The goal was to replicate the organism's
+        swimming behavior and operating environment closely enough to study its motion in a physical model,
+        while also exploring how these mechanisms could be applied to systems operating in highly viscous environments.
+      </p>
+    </header>
 
-    <h2>Project Overview</h2>
-    <p>
-      This work explored robotic systems inspired by biological motion, with emphasis on
-      mechanism design, system behavior, and practical engineering tradeoffs. Rather than
-      simply imitating nature visually, the goal was to understand which features of a
-      biological system were mechanically meaningful and how they could be recreated in
-      a functional robotic platform.
-    </p>
+    <!-- MOTIVATION -->
+    <section class="project-section">
+      <div class="section-label">Motivation</div>
+      <div class="project-split">
+        <div class="project-text-block">
+          <h2>Why biomimetic motion?</h2>
+          <p>
+            The barnacle nauplius possesses a distinct swimming stroke that allows
+            it to move efficiently through highly viscous environments, operating near
+            the Stokes flow regime where conventional propulsion systems break down. This makes the 
+            organism an interesting system of study from both a biological and engineering perspective.
+            <br>
+            <br>
+            In collaboration with Swarthmore College and the University of Washington's School of Oceanography,
+            this project aimed at developing a physical model capable of reproducing the organism's swimming dynamics,
+            allowing a controlled study of its motion.
+            <br>
+            <br>
+            Beyond biological interest, the ability to efficiently traverse highly viscous environments has potential
+            applications in extreme settings such as the subsurface oceans on icy moons like Europa, where similar
+            fluid conditions may be encountered.
+          </p>
+        </div>
 
-    <h2>Engineering Problem</h2>
-    <p>
-      Biomimetic robotics presents a difficult engineering challenge because biological
-      motion is complex, adaptive, and often nonlinear, while engineered systems must be
-      simplified into manufacturable, controllable mechanisms. A major part of the work
-      was identifying what aspects of the biological behavior actually mattered and how
-      to reproduce them in a way that was mechanically realistic.
-    </p>
+        <figure class="organism-figure">
+          <img src="nauplius.jpg" alt="Barnacle nauplius swimming organism">
+          <figcaption>Barnacle nauplius (reference organism)</figcaption>
+        </figure>
+      </div>
+    </section>
 
-    <h2>My Contributions</h2>
-    <ul>
-      <li>Contributed to the design and development of bio-inspired robotic systems</li>
-      <li>Helped translate observed motion into mechanical concepts and design choices</li>
-      <li>Worked through constraints involving geometry, movement, and controllability</li>
-      <li>Participated in iterative refinement of designs based on performance and feasibility</li>
-    </ul>
+    
+    <!-- CAD -->
+    <section class="project-section">
+      <div class="section-label">Mechanism</div>
 
-    <h2>Technical Work</h2>
-    <p>
-      The most interesting aspect of this work was the balance between biological fidelity
-      and engineering practicality. A design that looks biologically accurate is not
-      necessarily the one that behaves best mechanically. This required repeated tradeoff
-      decisions involving mechanism simplicity, actuation strategy, motion range, and the
-      ability to physically build and test the design.
-    </p>
-    <p>
-      [Add specifics here: CAD work, control logic, mechanism analysis, actuators, fabrication,
-      testing process, or what kind of robotic motion you were trying to reproduce.]
-    </p>
+      <div class="project-text-block">
+        <h2>Overview</h2>
+        <p>
+          The model below shows the core mechanical system responsible
+          for generating the swimming motion. A single motor input is transmitted
+          through a gear train and linkage system to produce coordinated, periodic motion
+          across the three pairs of limbs.
 
-    <h2>Results & Iteration</h2>
-    <p>
-      One of the most valuable parts of the project was seeing how iteration improved both
-      performance and design clarity. Each design choice revealed new constraints, and each
-      test helped refine what was actually necessary to achieve the target motion. This made
-      the project less about a single finished design and more about a disciplined engineering process.
-    </p>
+          <br>
+          <br>
+          A central challenge in the design was accurately replicating both the sweeping angle
+          of each limb and the phase relationship between limb pairs.
+          This required careful placement of pivot
+          positions to generate the desired stroke profile, along with custom gear geometries to produce the correct
+          timing between limbs.
+          <br>
+          <br>
+          The mechanism was developed to approximate the idealized motion profile as closely 
+          as possible while minimizing overall system height to maintain consistency with the biological
+          spacing of the organism's appendages.
 
-    <h2>Takeaways</h2>
-    <ul>
-      <li>Learned how to reduce a complex natural system into an engineerable mechanism</li>
-      <li>Gained experience making design decisions under real physical constraints</li>
-      <li>Developed a stronger appreciation for iteration as part of serious engineering work</li>
-    </ul>
+          <br>
+          <br>
+          This model highlights the primary transmission and linkage behavior that drives the robot's motion.
+        </p>
+      </div>
+      <p class="project-caption">
+        Interactive model of the core transmission and linkage system.
+      </p>
+      <div class="project-model-wrap">
+        <model-viewer
+          src="bot_cad.glb"
+          alt="Interactive CAD model of biomimetic robot"
+          camera-controls
+          auto-rotate
+          auto-rotate-delay="0"
+          rotation-per-second="3deg"
+          shadow-intensity="1.4"
+          exposure="0.75"
+          environment-image="legacy"
+          camera-target="0m -1m 0m"
+          camera-orbit="65deg 65deg auto"
+          field-of-view="55deg"
+          class="project-model">
+        </model-viewer>
+      </div>
+    </section>
+
+    <!-- MAIN MECHANISM VIDEO -->
+    <section class="project-section">
+      <div class="project-split">
+  <div class="project-media-wrap project-media-wrap-wide">
+    <video class="project-video-large" autoplay muted loop playsinline>
+      <source src="side_mechanism.mp4" type="video/mp4">
+    </video>
   </div>
+
+  <div class="project-text-block">
+    <h2>Mechanism in motion</h2>
+    <p>
+      The video shows the first successful demonstration of the clockwork mechanism
+      before oars were added, confirming the plausibility of the design. The motor's continuous rotation is translated into coordinated
+      periodic strokes across the limb pairs.
+    </p>
+    <p>
+      Correct timing and phase relationships are critical to reproducing the organism's characteristic swimming pattern, 
+      so this was a major milestone in the development of the system.
+    </p>
+  </div>
+</div>
+    </section>
+
+    <!-- MECHANISM DETAIL -->
+    <section class="project-section">
+      <div class="section-label">Mechanism Detail</div>
+
+      <div class="project-media-grid two-col-media">
+        <figure class="project-media-card">
+          <img src="close_up.jpg" class="project-image">
+        </figure>
+
+        <figure class="project-media-card">
+          <img src="side_view.jpg" class="project-image">
+        </figure>
+      </div>
+
+      <p class="project-caption">
+        Close-ups of the gear train and linkage system, depicting how motion is distributed through the mechanism.
+      </p>
+    </section>
+
+    <!-- BUILD -->
+    <section class="project-section">
+      <div class="section-label">Build & Integration</div>
+
+      <div class="project-split">
+        <div class="project-text-block">
+        <h2>From mechanism to system</h2>
+        <p>
+          Integrating the mechanism into a complete system introduced additional design constraints.
+          The electronics for the control system needed to be enclosed within a waterproof housing that 
+          also matched the geometry of the nauplius carapace, ensuring that fluid interactions
+          during testing remained representative of the biological system.
+         </p>
+         <p>
+          The final build, shown here, incorporates the core mechanism and a sealed, biologically informed
+          enclosure that houses the control electronics. At this stage, the system
+          was ready for testing in a viscous fluid environment.
+         </p>
+      </div>
+
+  <div class="project-media-wrap project-media-wrap-assembly">
+    <img src="full_assembly.jpg" class="project-image">
+  </div>
+</div>
+
+      <p class="project-caption">
+        Fully assembled prototype including enclosure, electronics, and structural components.
+      </p>
+    </section>
+
+    <!-- LIGHT ACTIVATION FEATURE -->
+    <section class="project-section">
+      <div class="section-label">Control System</div>
+
+      <div class="project-split reverse">
+        <div class="project-media-wrap project-media-wrap-small">
+          <video class="project-video-small" autoplay muted loop playsinline>
+            <source src="light_activation.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="project-text-block">
+          <h2>Light-activated behavior</h2>
+          <p>
+            The system incorporates a light-activated control mechanism, allowing the robot to be 
+            activated remotely when submerged in a viscous fluid environment.
+          </p>
+          <p>
+            As direct interaction is limited in this setting, light serves as a non-invasive
+            input to trigger the motor. The video shows the robot activating when light is applied
+            to the sensor and quickly deactivating once the source is removed.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAKEAWAYS -->
+    <section class="project-section project-footer-note">
+      <div class="section-label">Takeaways</div>
+      <p>
+        This project highlighted the challenges of translating biological motion
+        into a working mechanical system. Balancing electronics, waterproofing,
+        and mechanism design from the ground up while maintaining biological accuracy was
+        the most difficult aspect of this project.
+      </p>
+        <br>
+      <p>
+        It also reinforced the importance of considering the system as a whole early in the design
+        process, rather than focusing on individual components in isolation.
+      </p>
+      <br>
+      <p>
+        More broadly, this work confirmed my interest in designing systems for extreme environments. 
+        Considering aspects like fluid behavior, limited interaction, and unique design constraints 
+        was a rewarding challenge. 
+      
+      </p>
+      <br>
+      <p>
+        Working on this project
+        was incredibly valuable for developing my skills across the full design and build process,
+        and I look forward to applying what I learned to future work. Though my direct involvement on this project has concluded,
+        development is ongoing, and I look forward to seeing how the system evolves.
+      </p>
+      
+    </section>
+
+  </main>
 
   <script src="space.js"></script>
 </body>

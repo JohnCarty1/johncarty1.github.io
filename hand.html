@@ -2,77 +2,162 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gesture-Controlled Robotic Hand | John Carty</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <canvas id="space-background"></canvas>
+  <div class="page-overlay"></div>
 
-  <div class="content project-page">
+  <main class="site project-shell">
     <a class="back-link" href="index.html">← Back to Home</a>
 
-    <h1>Gesture-Controlled Robotic Hand</h1>
-    <p class="subtitle">Mechatronics | Embedded Systems | Human-Machine Interaction</p>
+    <!-- HERO -->
+    <header class="project-hero">
+      <p class="project-kicker">Embedded Systems Project</p>
+      <h1 class="glow">Gesture-Controlled Robotic Hand</h1>
+      <p class="project-subtitle">Mechatronics • Embedded Systems • Human-Machine Interaction</p>
 
-    <p>
-      I designed and built a gesture-controlled robotic hand as a mechatronics project
-      focused on sensing, actuation, and intuitive system response. The project combined
-      hardware and control logic to create a system that translated user input into
-      physical motion.
-    </p>
+      <p class="project-lead">
+        A mechatronics project focused on translating human gesture input into real-time
+        mechanical motion. The goal was to design and build a robotic hand capable of
+        responding to user input through an integrated sensing, control, and actuation system.
+      </p>
+    </header>
 
-    <h2>Project Overview</h2>
-    <p>
-      The goal of the project was to create a robotic hand capable of responding to
-      gesture-based input in real time. This required integrating mechanical design with
-      electronic control and a clean signal path from user input to actuator output.
-    </p>
+    <!-- MOTIVATION -->
+    <section class="project-section">
+      <div class="section-label">Motivation</div>
 
-    <h2>Engineering Problem</h2>
-    <p>
-      A central challenge in this project was building a system that felt responsive
-      without becoming unstable or unreliable. Human input is rarely perfectly clean,
-      so the design had to account for signal noise, calibration, and the mechanical
-      limitations of the hand itself. The project required thinking about response speed,
-      repeatability, and the physical realism of the resulting motion.
-    </p>
+      <div class="project-text-block">
+        <h2>Why gesture control?</h2>
+        <p>
+          This project was motivated by an interest in systems that connect human input
+          to physical machine behavior in an intuitive way. A gesture-controlled robotic
+          hand provided a compact way to explore the interaction between sensing,
+          embedded control, and mechanical output.
+        </p>
+        <p>
+          Beyond simply making the hand move, the project focused on building a system
+          that could respond consistently and in real time, requiring careful consideration
+          of signal interpretation, actuator behavior, and the mechanical limits of the design.
+        </p>
+      </div>
+    </section>
 
-    <h2>My Contributions</h2>
-    <ul>
-      <li>Designed and built the robotic hand system</li>
-      <li>Integrated gesture-based input with actuator control</li>
-      <li>Worked through mechanical and control-related tradeoffs in system behavior</li>
-      <li>Tested and refined the system to improve responsiveness and reliability</li>
-    </ul>
+    <!-- SYSTEM OVERVIEW -->
+    <section class="project-section">
+      <div class="section-label">System</div>
 
-    <h2>Technical Work</h2>
-    <p>
-      This project involved both mechanical and control-oriented problem solving. On the
-      mechanical side, the design had to produce meaningful hand motion within the limits
-      of the chosen actuators and linkage geometry. On the controls side, the system needed
-      to interpret gesture input in a way that was consistent and usable rather than noisy
-      or erratic.
-    </p>
-    <p>
-      [Add specifics here: sensors used, microcontroller, servos, mapping logic, code structure,
-      filtering, calibration, mechanical linkage design, or challenges with finger motion.]
-    </p>
+      <div class="project-text-block">
+        <h2>System overview</h2>
+        <p>
+          The robotic hand was designed as a complete electromechanical system, integrating
+          gesture-based input, embedded control, and physical actuation. User input was captured,
+          interpreted, and translated into motion commands that drove the hand in real time.
+        </p>
+        <p>
+          At a high level, the project required building a clean path from sensing to output,
+          while ensuring that the resulting motion remained responsive, stable, and mechanically meaningful.
+        </p>
+      </div>
+    </section>
 
-    <h2>Results & Iteration</h2>
-    <p>
-      Building the system made it clear that a successful robotic interface depends on more
-      than simply making the hardware move. The quality of the user experience came from
-      repeated adjustment of both sensing and output behavior. Iteration improved the hand’s
-      responsiveness and helped identify which parts of the system needed the most refinement.
-    </p>
+    <!-- MEDIA / DEMO -->
+    <section class="project-section">
+      <div class="project-split">
+        <div class="project-media-wrap project-media-wrap-wide">
+          <img src="hand_demo.jpg" class="project-image" alt="Gesture-controlled robotic hand">
+        </div>
 
-    <h2>Takeaways</h2>
-    <ul>
-      <li>Strengthened my ability to integrate sensing, control, and mechanical design</li>
-      <li>Learned how small implementation details strongly affect system usability</li>
-      <li>Gained hands-on experience building a complete electromechanical system</li>
-    </ul>
-  </div>
+        <div class="project-text-block">
+          <h2>Demonstration</h2>
+          <p>
+            The system responds to user gesture input by driving the robotic hand in real time.
+            This demonstration highlights the full signal path from human input to actuator output,
+            showing how sensing and control were integrated into a working physical system.
+          </p>
+          <p>
+            Replace this image with a video or photo from your build once you decide what media
+            you want featured here.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENGINEERING CHALLENGE -->
+    <section class="project-section">
+      <div class="section-label">Control & Design</div>
+
+      <div class="project-text-block">
+        <h2>Engineering challenge</h2>
+        <p>
+          A central challenge in the project was building a system that felt responsive
+          without becoming unstable or unreliable. Because human input is rarely perfectly
+          clean, the design had to account for signal noise, calibration, and the physical
+          limitations of the hand itself.
+        </p>
+        <p>
+          The project required balancing response speed, repeatability, and physical realism,
+          while ensuring that the hand’s motion remained controllable and useful rather than erratic.
+        </p>
+      </div>
+    </section>
+
+    <!-- TECHNICAL WORK -->
+    <section class="project-section">
+      <div class="section-label">Technical Work</div>
+
+      <div class="project-text-block">
+        <h2>Sensing, control, and actuation</h2>
+        <p>
+          This project involved both mechanical and control-oriented problem solving. On the
+          mechanical side, the design had to produce meaningful hand motion within the limits
+          of the chosen actuators and linkage geometry. On the control side, the system needed
+          to interpret gesture input in a way that was stable, consistent, and responsive.
+        </p>
+        <p>
+          You can later add specifics here about the sensors, microcontroller, servos,
+          mapping logic, filtering, calibration process, and any mechanical iteration that
+          improved the hand’s motion.
+        </p>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="project-section">
+      <div class="section-label">Results</div>
+
+      <div class="project-text-block">
+        <h2>Iteration and refinement</h2>
+        <p>
+          Building the system made it clear that a successful robotic interface depends on
+          more than simply making the hardware move. The overall quality of the system came
+          from repeated refinement of both sensing and output behavior.
+        </p>
+        <p>
+          Iteration improved responsiveness, exposed weak points in the design, and helped
+          identify which parts of the system most strongly affected reliability and usability.
+        </p>
+      </div>
+    </section>
+
+    <!-- TAKEAWAYS -->
+    <section class="project-section project-footer-note">
+      <div class="section-label">Takeaways</div>
+      <p>
+        This project strengthened my ability to integrate sensing, embedded control, and
+        mechanical design into a single working system. It also reinforced how strongly
+        small implementation details can affect overall system behavior and user experience.
+      </p>
+      <p>
+        More broadly, it gave me hands-on experience building a complete electromechanical
+        system and deepened my interest in designing hardware that translates inputs into
+        reliable physical behavior.
+      </p>
+    </section>
+  </main>
 
   <script src="space.js"></script>
 </body>
