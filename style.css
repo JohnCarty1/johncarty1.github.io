@@ -622,6 +622,7 @@ a:hover {
   text-align: center;
 }
 
+
 /* responsive */
 @media (max-width: 900px) {
   .about-layout,
@@ -814,7 +815,8 @@ a:hover {
 }
 
 .organism-figure figcaption {
-  margin-top: 6px;
+  margin: 0;
+  text-align: center;
   font-size: 0.8rem;
   color: var(--soft);
 }
