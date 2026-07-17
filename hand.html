@@ -3,8 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gesture-Controlled Robotic Hand | John Carty</title>
+  <title>Gesture-Controlled Robotic Arm | John Carty</title>
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    .project-code-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .project-code-card {
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015)),
+        linear-gradient(to bottom, rgba(5, 8, 16, 0.72), rgba(3, 6, 14, 0.92));
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.34),
+        0 0 40px rgba(120, 160, 255, 0.05);
+    }
+
+    .project-code-card h3 {
+      margin: 0;
+      padding: 16px 18px 0;
+      color: #f7faff;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .project-code-card pre {
+      margin: 0;
+      padding: 16px 18px 18px;
+      overflow-x: auto;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+
+    .project-code-card code {
+      font-family: Consolas, Monaco, "Courier New", monospace;
+    }
+
+    @media (max-width: 760px) {
+      .project-code-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <canvas id="space-background"></canvas>
@@ -15,147 +64,188 @@
 
     <!-- HERO -->
     <header class="project-hero">
-      <p class="project-kicker">Embedded Systems Project</p>
-      <h1 class="glow">Gesture-Controlled Robotic Hand</h1>
-      <p class="project-subtitle">Mechatronics • Embedded Systems • Human-Machine Interaction</p>
+      <h1 class="glow">Gesture-Controlled Robotic Arm</h1>
+      <p class="project-subtitle">Nov 2025 - Jan 2026</p>
 
       <p class="project-lead">
-        A mechatronics project focused on translating human gesture input into real-time
-        mechanical motion. The goal was to design and build a robotic hand capable of
-        responding to user input through an integrated sensing, control, and actuation system.
+        A collaborative embedded systems project focused on translating hand gestures
+        from a Bluetooth-connected glove into pitch, yaw, and gripping motion on a
+        custom two-degree-of-freedom robotic arm.
       </p>
     </header>
 
-    <!-- MOTIVATION -->
+    <!-- OVERVIEW -->
     <section class="project-section">
-      <div class="section-label">Motivation</div>
+      <div class="section-label">Overview</div>
 
       <div class="project-text-block">
-        <h2>Why gesture control?</h2>
+        <h2>Hand Rotation To Arm Movement</h2>
         <p>
-          This project was motivated by an interest in systems that connect human input
-          to physical machine behavior in an intuitive way. A gesture-controlled robotic
-          hand provided a compact way to explore the interaction between sensing,
-          embedded control, and mechanical output.
+          This project explored gesture-based control as a more intuitive way to operate
+          a robotic arm. Instead of using a joystick or direct button controls, the system
+          used a glove-mounted sensor board to read hand orientation and wirelessly send
+          commands to the arm.
         </p>
         <p>
-          Beyond simply making the hand move, the project focused on building a system
-          that could respond consistently and in real time, requiring careful consideration
-          of signal interpretation, actuator behavior, and the mechanical limits of the design.
+          The final system connected sensing, Bluetooth communication, embedded control,
+          and servo-driven mechanical motion. The arm could respond to the user's hand
+          movements through yaw, pitch, and claw actuation.
         </p>
       </div>
     </section>
 
-    <!-- SYSTEM OVERVIEW -->
+    <!-- MODEL -->
     <section class="project-section">
-      <div class="section-label">System</div>
+      <div class="section-label">Model</div>
 
       <div class="project-text-block">
-        <h2>System overview</h2>
+        <h2>Robotic Arm Model</h2>
         <p>
-          The robotic hand was designed as a complete electromechanical system, integrating
-          gesture-based input, embedded control, and physical actuation. User input was captured,
-          interpreted, and translated into motion commands that drove the hand in real time.
+          The arm used two primary joints for orientation control. One servo mounted in
+          the base controlled yaw, while a second servo mounted above the base controlled
+          pitch. A smaller servo actuated the claw, using a geared pincer mechanism to
+          open and close the gripper.
         </p>
-        <p>
-          At a high level, the project required building a clean path from sensing to output,
-          while ensuring that the resulting motion remained responsive, stable, and mechanically meaningful.
-        </p>
+      </div>
+
+      <p class="project-caption">
+        Interactive CAD model of the gesture-controlled robotic arm.
+      </p>
+
+      <div class="project-model-wrap">
+        <model-viewer
+          src="hand_model.glb"
+          alt="Interactive CAD model of gesture-controlled robotic arm"
+          camera-controls
+          auto-rotate
+          auto-rotate-delay="0"
+          rotation-per-second="3deg"
+          shadow-intensity="1.4"
+          exposure="0.75"
+          environment-image="legacy"
+          camera-target="0m 63m 0m"
+          camera-orbit="65deg 65deg auto"
+          field-of-view="20deg"
+          class="project-model">
+        </model-viewer>
       </div>
     </section>
 
-    <!-- MEDIA / DEMO -->
+    <!-- DEMONSTRATION -->
     <section class="project-section">
       <div class="project-split">
         <div class="project-media-wrap project-media-wrap-wide">
-          <img src="hand_demo.jpg" class="project-image" alt="Gesture-controlled robotic hand">
+          <video class="project-video-large" autoplay muted loop playsinline>
+            <source src="hand_video.mp4" type="video/mp4">
+          </video>
         </div>
 
         <div class="project-text-block">
           <h2>Demonstration</h2>
           <p>
-            The system responds to user gesture input by driving the robotic hand in real time.
-            This demonstration highlights the full signal path from human input to actuator output,
-            showing how sensing and control were integrated into a working physical system.
+            The video shows the robotic arm responding to gesture input from the glove.
+            You can see in the beginning the glove and arm pair to one
+            another via Bluetooth. 
+            Hand motion is translated into movement commands, allowing the user to
+            control the arm's orientation and gripping behavior.
           </p>
           <p>
-            Replace this image with a video or photo from your build once you decide what media
-            you want featured here.
+            This demonstration was the central milestone of the project: integrating the
+            glove input, wireless communication, control logic, and servo-driven mechanism
+            into a responsive working system.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- ENGINEERING CHALLENGE -->
+    <!-- MECHANICAL DESIGN -->
     <section class="project-section">
-      <div class="section-label">Control & Design</div>
+      <div class="section-label">Mechanical Design</div>
 
       <div class="project-text-block">
-        <h2>Engineering challenge</h2>
+        <h2>Two-Axis Arm And Servo-Driven Claw</h2>
         <p>
-          A central challenge in the project was building a system that felt responsive
-          without becoming unstable or unreliable. Because human input is rarely perfectly
-          clean, the design had to account for signal noise, calibration, and the physical
-          limitations of the hand itself.
+          Mechanically, the arm was built around two main degrees of freedom. A TowerPro
+          MG92B servo in the base controlled yaw, while another MG92B servo controlled
+          pitch through the upper joint. The pitch joint used a removable shaft to make
+          assembly and disassembly easier.
         </p>
         <p>
-          The project required balancing response speed, repeatability, and physical realism,
-          while ensuring that the hand’s motion remained controllable and useful rather than erratic.
+          The claw was driven by a smaller 9g servo. Its motion was transmitted through
+          a spur gear and shaft arrangement, allowing one motor to produce the pincer
+          movement needed for gripping.
         </p>
       </div>
     </section>
 
-    <!-- TECHNICAL WORK -->
+    <!-- SOFTWARE CONTROL -->
     <section class="project-section">
-      <div class="section-label">Technical Work</div>
+      <div class="section-label">Software Control</div>
 
       <div class="project-text-block">
-        <h2>Sensing, control, and actuation</h2>
+        <h2>Accelerometer-Based Gesture Mapping</h2>
         <p>
-          This project involved both mechanical and control-oriented problem solving. On the
-          mechanical side, the design had to produce meaningful hand motion within the limits
-          of the chosen actuators and linkage geometry. On the control side, the system needed
-          to interpret gesture input in a way that was stable, consistent, and responsive.
+          The glove used a 3-axis accelerometer to estimate hand orientation. Acceleration
+          values were converted into pitch and roll angles, smoothed with an exponential
+          moving average filter, and sent over a BLE UART connection to the receiver board
+          on the arm.
         </p>
         <p>
-          You can later add specifics here about the sensors, microcontroller, servos,
-          mapping logic, filtering, calibration process, and any mechanical iteration that
-          improved the hand’s motion.
-        </p>
-      </div>
-    </section>
-
-    <!-- RESULTS -->
-    <section class="project-section">
-      <div class="section-label">Results</div>
-
-      <div class="project-text-block">
-        <h2>Iteration and refinement</h2>
-        <p>
-          Building the system made it clear that a successful robotic interface depends on
-          more than simply making the hardware move. The overall quality of the system came
-          from repeated refinement of both sensing and output behavior.
-        </p>
-        <p>
-          Iteration improved responsiveness, exposed weak points in the design, and helped
-          identify which parts of the system most strongly affected reliability and usability.
+          On the receiver side, incoming angle values were parsed and mapped to servo
+          positions. Separate button states controlled whether the claw was closed and
+          whether the glove was actively sending commands.
         </p>
       </div>
+
+      <div class="project-code-grid">
+        <div class="project-code-card">
+          <h3>Sensor board logic</h3>
+          <pre><code>ax, ay, az = read_accelerometer()
+
+pitch = atan2(ay, sqrt(ax*ax + az*az))
+roll = atan2(ax, sqrt(ay*ay + az*az))
+
+pitch_filtered = alpha * pitch + (1 - alpha) * pitch_filtered
+roll_filtered = alpha * roll + (1 - alpha) * roll_filtered
+
+send_ble_packet(roll_filtered, pitch_filtered, grip_state)</code></pre>
+        </div>
+
+        <div class="project-code-card">
+          <h3>Receiver board logic</h3>
+          <pre><code>roll, pitch, grip = read_ble_packet()
+
+yaw_servo.angle = map_roll_to_servo(roll)
+pitch_servo.angle = map_pitch_to_servo(pitch)
+
+if grip:
+    claw_servo.angle = closed_position
+else:
+    claw_servo.angle = open_position</code></pre>
+        </div>
+      </div>
+
+      <p class="project-caption">
+        Simplified control logic showing how glove orientation was converted into servo motion.
+      </p>
     </section>
 
     <!-- TAKEAWAYS -->
     <section class="project-section project-footer-note">
       <div class="section-label">Takeaways</div>
+
       <p>
-        This project strengthened my ability to integrate sensing, embedded control, and
-        mechanical design into a single working system. It also reinforced how strongly
-        small implementation details can affect overall system behavior and user experience.
-      </p>
-      <p>
-        More broadly, it gave me hands-on experience building a complete electromechanical
-        system and deepened my interest in designing hardware that translates inputs into
-        reliable physical behavior.
-      </p>
+      This project gave me hands-on experience integrating sensing, embedded control,
+      wireless communication, and mechanical actuation into a single working system.
+      It reinforced how much successful hardware depends on making separate subsystems
+      communicate reliably and behave predictably together.
+    </p>
+    <br>
+    <p>
+      I value this project as an engaging introduction to embedded systems design.
+      The skills I developed here continue to inform other areas of my work, especially
+      my reaction wheel attitude control system, which I am currently developing.
+    </p>
     </section>
   </main>
 
