@@ -2,62 +2,413 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Plasma Physics Research | John Carty</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plasma Systems | John Carty</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    .plasma-figure {
+      margin: 24px 0 0;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015)),
+        linear-gradient(to bottom, rgba(5, 8, 16, 0.72), rgba(3, 6, 14, 0.92));
+      box-shadow:
+        0 18px 44px rgba(0, 0, 0, 0.30),
+        0 0 34px rgba(120, 160, 255, 0.04);
+    }
+
+    .plasma-figure img {
+      display: block;
+      width: 100%;
+      max-height: 430px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #ececec;
+    }
+
+    .plasma-figure-narrow img {
+      max-height: 360px;
+    }
+
+    .plasma-figure .project-caption {
+      margin: 12px 4px 0;
+    }
+
+    .plasma-figure-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .plasma-note {
+      margin-top: 18px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    @media (max-width: 760px) {
+      .plasma-figure-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .plasma-figure img {
+        max-height: 300px;
+      }
+    }
+  </style>
 </head>
 <body>
   <canvas id="space-background"></canvas>
+  <div class="page-overlay"></div>
 
-  <div class="content project-page">
+  <main class="site project-shell">
     <a class="back-link" href="index.html">← Back to Home</a>
 
-    <h1>Plasma Physics Research</h1>
-    <p class="subtitle">Summer 2026 | Experimental Plasma Systems | Research</p>
+    <!-- HERO -->
+    <header class="project-hero">
+      <h1 class="glow">Plasma Systems</h1>
+      <p class="project-subtitle">May 2026 - Present</p>
 
-    <p>
-      This upcoming summer research position will focus on experimental plasma physics
-      and the engineering of plasma-related hardware. I am especially interested in the
-      physical constraints that shape plasma system design, including geometry, materials,
-      thermal considerations, and electromagnetic behavior.
-    </p>
+      <p class="project-lead">
+        Experimental plasma systems research focused on high-temperature LaB<sub>6</sub>
+        cathode hardware for Swarthmore's LiPD plasma device, paired with particle-orbit
+        simulations using WHAM magnetic-field data to support mirror fusion research at
+        the University of Wisconsin-Madison.
+      </p>
+    </header>
 
-    <h2>Research Focus</h2>
-    <p>
-      My expected work will involve understanding and contributing to the design of
-      laboratory plasma systems, with attention to how theory, hardware constraints,
-      and experimental requirements interact. I am particularly excited by engineering
-      problems where physical modeling directly informs design decisions.
-    </p>
+    <!-- OVERVIEW -->
+    <section class="project-section">
+      <div class="section-label">Overview</div>
 
-    <h2>Why This Interests Me</h2>
-    <p>
-      Plasma systems sit at a compelling intersection of physics and engineering. They
-      require strong physical intuition while also demanding practical design judgment
-      under difficult operating conditions. That combination is a major reason I am drawn
-      to the field.
-    </p>
+      <div class="project-text-block">
+        <h2>Improving Plasma Generation</h2>
+        <p>
+          My work has focused on upgrading the electron source for the Little Plasma
+          Device (LiPD) at Swarthmore College. LiPD is an approximately quarter-scale
+          device with similar geometry and plasma behavior to WHAM, making it a useful
+          local platform for studying physics relevant to the larger fusion experiment.
+          The existing source used a hot tungsten filament, which produced limited electron
+          beam current and plasma density. The goal of this project was to develop a more
+          robust LaB<sub>6</sub> cathode capable of producing substantially higher thermionic
+          emission.
+        </p>
 
-    <h2>Preparation</h2>
-    <p>
-      Going into this research, I am bringing experience from robotics and hardware-based
-      engineering work, along with a strong interest in applying physical reasoning to
-      real experimental systems. I see this project as an opportunity to deepen both my
-      technical knowledge and my experience working on complex laboratory hardware.
-    </p>
+        <p>
+          LaB<sub>6</sub> is useful in plasma sources because it has a lower work function
+          than tungsten, emits strongly at temperatures around 2000 K, and is more robust
+          under plasma exposure than many conventional cathode materials. By increasing
+          thermionic emission and plasma density in LiPD, the upgraded cathode allows us
+          to study plasma behavior at Swarthmore in a regime more relevant to the questions
+          our collaborators are asking about WHAM. The engineering challenge was not simply
+          choosing the material, but designing a structure that could heat it effectively,
+          support it mechanically, and survive inside the device.
+        </p>
+      </div>
+    </section>
 
-    <h2>What I Hope to Develop</h2>
-    <ul>
-      <li>Hands-on experience with experimental plasma hardware</li>
-      <li>A stronger understanding of design under physical and laboratory constraints</li>
-      <li>Greater fluency in linking theory, modeling, and system implementation</li>
-    </ul>
+    <!-- cathode design -->
+    <section class="project-section">
+      <div class="section-label">Cathode Design</div>
 
-    <h2>Next Steps</h2>
-    <p>
-      This page will be updated as the project develops to include the system context,
-      my technical contributions, and the engineering challenges that arise during the work.
-    </p>
-  </div>
+      <div class="project-text-block">
+        <h2>LaB<sub>6</sub> Cathode Assembly</h2>
+
+        <p>
+          The cathode assembly was designed in SolidWorks around a central goal:
+          heating the LaB<sub>6</sub> emitter efficiently enough to support strong
+          thermionic emission while still allowing the hardware to be mechanically
+          supported, electrically connected, and integrated into the existing LiPD
+          plasma device through a CF flange interface.
+        </p>
+
+        <p>
+          The design had to function as a coupled thermal, electrical, and mechanical
+          system. Current enters through the LiPD connector, passes through custom
+          copper and molybdenum components into a graphite contact holding the
+          LaB<sub>6</sub>, then continues through the tungsten heater wrapped around
+          the boron nitride sleeve. The heat shield also serves a dual role by reflecting
+          radiative heat back toward the emitter while helping complete the electrical
+          return path.
+        </p>
+      </div>
+
+      <figure class="plasma-figure plasma-feature-figure">
+        <img
+          src="cathode_screenshots/annotated_cathode_v2.png"
+          alt="Annotated cathode assembly showing the emitter region, heater, boron nitride insulation, support rods, heat shield, and electrical interface"
+        >
+        <figcaption class="project-caption">
+          Annotated cathode assembly showing the emitter region, heater, boron nitride
+          insulation, support rods, transparent heat shield, and electrical interface.
+        </figcaption>
+      </figure>
+
+      <div class="plasma-path-card">
+        <strong>Electrical path:</strong>
+        LiPD mount <span>→</span> copper interface <span>→</span> molybdenum support rod
+        <span>→</span> graphite contact / LaB<sub>6</sub> emitter <span>→</span>
+        tungsten heater <span>→</span> molybdenum return rod <span>→</span>
+        heat shield <span>→</span> isolated copper return interface.
+      </div>
+
+      <div class="project-text-block plasma-note">
+        <p>
+          The heater geometry was constrained by the available 50 A, 20 V power supply.
+          To draw the full current and deliver the maximum 1000 W of heater power,
+          the total circuit resistance needed to be 0.4 Ω. This meant the heater
+          length, cross-sectional area, material resistivity, and contact geometry had
+          to be designed around both electrical resistance and heat transfer.
+        </p>
+
+        <p>
+          Because the same parts often served multiple thermal, electrical, and mechanical
+          functions, the designs could not be developed with only one aspect of the project in mind.
+          At temperatures required for emission, materials are prone to melting, sublimation, softening, and many
+          other problems that would destroy the entire assembly if not accounted for properly.
+          Support rods, contacts, insulation, shielding, and interfaces all affected
+          whether the cathode could heat efficiently, avoid electrical shorts, survive
+          installation, and operate inside the device.
+        </p>
+      </div>
+    </section>
+    <section class="project-section">
+      <div class="section-label">Design Evolution</div>
+
+      <div class="project-text-block">
+        <h2>From Disk To Cylindrical Emitter Concepts</h2>
+        <p>
+          The cathode design began with disk-shaped LaB<sub>6</sub> emitter concepts.
+          These early designs helped define the basic constraints of the project:
+          the cathode needed to be mechanically supported, electrically heated, and
+          thermally isolated well enough to reach the temperature range required for
+          strong thermionic emission.
+        </p>
+
+        <p>
+          As the design developed, we shifted toward a cylindrical LaB<sub>6</sub>
+          geometry. The primary advantage was thermal: a cylindrical sleeve made it
+          possible to wrap tungsten heater wire around the emitter region, increasing
+          the contact area between the heater and LaB<sub>6</sub>. This geometry was
+          the first design in our thermal simulations to produce temperature readings
+          above 2000 K, making it a major turning point in the project.
+        </p>
+
+        <p>
+          The cylindrical concept was also motivated by prior LaB<sub>6</sub> cathode
+          work showing that, after a discharge is established, plasma bombardment can
+          help maintain the cathode emission temperature even after heater power is
+          reduced or removed. This made the cylindrical emitter especially interesting
+          because it connected the mechanical geometry of the cathode to the plasma
+          behavior it was intended to produce.
+        </p>
+      </div>
+
+      <div class="plasma-figure-grid">
+        <figure class="plasma-figure">
+          <img
+            src="cathode_screenshots/Disk%20cathode%20old%20design%201.png"
+            alt="Early disk-shaped LaB6 cathode concept"
+          >
+          <figcaption class="project-caption">
+            Early disk-shaped LaB<sub>6</sub> cathode concept.
+          </figcaption>
+        </figure>
+
+        <figure class="plasma-figure">
+          <img
+            src="cathode_screenshots/Cylindrical%20Cathode%20with%20Sprial%20Heater.png"
+            alt="Cylindrical LaB6 cathode concept with spiral heater"
+          >
+          <figcaption class="project-caption">
+            First cylindrical concept using a wrapped heater geometry.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+
+    <!-- THERMAL ANALYSIS -->
+    <section class="project-section">
+      <div class="section-label">Thermal Analysis</div>
+
+      <div class="project-text-block">
+        <h2>Designing For 2000 K Operation</h2>
+
+        <p>
+          Using SolidWorks FEA, thermal analysis was performed to evaluate whether the cathode
+          assembly could bring the LaB<sub>6</sub> emitter into the temperature range
+          needed for strong thermionic emission. Additionally, it was crucial to determine
+          if any materials were exceeding their maximum working temperatures.
+          The analysis connected the electrical
+          design of the heater to the physical geometry of the assembly: the heater had
+          to deliver enough power to the emitter while support rods, contacts, shielding,
+          and surrounding hardware introduced possible heat-loss paths.
+        </p>
+
+        <p>
+          The most important design target was reaching approximately 2000 K near the
+          LaB<sub>6</sub> source. Thermal simulation was used to compare whether different
+          geometries could concentrate heat at the emitter while keeping the surrounding
+          structure from drawing too much heat away. This method of analysis led to the realization
+          that a disk-shaped emitter could not be sufficiently heated within our assembly.
+          The cylindrical heater concept became
+          especially important because it improved thermal contact with the emitter region
+          and produced the first simulation results above 2000 K.
+        </p>
+      </div>
+
+      <div class="project-grid two-col">
+        <div class="project-card stat-card">
+          <div class="card-label">Target Temperature</div>
+          <div class="card-value">~2000 K</div>
+          <p>LaB<sub>6</sub> still emits well below 2000 K, but this was a nice target
+            that would correspond to a roughly 100× increase in plasma density.</p>
+        </div>
+
+        <div class="project-card stat-card">
+          <div class="card-label">Heater Power</div>
+          <div class="card-value">~1000 W</div>
+          <p>Maximum power delivered by the available 50 A, 20 V supply.</p>
+        </div>
+
+        <div class="project-card stat-card">
+          <div class="card-label">Circuit Resistance</div>
+          <div class="card-value">0.4 Ω</div>
+          <p>Required resistance to draw full current from the power supply.</p>
+        </div>
+
+        <div class="project-card stat-card">
+          <div class="card-label">Primary Constraint</div>
+          <div class="card-value">Heat Transfer</div>
+          <p>Maximize heat delivered to the emitter while limiting conductive losses.</p>
+        </div>
+      </div>
+
+      <div class="plasma-figure-grid thermal-figure-grid">
+        <figure class="plasma-figure">
+          <div class="thermal-image-frame">
+            <img
+              src="cathode_screenshots/cathode%20v03%20thermal.png"
+              alt="Thermal finite element analysis of LaB6 cathode assembly"
+            >
+          </div>
+          <figcaption class="project-caption">
+            Thermal FEA result showing the cathode region reaching approximately 2000 K.
+          </figcaption>
+        </figure>
+
+        <figure class="plasma-figure">
+          <div class="thermal-image-frame">
+            <img
+              src="cathode_screenshots/cathode%20v03%20thermal%20cross-section.png"
+              alt="Thermal cross-section of LaB6 cathode assembly"
+            >
+          </div>
+          <figcaption class="project-caption">
+            Thermal cross-section used to inspect heat concentration near the emitter and losses through surrounding hardware.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+
+    <!-- RESULTS -->
+    <section class="project-section">
+      <div class="section-label">Results</div>
+
+      <div class="project-text-block">
+        <h2>Experimental Impact</h2>
+        <p>
+          The upgraded cathode assembly demonstrated sustained high-temperature operation
+          and contributed to a plasma density increase of roughly two orders of magnitude
+          compared with the previous configuration.
+        </p>
+        <p>
+          This was the most important result of the project for me: the CAD, thermal
+          analysis, material selection, and fabrication work connected directly to a
+          measurable improvement in plasma performance.
+        </p>
+      </div>
+
+      <!-- Add physical build photos here once available:
+      <div class="plasma-figure-grid">
+        <figure class="plasma-figure">
+          <img src="plasma_photos/components.jpg" alt="Cathode components laid out before assembly">
+          <figcaption class="project-caption">Cathode components before assembly.</figcaption>
+        </figure>
+
+        <figure class="plasma-figure">
+          <img src="plasma_photos/assembled_cathode.jpg" alt="Assembled LaB6 cathode hardware">
+          <figcaption class="project-caption">Assembled cathode hardware.</figcaption>
+        </figure>
+      </div>
+      -->
+    </section>
+
+    <!-- PARTICLE ORBIT MODELING -->
+    <section class="project-section">
+      <div class="section-label">Modeling</div>
+
+      <div class="project-text-block">
+        <h2>Particle Orbit Simulations</h2>
+        <p>
+          Alongside the cathode hardware, I have been working on charged-particle orbit
+          simulations in magnetic mirror fields using actual WHAM magnetic-field data.
+          The model tracks how ions move through the confinement geometry, including
+          whether they remain trapped, pass through the mirror, or are lost due to pitch
+          angle, energy, orbit size, or field geometry.
+        </p>
+
+        <p>
+          A primary component of the work I typically gravitate towards is an opportunity
+          to tackle hardware design and fabrication challenges.
+          But this project has added a computational depth to my work that I value:
+          instead of treating simulation as separate from design, I am using it to understand
+          the same physics that matters to the device. That is what makes this project
+          especially meaningful to me. The orbit work connects directly to questions our
+          WHAM collaborators care about as they improve plasma confinement and fusion-device
+          performance. The appealing aspect of this work is that the simulations we conduct
+          can be easily modified to accurately portray a multitude of systems from LiPD, to
+          WHAM, to solar winds.
+        </p>
+      </div>
+    </section>
+
+    <!-- TAKEAWAYS -->
+    <section class="project-section project-footer-note">
+      <div class="section-label">Acknoledgements/Takeaways</div>
+      <p>
+        I'm very grateful to have had the opportunity to work on such a unique project
+        connecting physical theory to hardware design. It has also been my first professional
+        experience at the intersection of hardware design and space-relevant plasma physics, which has
+        made the project especially meaningful to me. I am confident the skills I have gained
+        in SolidWorks, FEA, thermal analysis, and modeling will serve me in my future work, whether
+        that means continuing to explore plasma systems, aerospace hardware, or other physics-driven
+        fields.
+      </p>
+      <br>
+      <p>
+        This work was a truly fascinating introduction to the field of plasma physics and all
+        of the technologies currently being developed within it. I would like to give special thanks to 
+        Dr. Michael Brown, who was an incredibly supportive, attentive, and knowledgeable advisor, as well as 
+        my good friend and colleague Isaac Wright-Muller, without whom this work would not have progressed
+        nearly as far.
+      </p>
+      <br>
+      <p>
+        I do not take for granted the rare opportunity I have had as an undergraduate
+        to develop projects over their full life-cycle, try my ideas, and iterate on designs
+        until they become working systems. I look forward to continuing to work on projects that expand my 
+        technical skill set, are grounded in physical theory, and translate physical ideas into functioning
+        hardware.
+      </p>
+    </section>
+  </main>
 
   <script src="space.js"></script>
 </body>
