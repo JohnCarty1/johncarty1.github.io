@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A gesture-controlled robotic arm integrating inertial sensing, Bluetooth communication, embedded control, and servo actuation.">
+  <title>Gesture-Controlled Robotic Arm | John Carty</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <canvas id="space-background"></canvas>
+  <div class="page-overlay"></div>
+
+  <main class="site project-shell">
+    <a class="back-link" href="index.html">← Back to Home</a>
+
+    <header class="project-hero">
+      <p class="project-kicker">Embedded Systems &amp; Mechatronics</p>
+      <h1 class="glow">Gesture-Controlled Robotic Arm</h1>
+      <p class="project-subtitle">November 2025 – January 2026</p>
+      <p class="project-lead">
+        A collaborative embedded-systems project that translated hand orientation from a
+        Bluetooth-connected glove into yaw, pitch, and gripping motion on a custom two-axis
+        robotic arm.
+      </p>
+    </header>
+
+    <section class="project-facts" aria-label="Project at a glance">
+      <div class="project-fact"><span>Role</span><strong>Mechanical &amp; controls integration</strong><p>CAD, servo mechanism design, embedded logic, assembly, testing, and debugging.</p></div>
+      <div class="project-fact"><span>System</span><strong>Wireless gesture-controlled arm</strong><p>A glove sends orientation and grip commands to a three-servo robotic platform.</p></div>
+      <div class="project-fact"><span>Milestone</span><strong>Responsive working prototype</strong><p>Demonstrated BLE pairing, two-axis tracking, and remotely commanded gripping.</p></div>
+      <div class="project-fact"><span>Tools</span><strong>CAD + embedded Python</strong><p>Accelerometer processing, BLE UART, servo mapping, filtering, and mechanism design.</p></div>
+    </section>
+
+    <section class="project-section">
+      <div class="section-label">Overview</div>
+      <div class="project-text-block">
+        <h2>Hand rotation to arm movement</h2>
+        <p>
+          The system explored gesture-based control as a more intuitive alternative to a
+          joystick. A glove-mounted sensor board measured hand orientation, filtered the
+          readings, and transmitted commands wirelessly to the arm.
+        </p>
+        <p>
+          The receiving board converted those commands into yaw, pitch, and claw positions.
+          The final demonstration therefore depended on reliable interaction between sensing,
+          wireless communication, embedded software, servo control, and the mechanical design.
+        </p>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <div class="section-label">Mechanical System</div>
+      <div class="project-text-block">
+        <h2>Two-axis arm and servo-driven claw</h2>
+        <p>
+          One TowerPro MG92B servo in the base controlled yaw, while a second controlled
+          pitch through the upper joint. A removable shaft simplified assembly and made the
+          pitch mechanism easier to service. A smaller 9 g servo actuated the claw through a
+          geared pincer arrangement.
+        </p>
+      </div>
+
+      <div class="project-model-wrap">
+        <model-viewer
+          src="hand_model.glb"
+          alt="Interactive CAD model of the gesture-controlled robotic arm"
+          camera-controls
+          auto-rotate
+          auto-rotate-delay="0"
+          rotation-per-second="3deg"
+          shadow-intensity="1.4"
+          exposure="0.75"
+          environment-image="legacy"
+          camera-target="0m 63m 0m"
+          camera-orbit="65deg 65deg auto"
+          field-of-view="20deg"
+          class="project-model">
+        </model-viewer>
+      </div>
+      <p class="project-caption">Interactive CAD model of the completed arm and gripper mechanism.</p>
+    </section>
+
+    <section class="project-section">
+      <div class="section-label">Integrated Demonstration</div>
+      <div class="project-split">
+        <div class="project-text-block">
+          <h2>From glove input to physical motion</h2>
+          <p>
+            The demonstration begins with the glove and arm pairing over Bluetooth. Once
+            connected, hand rotation is mapped into arm movement while a separate input
+            controls the gripper.
+          </p>
+          <p>
+            This was the central milestone of the project: combining the glove input,
+            wireless link, control logic, and servo-driven mechanism into a responsive system
+            rather than validating each subsystem only in isolation.
+          </p>
+        </div>
+
+        <figure class="project-media-wrap media-medium">
+          <video class="project-video project-video-landscape" autoplay muted loop playsinline preload="metadata">
+            <source src="hand_video.mp4" type="video/mp4">
+          </video>
+          <figcaption class="project-caption">The arm tracks glove orientation and responds to the grip command after BLE pairing.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <div class="section-label">Software Control</div>
+      <div class="project-text-block">
+        <h2>Accelerometer-based gesture mapping</h2>
+        <p>
+          A three-axis accelerometer estimated glove pitch and roll. An exponential moving
+          average reduced noise before the orientation values and grip state were sent over a
+          BLE UART connection.
+        </p>
+        <p>
+          On the arm, the receiver parsed each packet and mapped the filtered angles into
+          safe servo ranges. Keeping the sensing and actuation logic separate made the system
+          easier to test and helped isolate communication, calibration, and mechanical issues.
+        </p>
+      </div>
+
+      <div class="project-code-grid">
+        <div class="project-code-card">
+          <h3>Sensor board logic</h3>
+          <pre><code>ax, ay, az = read_accelerometer()
+
+pitch = atan2(ay, sqrt(ax*ax + az*az))
+roll  = atan2(ax, sqrt(ay*ay + az*az))
+
+pitch_filtered = alpha * pitch + (1 - alpha) * pitch_filtered
+roll_filtered  = alpha * roll  + (1 - alpha) * roll_filtered
+
+send_ble_packet(roll_filtered, pitch_filtered, grip_state)</code></pre>
+        </div>
+
+        <div class="project-code-card">
+          <h3>Receiver board logic</h3>
+          <pre><code>roll, pitch, grip = read_ble_packet()
+
+yaw_servo.angle   = map_roll_to_servo(roll)
+pitch_servo.angle = map_pitch_to_servo(pitch)
+
+if grip:
+    claw_servo.angle = closed_position
+else:
+    claw_servo.angle = open_position</code></pre>
+        </div>
+      </div>
+      <p class="project-caption">Simplified control flow showing how glove orientation was converted into servo motion.</p>
+    </section>
+
+    <section class="project-section project-footer-note">
+      <div class="section-label">Takeaways</div>
+      <p>
+        This project gave me practical experience integrating sensing, wireless communication,
+        embedded control, and mechanical actuation into one working device. It reinforced that
+        a mechatronic system is only as useful as the interfaces between its subsystems.
+      </p>
+      <p>
+        It was also an effective introduction to embedded controls that now informs my reaction
+        wheel attitude-control work, where the same themes of sensing, filtering, actuator
+        commands, and physical response appear in a more spacecraft-oriented setting.
+      </p>
+    </section>
+  </main>
+
+  <script src="space.js"></script>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Design, analysis, fabrication, and commissioning of a 1000 W LaB6 cathode for the Swarthmore LiPD plasma device.">
+  <title>LaB6 Cathode Development | John Carty</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="space-background"></canvas>
+  <div class="page-overlay"></div>
+
+  <main class="site project-shell">
+    <a class="back-link" href="index.html">← Back to Home</a>
+
+    <!-- HERO -->
+    <header class="project-hero">
+      <p class="project-kicker">Experimental Plasma Hardware</p>
+      <h1 class="glow">LaB<sub>6</sub> Cathode Development</h1>
+      <p class="project-subtitle">May 2026 – Present</p>
+      <p class="project-lead">
+        I designed, analyzed, fabricated, and commissioned a high-temperature cathode
+        assembly for Swarthmore's LiPD plasma device. The system integrates a LaB<sub>6</sub>
+        emitter, a 1000 W heater circuit, refractory materials, thermal shielding, vacuum
+        interfaces, and the existing experimental hardware.
+      </p>
+    </header>
+
+    <section class="project-facts" aria-label="Project at a glance">
+      <div class="project-fact"><span>Role</span><strong>Mechanical &amp; thermal design</strong><p>CAD, analysis, fabrication, assembly, and test integration.</p></div>
+      <div class="project-fact"><span>System</span><strong>LiPD electron source</strong><p>High-temperature LaB<sub>6</sub> cathode mounted through a CF flange.</p></div>
+      <div class="project-fact"><span>Milestone</span><strong>First plasma at 40 A</strong><p>Visible purple discharge and measured discharge current before full power.</p></div>
+      <div class="project-fact"><span>Tools</span><strong>SolidWorks + FEA</strong><p>Thermal modeling, resistance sizing, machining, and vacuum hardware.</p></div>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="project-section">
+      <div class="section-label">Overview</div>
+
+      <div class="project-text-block">
+        <h2>Building a Higher-Performance Electron Source</h2>
+        <p>
+          My work has focused on upgrading the electron source for the Little Plasma
+          Device (LiPD) at Swarthmore College. LiPD is an approximately quarter-scale
+          device with similar geometry and plasma behavior to WHAM, making it a useful
+          local platform for studying physics relevant to the larger fusion experiment.
+          The existing source used a hot tungsten filament, which produced limited electron
+          beam current and plasma density. The goal of this project was to develop a more
+          robust LaB<sub>6</sub> cathode capable of producing substantially greater thermionic
+          emission.
+        </p>
+
+        <p>
+          LaB<sub>6</sub> is useful in plasma sources because it has a lower work function
+          than tungsten, emits strongly at temperatures around 2000 K, and is more robust
+          under plasma exposure than many conventional cathode materials. By increasing
+          thermionic emission and plasma density in LiPD, the upgraded cathode allows us
+          to study plasma behavior at Swarthmore in a regime more relevant to the questions
+          our collaborators are asking about WHAM. The engineering challenge was not simply
+          choosing the material, but designing a structure that could heat it effectively,
+          support it mechanically, and survive inside the device.
+        </p>
+      </div>
+    </section>
+
+    <!-- CATHODE DESIGN -->
+    <section class="project-section">
+      <div class="section-label">Cathode Design</div>
+
+      <div class="project-text-block">
+        <h2>LaB<sub>6</sub> Cathode Assembly</h2>
+
+        <p>
+          The cathode assembly was designed in SolidWorks around a central goal:
+          heating the LaB<sub>6</sub> emitter efficiently enough to support strong
+          thermionic emission while still allowing the hardware to be mechanically
+          supported, electrically connected, and integrated into the existing LiPD
+          plasma device through a CF flange interface.
+        </p>
+
+        <p>
+          The design had to function as a coupled thermal, electrical, and mechanical
+          system. Current enters through the LiPD connector, passes through custom
+          copper and molybdenum components into a graphite contact holding the
+          LaB<sub>6</sub>, then continues through the tungsten heater wrapped around
+          the boron nitride sleeve. The heat shield also serves a dual role by reflecting
+          radiative heat back toward the emitter while helping complete the electrical
+          return path.
+        </p>
+      </div>
+
+      <figure class="plasma-figure plasma-feature-figure">
+        <img
+          src="cathode_screenshots/annotated_cathode_v2.png"
+          alt="Annotated cathode assembly showing the emitter region, heater, boron nitride insulation, support rods, heat shield, and electrical interface"
+        >
+        <figcaption class="project-caption">
+          Annotated cathode assembly showing the emitter region, heater, boron nitride
+          insulation, support rods, transparent heat shield, and electrical interface.
+        </figcaption>
+      </figure>
+
+      <div class="plasma-path-card">
+        <strong>Electrical path:</strong>
+        LiPD mount <span>→</span> copper interface <span>→</span> molybdenum support rod
+        <span>→</span> graphite contact / LaB<sub>6</sub> emitter <span>→</span>
+        tungsten heater <span>→</span> molybdenum return rod <span>→</span>
+        heat shield <span>→</span> isolated copper return interface.
+      </div>
+
+      <div class="project-text-block plasma-note">
+        <p>
+          The heater geometry was constrained by the available 50 A, 20 V power supply.
+          To draw the full current and deliver the maximum 1000 W of heater power,
+          the total circuit resistance needed to be 0.4 Ω. This meant the heater
+          length, cross-sectional area, material resistivity, and contact geometry had
+          to be designed around both electrical resistance and heat transfer.
+        </p>
+
+        <p>
+          Because the same parts often served multiple thermal, electrical, and mechanical
+          functions, the assembly could not be developed with only one aspect of the project
+          in mind. At emission temperatures, materials can melt, sublime, soften, or create
+          electrical failure points if they are not selected and integrated carefully.
+          Support rods, contacts, insulation, shielding, and interfaces all affected whether
+          the cathode could heat efficiently, avoid shorts, survive installation, and operate
+          reliably inside the device.
+        </p>
+      </div>
+
+      <div class="plasma-photo-grid">
+        <figure class="plasma-photo-card">
+          <div class="plasma-photo-frame">
+            <img
+              src="cathode%20photos/Full%20Layout.jpg"
+              alt="Cathode components arranged before final assembly"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <figcaption class="project-caption">
+            Major cathode components laid out before final assembly, including the
+            interfaces, support hardware, emitter components, and heat shield.
+          </figcaption>
+        </figure>
+
+        <figure class="plasma-photo-card">
+          <div class="plasma-photo-frame">
+            <img
+              src="cathode%20photos/Assembly%20No%20Heat%20Shield.jpg"
+              alt="Partially assembled cathode with the heater and emitter region exposed"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <figcaption class="project-caption">
+            Partially assembled cathode with the heater, emitter region, and electrical
+            interfaces visible before installation of the heat shield.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- DESIGN EVOLUTION -->
+    <section class="project-section">
+      <div class="section-label">Design Evolution</div>
+
+      <div class="project-text-block">
+        <h2>From Disk to Cylindrical Emitters</h2>
+        <p>
+          The cathode design began with disk-shaped LaB<sub>6</sub> emitter concepts.
+          These early designs helped define the basic constraints of the project:
+          the cathode needed to be mechanically supported, electrically heated, and
+          thermally isolated well enough to reach the temperature range required for
+          strong thermionic emission.
+        </p>
+
+        <p>
+          As the design developed, we shifted toward a cylindrical LaB<sub>6</sub>
+          geometry. The primary advantage was thermal: a cylindrical sleeve made it
+          possible to wrap tungsten heater wire around the emitter region, increasing
+          the contact area between the heater and LaB<sub>6</sub>. This geometry was
+          the first design in our thermal simulations to produce temperatures above
+          2000 K, making it a major turning point in the project.
+        </p>
+
+        <p>
+          The cylindrical concept was also motivated by prior LaB<sub>6</sub> cathode
+          work showing that, after a discharge is established, plasma bombardment can
+          help maintain the cathode emission temperature even after heater power is
+          reduced or removed. This made the cylindrical emitter especially interesting
+          because it connected the mechanical geometry of the cathode to the plasma
+          behavior it was intended to produce.
+        </p>
+      </div>
+
+      <div class="plasma-figure-grid">
+        <figure class="plasma-figure">
+          <img
+            src="cathode_screenshots/Disk%20cathode%20old%20design%201.png"
+            alt="Early disk-shaped LaB6 cathode concept"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption class="project-caption">
+            Early disk-shaped LaB<sub>6</sub> cathode concept.
+          </figcaption>
+        </figure>
+
+        <figure class="plasma-figure">
+          <img
+            src="cathode_screenshots/Cylindrical%20Cathode%20with%20Sprial%20Heater.png"
+            alt="Cylindrical LaB6 cathode concept with spiral heater"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption class="project-caption">
+            First cylindrical concept using a wrapped heater geometry.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- THERMAL ANALYSIS -->
+    <section class="project-section">
+      <div class="section-label">Thermal Analysis</div>
+
+      <div class="project-text-block">
+        <h2>Designing for 2000 K Operation</h2>
+
+        <p>
+          Using SolidWorks FEA, I evaluated whether the cathode assembly could bring the
+          LaB<sub>6</sub> emitter into the temperature range needed for strong thermionic
+          emission without pushing surrounding materials beyond their operating limits.
+          The analysis connected the heater's electrical design to the physical geometry
+          of the assembly: the heater had to deliver sufficient power to the emitter while
+          support rods, contacts, shielding, and surrounding hardware created competing
+          heat-loss paths.
+        </p>
+
+        <p>
+          The central design target was approximately 2000 K near the LaB<sub>6</sub>
+          source. Comparing geometries showed that the disk-shaped emitter could not be
+          heated sufficiently within the assembly. The cylindrical heater concept improved
+          thermal contact with the emitter region and produced the first simulation results
+          above 2000 K.
+        </p>
+      </div>
+
+      <div class="project-grid two-col">
+        <div class="project-card stat-card">
+          <div class="card-label">Target Temperature</div>
+          <div class="card-value">~2000 K</div>
+          <p>
+            A design target associated with strong LaB<sub>6</sub> emission and a major
+            increase in achievable plasma density.
+          </p>
+        </div>
+
+        <div class="project-card stat-card">
+          <div class="card-label">Maximum Heater Power</div>
+          <div class="card-value">1000 W</div>
+          <p>Maximum electrical power available from the 50 A, 20 V supply.</p>
+        </div>
+
+        <div class="project-card stat-card">
+          <div class="card-label">Circuit Resistance</div>
+          <div class="card-value">0.4 Ω</div>
+          <p>Required total resistance to draw the full current from the power supply.</p>
+        </div>
+
+        <div class="project-card stat-card">
+          <div class="card-label">Primary Constraint</div>
+          <div class="card-value">Heat Transfer</div>
+          <p>Concentrate heat at the emitter while limiting conductive and radiative losses.</p>
+        </div>
+      </div>
+
+      <div class="plasma-figure-grid thermal-figure-grid">
+        <figure class="plasma-figure">
+          <div class="thermal-image-frame">
+            <img
+              src="cathode_screenshots/cathode%20v03%20thermal.png"
+              alt="Thermal finite element analysis of the LaB6 cathode assembly"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <figcaption class="project-caption">
+            Thermal FEA showing the cathode region reaching approximately 2000 K.
+          </figcaption>
+        </figure>
+
+        <figure class="plasma-figure">
+          <div class="thermal-image-frame">
+            <img
+              src="cathode_screenshots/cathode%20v03%20thermal%20cross-section.png"
+              alt="Thermal cross-section of the LaB6 cathode assembly"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <figcaption class="project-caption">
+            Cross-section used to inspect heat concentration near the emitter and losses
+            through the surrounding hardware.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="project-section">
+      <div class="section-label">Commissioning Result</div>
+
+      <div class="project-split-wide results-split">
+        <div>
+          <div class="project-text-block">
+            <h2>First Plasma from the New Cathode</h2>
+            <p>
+              On July 17, 2026, the completed LaB<sub>6</sub> cathode produced its first
+              visible plasma after fabrication, assembly, and installation in LiPD. At
+              40 A of heater current—below the 50 A design operating point—we observed a
+              purple discharge through the axial viewport and began measuring discharge current.
+            </p>
+            <p>
+              This was an initial commissioning milestone rather than a final performance
+              run. It showed that the thermal, electrical, mechanical, and vacuum interfaces
+              worked together well enough for the cathode to heat, emit electrons, and initiate
+              a discharge. Full-power operation and quantitative density characterization are next.
+            </p>
+          </div>
+
+          <div class="plasma-result-banner" aria-label="First plasma test milestone">
+            <div class="plasma-result-value">40 A</div>
+            <div>
+              <div class="plasma-result-label">First visible plasma and discharge current</div>
+              <p>Achieved before reaching the 50 A design operating point.</p>
+            </div>
+          </div>
+        </div>
+
+        <figure class="plasma-video-card">
+          <div class="plasma-video-frame">
+            <video class="plasma-result-video" muted autoplay loop playsinline preload="metadata"
+              poster="first_plasma_axial_poster.jpg"
+              aria-label="Axial view of the first purple plasma produced by the LaB6 cathode">
+              <source src="first_plasma_axial.mp4" type="video/mp4">
+              Your browser does not support embedded MP4 video.
+            </video>
+          </div>
+          <figcaption class="project-caption">
+            Axial view of the first visible purple discharge at 40 A. The footage is cropped
+            and slowed slightly to make the discharge easier to see through the viewport.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="plasma-photo-grid plasma-photo-grid-three">
+        <figure class="plasma-photo-card"><div class="plasma-photo-frame"><img src="cathode%20photos/Full%20Assembly%204%20%281%29.jpg" alt="Completed LaB6 cathode assembly with heat shield installed" loading="lazy" decoding="async"></div><figcaption class="project-caption">Completed LaB<sub>6</sub> cathode assembly with the heat shield installed.</figcaption></figure>
+        <figure class="plasma-photo-card"><div class="plasma-photo-frame"><img src="cathode%20photos/In%20LiPD.jpg" alt="Cathode assembly installed in the LiPD plasma device" loading="lazy" decoding="async"></div><figcaption class="project-caption">Cathode assembly installed through the LiPD flange and positioned inside the device.</figcaption></figure>
+        <figure class="plasma-photo-card"><div class="plasma-photo-frame"><img src="cathode%20photos/LiPD%20Power%20Supply%20View.jpg" alt="LiPD experimental setup and cathode power supply" loading="lazy" decoding="async"></div><figcaption class="project-caption">LiPD experimental setup during cathode integration and powered testing.</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- RELATED COMPUTATIONAL PROJECT -->
+    <section class="project-section">
+      <div class="section-label">Related Research</div>
+      <a class="related-project-card" href="orbits.html">
+        <div>
+          <p class="related-eyebrow">Computational plasma physics</p>
+          <h2>Fast-Ion Orbit Modeling in WHAM Fields</h2>
+          <p>
+            Alongside the cathode hardware, I developed a separate full-orbit modeling
+            workflow using actual WHAM magnetic-field data. The project classifies ion
+            confinement, axial escape, and radial loss across velocity space and now has
+            its own project page.
+          </p>
+          <span class="related-link">Explore the orbit-modeling project →</span>
+        </div>
+        <img src="orbits_documentation/Confinement_by_position.png" alt="Particle confinement over WHAM magnetic field lines">
+      </a>
+    </section>
+
+    <!-- TAKEAWAYS -->
+    <section class="project-section project-footer-note">
+      <div class="section-label">Acknowledgements &amp; Takeaways</div>
+      <p>
+        I am grateful for the opportunity to work on a project that connects plasma physics, thermal analysis, and hardware design. It has been my first professional
+        experience at the intersection of engineering and space-relevant plasma physics,
+        and the skills I have developed in SolidWorks, FEA, thermal analysis, experimental
+        integration, and particle modeling will carry into future work on plasma systems,
+        aerospace hardware, and other physics-driven technologies.
+      </p>
+
+      <p>
+        I would especially like to thank Dr. Michael Brown, who has been an incredibly
+        supportive and knowledgeable advisor, as well as my friend and colleague Isaac
+        Wright-Muller, without whom this work would not have progressed nearly as far.
+      </p>
+
+      <p>
+        I do not take for granted the rare opportunity I have had as an undergraduate to
+        develop projects across their full life cycle, test my ideas, and iterate until
+        they become working systems. I look forward to continuing to pursue projects that
+        expand my technical range, remain grounded in physical theory, and translate ideas
+        into functioning hardware.
+      </p>
+    </section>
+  </main>
+
+  <script src="space.js"></script>
+  <script>
+    const plasmaResultVideo = document.querySelector(".plasma-result-video");
+    if (plasmaResultVideo && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      plasmaResultVideo.pause();
+      plasmaResultVideo.removeAttribute("autoplay");
+    }
+  </script>
+</body>
+</html>
