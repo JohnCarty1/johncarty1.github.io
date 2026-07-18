@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A biomimetic swimming robot inspired by the coordinated strokes of a barnacle nauplius.">
   <title>Biomimetic Robotics | John Carty</title>
   <link rel="stylesheet" href="style.css">
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -14,95 +15,77 @@
   <main class="site project-shell">
     <a class="back-link" href="index.html">← Back to Home</a>
 
-    <!-- HERO -->
     <header class="project-hero">
-      <h1 class="glow">Biomimetic Robotics</h1>
-      <p class="project-subtitle">October 2024 - January 2026</p>
-
+      <p class="project-kicker">Biomimetic Robotics</p>
+      <h1 class="glow">Nauplius-Inspired Swimming Robot</h1>
+      <p class="project-subtitle">October 2024 – January 2026</p>
       <p class="project-lead">
-        This long-term project focused on translating the propulsion strategies of 
-        a barnacle nauplius into a controllable mechanical system. The goal was to replicate the organism's
-        swimming behavior and operating environment closely enough to study its motion in a physical model,
-        while also exploring how these mechanisms could be applied to systems operating in highly viscous environments. 
-      <br>
-      <br>
-        I worked alongside my good friend and colleague Nathan Brewer under Professor Carr Everbach on this project,
-        though there were many other student researchers who both motivated our work and continue developing the robot
-        even after our involvement.
+        Working with Nathan Brewer under Professor Carr Everbach, I helped translate the
+        propulsion strategy of a barnacle nauplius into a controllable mechanical system.
+        The final prototype coordinated three limb pairs, enclosed its electronics in a
+        waterproof biologically informed housing, and could be activated remotely by light.
       </p>
     </header>
 
-    <!-- MOTIVATION -->
+    <section class="project-facts" aria-label="Project at a glance">
+      <div class="project-fact"><span>Role</span><strong>Mechanical design &amp; integration</strong><p>Mechanism development, CAD, prototyping, fabrication, enclosure design, and testing.</p></div>
+      <div class="project-fact"><span>System</span><strong>Three-pair swimming mechanism</strong><p>A single motor drives coordinated periodic strokes through a geared linkage system.</p></div>
+      <div class="project-fact"><span>Milestone</span><strong>Working integrated prototype</strong><p>Demonstrated phase-controlled limb motion, waterproof packaging, and light activation.</p></div>
+      <div class="project-fact"><span>Tools</span><strong>Fusion 360 + fabrication</strong><p>CAD, mechanism design, 3D printing, electronics packaging, assembly, and iteration.</p></div>
+    </section>
+
     <section class="project-section">
       <div class="section-label">Motivation</div>
       <div class="project-split">
         <div class="project-text-block">
-          <h2>Why Biomimetic Motion?</h2>
+          <h2>Why biomimetic motion?</h2>
           <p>
-            The barnacle nauplius possesses a distinct swimming stroke that allows
-            it to move efficiently through highly viscous environments, operating near
-            the Stokes flow regime where conventional propulsion systems break down. This makes the 
-            organism an interesting system of study from both a biological and engineering perspective.
-            <br>
-            <br>
-            In collaboration with Swarthmore College and the University of Washington's School of Oceanography,
-            this project aimed at developing a physical model capable of reproducing the organism's swimming dynamics,
-            allowing a controlled study of its motion.
-            <br>
-            <br>
-            Beyond biological interest, the ability to efficiently traverse highly viscous environments has potential
-            applications in extreme settings such as the subsurface oceans on icy moons like Europa, where similar
-            fluid conditions may be encountered.
+            The barnacle nauplius uses an asymmetric, phased swimming stroke to move through
+            a highly viscous environment near the Stokes-flow regime. At that scale, inertia
+            contributes very little, so the order and timing of each limb motion strongly
+            affect whether the organism produces net propulsion.
+          </p>
+          <p>
+            In collaboration with researchers at the University of Washington School of
+            Oceanography, our goal was to create a physical model that reproduced the
+            organism's appendage motion closely enough to study its swimming dynamics under
+            controlled conditions.
+          </p>
+          <p>
+            The project also connected naturally to my interest in systems for extreme
+            environments. Propulsion in dense or constrained fluids may matter in settings
+            such as subsurface oceans, where conventional approaches do not translate cleanly.
           </p>
         </div>
 
-        <figure class="organism-figure project-media-wrap">
-          <img src="nauplius.jpg" alt="Barnacle nauplius swimming organism">
-          <figcaption class="project-caption">
-             Barnacle nauplius (reference organism)
-           </figcaption>
+        <figure class="project-media-wrap organism-figure">
+          <img src="nauplius.jpg" alt="Microscope image of a barnacle nauplius">
+          <figcaption class="project-caption">Barnacle nauplius used as the biological reference for the mechanism.</figcaption>
         </figure>
       </div>
     </section>
 
-    
-    <!-- CAD -->
     <section class="project-section">
       <div class="section-label">Mechanism</div>
-
       <div class="project-text-block">
-        <h2>Overview</h2>
+        <h2>One motor, six coordinated limbs</h2>
         <p>
-          The model below shows the core mechanical system responsible
-          for generating the swimming motion. A single motor input is transmitted
-          through a gear train and linkage system to produce coordinated, periodic motion
-          across the three pairs of limbs.
-
-          <br>
-          <br>
-          A central challenge in the design was accurately replicating both the sweeping angle
-          of each limb and the phase relationship between limb pairs.
-          This required careful placement of pivot
-          positions to generate the desired stroke profile, along with custom gear geometries to produce the correct
-          timing between limbs.
-          <br>
-          <br>
-          The mechanism was developed to approximate the idealized motion profile as closely 
-          as possible while minimizing overall system height to maintain consistency with the biological
-          spacing of the organism's appendages.
-
-          <br>
-          <br>
-          This model highlights the primary transmission and linkage behavior that drives the robot's motion.
+          A single motor input is transmitted through a custom gear train and linkage system
+          to generate coordinated, periodic motion across three pairs of limbs. The central
+          design challenge was reproducing both the angular sweep of each limb and the phase
+          offset between pairs.
+        </p>
+        <p>
+          Pivot locations, linkage lengths, and gear timing were iterated together. The design
+          also had to remain compact enough to preserve the approximate appendage spacing and
+          overall proportions of the biological system.
         </p>
       </div>
-      <p class="project-caption">
-        Model of the core transmission and linkage system.
-      </p>
+
       <div class="project-model-wrap">
         <model-viewer
           src="bot_cad.glb"
-          alt="Interactive CAD model of biomimetic robot"
+          alt="Interactive CAD model of the nauplius-inspired swimming mechanism"
           camera-controls
           auto-rotate
           auto-rotate-delay="0"
@@ -116,142 +99,130 @@
           class="project-model">
         </model-viewer>
       </div>
+      <p class="project-caption">Interactive model of the core transmission and linkage system.</p>
     </section>
 
-    <!-- MAIN MECHANISM VIDEO -->
     <section class="project-section">
-      <div class="project-split">
-  <div class="project-media-wrap project-media-wrap-wide">
-    <video class="project-video-large" autoplay muted loop playsinline>
-      <source src="side_mechanism.mp4" type="video/mp4">
-    </video>
-  </div>
+      <div class="section-label">Mechanical Validation</div>
+      <div class="project-split reverse">
+        <figure class="project-media-wrap media-narrow">
+          <video class="project-video project-video-portrait" autoplay muted loop playsinline preload="metadata">
+            <source src="side_mechanism.mp4" type="video/mp4">
+          </video>
+          <figcaption class="project-caption">First successful clockwork demonstration before the final oars and enclosure were added.</figcaption>
+        </figure>
 
-  <div class="project-text-block">
-    <h2>Functioning Mechanism</h2>
-    <p>
-      The video shows the first successful demonstration of the clockwork mechanism
-      before oars were added, confirming the plausibility of the design. The motor's continuous rotation is translated into coordinated
-      periodic strokes across the limb pairs.
-    </p>
-    <p>
-      Correct timing and phase relationships are critical to reproducing the organism's characteristic swimming pattern, 
-      so this was a major milestone in the development of the system.
-    </p>
-  </div>
-</div>
+        <div class="project-text-block">
+          <h2>First functioning mechanism</h2>
+          <p>
+            This test was the first confirmation that the clockwork concept worked as a
+            physical system. Continuous motor rotation produced coordinated periodic strokes
+            across the limb pairs without the timing collapsing under real assembly tolerances.
+          </p>
+          <p>
+            Because propulsion depends on the phase relationship between the limbs, this was
+            more than a basic motion test. It validated the central kinematic idea behind the
+            robot and gave us a stable platform for adding the final appendages and enclosure.
+          </p>
+        </div>
+      </div>
     </section>
 
-    <!-- MECHANISM DETAIL -->
     <section class="project-section">
       <div class="section-label">Mechanism Detail</div>
-
-      <div class="project-media-grid two-col-media">
-        <figure class="project-media-card">
-          <img src="close_up.jpg" class="project-image">
-        </figure>
-
-        <figure class="project-media-card">
-          <img src="side_view.jpg" class="project-image">
-        </figure>
+      <div class="project-text-block">
+        <h2>Packaging the transmission</h2>
+        <p>
+          The completed mechanism required the gear train, linkages, supports, and limb pivots
+          to coexist in a compact volume while remaining accessible enough to assemble and
+          repair. These views show how motion is distributed from the motor through the stacked
+          transmission and into the appendage linkages.
+        </p>
       </div>
 
-      <p class="project-caption">
-        Close-ups of the gear train and linkage system, depicting how motion is distributed through the mechanism.
-      </p>
+      <div class="project-media-grid">
+        <figure class="project-media-card">
+          <img src="close_up.jpg" class="project-image" alt="Close-up of the robot gear train and linkage mechanism" loading="lazy">
+          <figcaption class="project-caption">Close-up of the gear train and linkage interfaces.</figcaption>
+        </figure>
+        <figure class="project-media-card">
+          <img src="side_view.jpg" class="project-image" alt="Side view of the stacked transmission mechanism" loading="lazy">
+          <figcaption class="project-caption">Side view showing the stacked geometry and limb-drive layout.</figcaption>
+        </figure>
+      </div>
     </section>
 
-    <!-- BUILD -->
     <section class="project-section">
-      <div class="section-label">Build & Integration</div>
-
+      <div class="section-label">Build &amp; Integration</div>
       <div class="project-split">
         <div class="project-text-block">
-        <h2>Mechanism To System</h2>
-        <p>
-          Integrating the mechanism into a complete system introduced additional design constraints.
-          The electronics for the control system needed to be enclosed within a waterproof housing that 
-          also matched the geometry of the nauplius carapace, ensuring that fluid interactions
-          during testing remained representative of the biological system.
-         </p>
-         <p>
-          The final build, shown here, incorporates the core mechanism and a sealed, biologically informed
-          enclosure that houses the control electronics. At this stage, the system
-          was ready for testing in a viscous fluid environment.
-         </p>
+          <h2>From mechanism to complete system</h2>
+          <p>
+            Integrating the mechanism into a complete robot introduced new constraints that
+            could not be solved independently. The electronics needed to remain dry, the
+            housing had to fit the transmission, and the external shape needed to preserve a
+            biologically meaningful carapace geometry for fluid testing.
+          </p>
+          <p>
+            The final assembly combined the clockwork mechanism, structural supports,
+            waterproof electronics enclosure, control hardware, and appendages into one
+            testable prototype. Reaching this stage required repeated full-system builds;
+            several integration problems only became visible after the entire robot was assembled.
+          </p>
+        </div>
+
+        <figure class="project-media-wrap media-medium">
+          <img src="full_assembly.jpg" class="project-image" alt="Fully assembled nauplius-inspired swimming robot" loading="lazy">
+          <figcaption class="project-caption">Fully assembled prototype with enclosure, electronics, mechanism, and appendages.</figcaption>
+        </figure>
       </div>
-
-  <figure class="project-media-wrap project-media-wrap-assembly">
-    <img src="full_assembly.jpg" class="project-image">
-
-    <figcaption class="project-caption">
-      Fully assembled prototype including enclosure, electronics, and structural components.
-    </figcaption>
-  </figure>
-</div>
-
-      
     </section>
 
-    <!-- LIGHT ACTIVATION FEATURE -->
     <section class="project-section">
       <div class="section-label">Control System</div>
-
       <div class="project-split reverse">
-        <div class="project-media-wrap project-media-wrap-small">
-          <video class="project-video-small" autoplay muted loop playsinline>
+        <figure class="project-media-wrap media-narrow">
+          <video class="project-video project-video-portrait" autoplay muted loop playsinline preload="metadata">
             <source src="light_activation.mp4" type="video/mp4">
           </video>
-        </div>
+          <figcaption class="project-caption">The submerged system can be activated without direct physical contact.</figcaption>
+        </figure>
 
         <div class="project-text-block">
-          <h2>Light-activated Behavior</h2>
+          <h2>Light-activated operation</h2>
           <p>
-            The system incorporates a light-activated control mechanism, allowing the robot to be 
-            activated remotely when submerged in a viscous fluid environment.
+            Direct access to the robot is limited during viscous-fluid testing, so the control
+            system uses a light sensor as a simple non-invasive trigger. Applying a flashlight
+            activates the motor; removing the light stops it.
           </p>
           <p>
-            As direct interaction is limited in this setting, light serves as a non-invasive
-            input to trigger the motor. The video shows the robot activating when light (from a phone flashlight)
-             is applied
-            to the sensor and quickly deactivating once the source is removed.
+            Although the control behavior is simple, it solved an important system-level
+            problem: how to start and stop an enclosed, submerged robot without compromising
+            the test environment or waterproof housing.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- TAKEAWAYS -->
     <section class="project-section project-footer-note">
       <div class="section-label">Takeaways</div>
       <p>
-        This project highlighted the challenges of translating biological motion
-        into a working mechanical system. Developing ways to incorporate the necessary
-        electronics, waterproofing, and mechanism design from the ground up while maintaining biological accuracy was
-        by far the most difficult aspect of this project.
+        This project gave me sustained experience across the full design-and-build cycle:
+        translating a physical behavior into requirements, developing a mechanism, packaging
+        electronics, fabricating parts, assembling the system, and discovering problems that
+        only appear when every subsystem is combined.
       </p>
-        <br>
       <p>
-        There were plenty of times when we assembled a full model and immediately recognized a design flaw.
-        This reinforced the importance of considering the system as a whole early in the design
-        process, rather than focusing on individual components in isolation. 
+        It also reinforced my interest in engineering for unusual environments. The most
+        rewarding work was not any single component, but balancing mechanism geometry,
+        waterproofing, electronics, biological fidelity, and test constraints until the full
+        system behaved as intended.
       </p>
-      <br>
       <p>
-        More broadly, this work further encouraged my interest in designing systems for extreme environments. 
-        Considering aspects such as fluid behavior, limited interaction, and unique design constraints 
-        was a very rewarding challenge. 
-      
+        My direct involvement has concluded, but the project remains active at Swarthmore and
+        continues to be developed by later student researchers.
       </p>
-      <br>
-      <p>
-        Working on this project
-        was incredibly valuable for developing my skills across the full design and build process,
-        and I look forward to applying what I learned to future work. Though my direct involvement in this project has concluded,
-        development is ongoing, and I look forward to seeing how the system evolves.
-      </p>
-      
     </section>
-
   </main>
 
   <script src="space.js"></script>

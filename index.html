@@ -3,153 +3,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>John Carty | Aerospace Engineer</title>
+  <meta name="description" content="Engineering and astrophysics portfolio of John Carty, featuring plasma hardware, charged-particle modeling, robotics, and controls.">
+  <title>John Carty | Engineering & Astrophysics</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <canvas id="space-background"></canvas>
-
   <div class="page-overlay"></div>
 
   <main class="site">
     <header class="hero">
       <p class="kicker">John Carty</p>
       <h1 class="glow">Engineering Portfolio</h1>
-      <p class="hero-subtitle">Robotics • Plasma Systems • Controls • Experimental Hardware</p>
+      <p class="hero-subtitle">Experimental hardware • plasma systems • robotics • controls</p>
       <p class="hero-text">
-        I'm an Engineering and Astrophysics student at Swarthmore College interested in developing
-        space systems. As a junior, I've'pursued work that captures my passion for space and 
-        allows me the opportunity to improve my skills as an engineer.
+        I am an Engineering and Astrophysics student at Swarthmore College interested in
+        developing space systems. My work combines mechanical design, experimental testing,
+        computational physics, and controls to turn physical ideas into working systems.
       </p>
     </header>
 
-    <section class="home-section intro-section about-section">
+    <section class="home-section about-section">
       <div class="section-label">About Me</div>
-    
       <div class="about-layout">
         <div class="about-text">
           <p>
-            I'm interested in contributing to systems that advance our ability to explore
-            and understand space. From biomimetic robotics to experimental plasma devices,
-            my work has focused on developing systems with space applications while building
-            the skills to design and understand them at a fundamental level.
+            I am most interested in multidisciplinary projects where engineering decisions
+            remain grounded in the underlying physics. From high-temperature cathode hardware
+            to charged-particle simulations and biomimetic robots, I have pursued work that
+            expands both my practical range and my understanding of the systems I build.
           </p>
-    
           <p>
-            Ultimately, I'm motivated by the opportunity to contribute to technologies that
-            expand what we're capable of as we push further into space.
+            Ultimately, I want to contribute to technologies that expand what we are capable
+            of exploring and understanding in space.
           </p>
         </div>
-    
         <div class="about-photo-wrap">
-          <img class="about-photo" src="me.jfif" alt="Portrait of John Carty" />
+          <img class="about-photo" src="me.jfif" alt="Portrait of John Carty">
         </div>
       </div>
     </section>
 
     <section class="home-section projects-section">
-      <div class="section-label">Projects</div>
+      <div class="section-label">Selected Projects</div>
 
-      <a class="project-row featured project-row-video" href="robotics.html">
-  <div class="project-meta">October 2024 - January 2026</div>
-
-  <div class="project-main">
-    <h2>Biomimetic Robotics</h2>
-    <p>
-      Long-term work on a nauplius-inspired swimming robot designed to move through highly
-      viscous environments. The project focused on translating known propulsion strategies into a controllable mechanical system, with potential applications for
-      exploring subsurface oceans on icy moons such as Europa.
-    </p>
-
-    <div class="project-preview">
-      <video
-        class="project-hover-video"
-        muted
-        loop
-        playsinline
-        preload="metadata"
-      >
-        <source src="bot.mp4" type="video/mp4">
-      </video>
-    </div>
-  </div>
-
-  <div class="project-mark">01</div>
-</a>
-
-      <a class="project-row" href="hand.html">
-        <div class="project-meta">Mechatronics • Build</div>
+      <a class="project-row featured" href="plasma.html">
+        <div class="project-meta">May 2026 – Present<br>Experimental plasma</div>
         <div class="project-main">
-          <h2>Gesture-Controlled Robotic Hand</h2>
+          <h2>LaB<sub>6</sub> Cathode Development</h2>
           <p>
-            A robotic hand project focused on mimicing gesture
+            Designed, analyzed, fabricated, and commissioned a 1000 W cathode assembly for
+            Swarthmore's LiPD plasma device, producing its first visible plasma at 40 A.
           </p>
+          <div class="project-tags"><span>SolidWorks</span><span>Thermal FEA</span><span>Vacuum hardware</span></div>
+        </div>
+        <div class="project-preview" aria-hidden="true">
+          <video class="project-hover-video project-preview-portrait" muted loop playsinline preload="metadata" poster="first_plasma_axial_poster.jpg">
+            <source src="first_plasma_axial.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="project-mark">01</div>
+      </a>
+
+      <a class="project-row" href="robotics.html">
+        <div class="project-meta">Oct 2024 – Jan 2026<br>Biomimetic robotics</div>
+        <div class="project-main">
+          <h2>Nauplius-Inspired Swimming Robot</h2>
+          <p>
+            Developed a clockwork mechanism coordinating three limb pairs to reproduce
+            the asymmetric swimming stroke of a barnacle nauplius in highly viscous flow.
+          </p>
+          <div class="project-tags"><span>Fusion 360</span><span>Mechanisms</span><span>Fabrication</span></div>
+        </div>
+        <div class="project-preview" aria-hidden="true">
+          <video class="project-hover-video" muted loop playsinline preload="metadata"><source src="bot.mp4" type="video/mp4"></video>
         </div>
         <div class="project-mark">02</div>
       </a>
 
-      <a class="project-row" href="plasma.html">
-        <div class="project-meta">Summer 2026 • Upcoming Research</div>
+      <a class="project-row" href="orbits.html">
+        <div class="project-meta">May 2026 - Present<br>Computational plasma</div>
         <div class="project-main">
-          <h2>Plasma Physics Research</h2>
+          <h2>Fast-Ion Orbit Modeling in WHAM Fields</h2>
           <p>
-            Incoming summer research focused on plasma-related hardware, system constraints,
-            and experimental design.
+            Built a full-orbit simulation pipeline using actual WHAM magnetic-field data to
+            classify confinement, axial escape, and radial loss across velocity space.
           </p>
+          <div class="project-tags"><span>Python</span><span>Boris integrator</span><span>WHAM field data</span></div>
+        </div>
+        <div class="project-preview" aria-hidden="true">
+          <img class="project-preview-image project-preview-plot" src="orbits_documentation/Confinement_by_position.png" alt="">
         </div>
         <div class="project-mark">03</div>
       </a>
 
       <a class="project-row" href="reaction.html">
-        <div class="project-meta">Personal Project • In Progress</div>
+        <div class="project-meta">Personal project<br>Spacecraft controls</div>
         <div class="project-main">
-          <h2>Reaction Wheel Project</h2>
+          <h2>Reaction Wheel Attitude Control</h2>
           <p>
-            A personal spacecraft-oriented project exploring rotational dynamics, attitude
-            control, and system design.
+            Connecting rigid-body dynamics, simulation, actuator sizing, and a planned
+            physical testbed for spacecraft-style attitude control.
           </p>
+          <div class="project-tags"><span>Dynamics</span><span>MATLAB / Python</span><span>Controls</span></div>
+        </div>
+        <div class="project-preview" aria-hidden="true">
+          <img class="project-preview-image project-preview-plot" src="phase_space.gif" alt="">
         </div>
         <div class="project-mark">04</div>
+      </a>
+
+      <a class="project-row" href="hand.html">
+        <div class="project-meta">Nov 2025 – Jan 2026<br>Embedded systems</div>
+        <div class="project-main">
+          <h2>Gesture-Controlled Robotic Arm</h2>
+          <p>
+            Integrated gesture sensing, BLE communication, embedded control, and servo-driven
+            mechanics into a responsive two-axis arm with an actuated gripper.
+          </p>
+          <div class="project-tags"><span>Embedded systems</span><span>CAD</span><span>Integration</span></div>
+        </div>
+        <div class="project-preview" aria-hidden="true">
+          <video class="project-hover-video" muted loop playsinline preload="metadata"><source src="hand_video_preview.mp4" type="video/mp4"></video>
+        </div>
+        <div class="project-mark">05</div>
       </a>
     </section>
 
     <section class="home-section contact-section">
       <div class="section-label">Contact</div>
-      <p>
-        Email: jackcarty8@gmail.com<br>
-        <a href="https://www.linkedin.com/in/john-carty2/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </p>
+      <p>Email: <a href="mailto:jackcarty8@gmail.com">jackcarty8@gmail.com</a><br>
+      <a href="https://www.linkedin.com/in/john-carty2/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
     </section>
   </main>
 
   <script src="space.js"></script>
-
-  <script src="space.js"></script>
-<script>
-  const videoRow = document.querySelector(".project-row-video");
-  const hoverVideo = document.querySelector(".project-hover-video");
-
-  if (videoRow && hoverVideo) {
-    videoRow.addEventListener("mouseenter", () => {
-      hoverVideo.currentTime = 0;
-      hoverVideo.play().catch(() => {});
+  <script>
+    document.querySelectorAll(".project-row").forEach((row) => {
+      const video = row.querySelector(".project-hover-video");
+      if (!video) return;
+      const play = () => video.play().catch(() => {});
+      const stop = () => { video.pause(); video.currentTime = 0; };
+      row.addEventListener("mouseenter", play);
+      row.addEventListener("mouseleave", stop);
+      row.addEventListener("focusin", play);
+      row.addEventListener("focusout", stop);
     });
-
-    videoRow.addEventListener("mouseleave", () => {
-      hoverVideo.pause();
-      hoverVideo.currentTime = 0;
-    });
-
-    videoRow.addEventListener("focusin", () => {
-      hoverVideo.currentTime = 0;
-      hoverVideo.play().catch(() => {});
-    });
-
-    videoRow.addEventListener("focusout", () => {
-      hoverVideo.pause();
-      hoverVideo.currentTime = 0;
-    });
-  }
-</script>
+  </script>
 </body>
 </html>

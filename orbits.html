@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full-orbit charged-particle modeling in actual WHAM magnetic fields, including confinement, loss-cone validation, boundary sensitivity, and velocity-space distributions.">
+  <title>Fast-Ion Orbit Modeling | John Carty</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="space-background"></canvas>
+  <div class="page-overlay"></div>
+
+  <main class="site project-shell">
+    <a class="back-link" href="index.html">← Back to Home</a>
+
+    <header class="project-hero">
+      <p class="project-kicker">Computational Plasma Physics</p>
+      <h1 class="glow">Fast-Ion Orbit Modeling in WHAM Fields</h1>
+      <p class="project-subtitle">Summer 2026 • Ongoing research</p>
+      <p class="project-lead">
+        I am developing a full-orbit simulation pipeline in Python that evaluates energetic
+        ion motion in actual WHAM magnetic-field data and classifies confinement, axial
+        escape, and radial loss across position and velocity space.
+      </p>
+    </header>
+
+    <section class="project-facts" aria-label="Project at a glance">
+      <div class="project-fact"><span>Role</span><strong>Computational model development</strong><p>Field interpolation, orbit integration, classifier design, validation, analysis, and visualization.</p></div>
+      <div class="project-fact"><span>System</span><strong>WHAM fast-ion confinement</strong><p>Full particle trajectories in axisymmetric B<sub>r</sub>(r,z) and B<sub>z</sub>(r,z) fields exported from COMSOL.</p></div>
+      <div class="project-fact"><span>Milestone</span><strong>Validated population classifier</strong><p>Resolved confined, axial-loss, hard-radial-loss, and limiter-crossing populations.</p></div>
+      <div class="project-fact"><span>Tools</span><strong>Python + numerical integration</strong><p>Boris particle pusher, interpolation, large parameter sweeps, weighted distributions, and plotting.</p></div>
+    </section>
+
+    <section class="project-section">
+      <div class="section-label">Research Question</div>
+      <div class="project-split-wide">
+        <div class="project-text-block">
+          <h2>Which energetic ions remain confined?</h2>
+          <p>
+            WHAM uses a magnetic-mirror geometry to confine plasma between regions of stronger
+            magnetic field. Particles moving primarily along the field can stream through the
+            mirrors, while particles with sufficient perpendicular velocity reflect and remain
+            trapped. At higher energy, finite gyro-orbit size and the device geometry also open
+            possible radial-loss pathways.
+          </p>
+          <p>
+            The project grew from tracking individual trajectories into a reusable framework
+            that samples initial position, velocity, and gyro phase. Each particle is then
+            classified as confined, axially escaped, past a limiter-related flux surface, or
+            across a harder fast-ion radial boundary.
+          </p>
+          <p>
+            The work is directly connected to questions our WHAM collaborators care about,
+            including the confinement of energetic deuterium produced by neutral-beam injection
+            and the eventual calculation of charge-exchange losses.
+          </p>
+        </div>
+
+        <figure class="technical-figure technical-figure-compact">
+          <a href="orbits_documentation/Confinement_by_position.png" target="_blank" rel="noopener noreferrer">
+            <img src="orbits_documentation/Confinement_by_position.png" alt="Particle confinement across starting positions over WHAM magnetic field lines">
+          </a>
+          <figcaption class="project-caption">Pilot position scan over the imported WHAM field geometry. Yellow points remained confined in this collisionless test.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <div class="section-label">Model Architecture</div>
+      <div class="project-text-block">
+        <h2>From COMSOL fields to orbit classification</h2>
+        <p>
+          The field evaluator loads WHAM's axisymmetric radial and axial magnetic-field
+          components, interpolates them at each particle location, and converts the result into
+          Cartesian coordinates. A Boris pusher advances the full gyromotion under the Lorentz
+          force while tracking position, velocity, energy, mirror bounces, and boundary crossings.
+        </p>
+        <p>
+          The same orbit engine is reused across position scans, pitch-angle studies, velocity-
+          space sweeps, and weighted distribution calculations. This makes it possible to test
+          physical conclusions across large populations rather than relying on a few visually
+          appealing trajectories.
+        </p>
+      </div>
+
+      <figure class="technical-figure technical-figure-wide">
+        <img src="orbit_assets/orbit_workflow.svg" alt="Workflow from WHAM magnetic field data through orbit integration and population analysis">
+        <figcaption class="project-caption">Simulation workflow from the WHAM field export to boundary classification and population-level maps.</figcaption>
+      </figure>
+
+      <div class="project-grid orbit-method-grid">
+        <div class="project-card"><h3>Field evaluation</h3><p>Interpolate B<sub>r</sub> and B<sub>z</sub> on the WHAM grid and recover the Cartesian field at arbitrary particle positions.</p></div>
+        <div class="project-card"><h3>Orbit integration</h3><p>Advance full particle gyromotion with the Boris algorithm rather than relying only on a guiding-center approximation.</p></div>
+        <div class="project-card"><h3>Classification</h3><p>Separate confined particles from axial escape, hard radial loss, limiter-surface crossing, and unresolved cases.</p></div>
+        <div class="project-card"><h3>Population analysis</h3><p>Repeat across v<sub>⊥</sub>, v<sub>∥</sub>, position, and gyro phase, then weight the outcomes with a physical source distribution.</p></div>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <div class="section-label">Verification</div>
+      <div class="project-text-block">
+        <h2>Building a trustworthy baseline</h2>
+        <p>
+          Before interpreting large parameter scans, I checked the integrator against the
+          expected magnetic-mirror loss cone and repeated runs with smaller timesteps and longer
+          durations. The escaped population concentrates near field-aligned motion, while the
+          trapped/passing boundary follows the theoretical mirror trend.
+        </p>
+        <p>
+          Energy is conserved to approximately one part in 10<sup>13</sup> in the validated
+          collisionless runs. That matters because small numerical heating or cooling can shift
+          the loss boundary over a long integration and create a physically plausible but
+          numerically false result.
+        </p>
+      </div>
+
+      <div class="project-grid three-col">
+        <div class="project-card stat-card"><div class="card-label">Energy conservation</div><div class="card-value">~10<sup>−13</sup></div><p>Maximum fractional energy error in the validated collisionless runs.</p></div>
+        <div class="project-card stat-card"><div class="card-label">Axial loss</div><div class="card-value">3.0–4.3%</div><p>Current pilot sweeps, consistent with the expected magnetic-mirror loss cone.</p></div>
+        <div class="project-card stat-card"><div class="card-label">Sampling</div><div class="card-value">Position + velocity + phase</div><p>The classifier resolves a population rather than a single representative orbit.</p></div>
+      </div>
+
+      <div class="technical-figure-grid">
+        <figure class="technical-figure">
+          <a href="orbits_documentation/Pitch_angle.png" target="_blank" rel="noopener noreferrer">
+            <img src="orbits_documentation/Pitch_angle.png" alt="Pitch-angle histogram comparing confined and escaped particles">
+          </a>
+          <figcaption class="project-caption">Escaped particles cluster near field-aligned pitch angles, while larger perpendicular components remain predominantly confined.</figcaption>
+        </figure>
+        <figure class="technical-figure">
+          <a href="orbits_documentation/Vperp_Vpar.png" target="_blank" rel="noopener noreferrer">
+            <img src="orbits_documentation/Vperp_Vpar.png" alt="Confined and escaped particles in normalized perpendicular and parallel velocity space">
+          </a>
+          <figcaption class="project-caption">Velocity-space classification reveals the numerical loss-cone structure across the sampled population.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <div class="section-label">Boundary Modeling</div>
+      <div class="project-text-block">
+        <h2>The radial boundary changes the conclusion</h2>
+        <p>
+          One of the most important results so far was a modeling lesson rather than a single
+          percentage: radial loss is highly sensitive to how the physical device boundary is
+          represented. A simple cylindrical hard wall classified 19% of a pilot population as
+          radially lost. When the boundary was tied to the relevant WHAM limiter flux surface,
+          the inferred loss fell below 1% in the same sweep.
+        </p>
+        <p>
+          A geometric radius can count a finite gyro-orbit excursion as a true loss even when
+          the guiding trajectory remains associated with the confined region. The current
+          classifier therefore records limiter crossing and hard radial loss separately instead
+          of collapsing every radial excursion into one outcome.
+        </p>
+        <div class="project-callout"><p><strong>Interpretation:</strong> the boundary definition is part of the physical model, not a cosmetic post-processing choice.</p></div>
+      </div>
+
+      <figure class="technical-figure technical-figure-wide">
+        <a href="orbits_documentation/Escape_positions_2d.png" target="_blank" rel="noopener noreferrer">
+          <img src="orbits_documentation/Escape_positions_2d.png" alt="Particle starting and escape positions over WHAM magnetic field lines and confinement boundary">
+        </a>
+        <figcaption class="project-caption">Axially escaping particles leave near the mirror ends, while the gray boundary illustrates why geometric and flux-based definitions must be distinguished.</figcaption>
+      </figure>
+
+      <div class="technical-figure-grid">
+        <figure class="technical-figure">
+          <a href="orbits_documentation/outcome_fractions_conventional_axes_hard_boundary_HQ_41x80_s10.png" target="_blank" rel="noopener noreferrer">
+            <img src="orbits_documentation/outcome_fractions_conventional_axes_hard_boundary_HQ_41x80_s10.png" alt="Velocity-space outcome fractions using a hard radial boundary">
+          </a>
+          <figcaption class="project-caption">Outcome fractions when the source and loss model use the hard radial boundary.</figcaption>
+        </figure>
+        <figure class="technical-figure">
+          <a href="orbits_documentation/outcome_fractions_conventional_axes_limiter_plus_1mm_HQ_41x80_s10.png" target="_blank" rel="noopener noreferrer">
+            <img src="orbits_documentation/outcome_fractions_conventional_axes_limiter_plus_1mm_HQ_41x80_s10.png" alt="Velocity-space outcome fractions using the limiter plus one millimeter boundary">
+          </a>
+          <figcaption class="project-caption">The same classification framework using the limiter-plus-1 mm surface, which substantially changes the radial-loss interpretation.</figcaption>
+        </figure>
+      </div>
+      <p class="figure-note">The figures can be opened at full resolution for axis labels and individual velocity-space bins.</p>
+    </section>
+
+    <section class="project-section">
+      <div class="section-label">Distribution Functions</div>
+      <div class="project-text-block">
+        <h2>From equally weighted scans to physical populations</h2>
+        <p>
+          A raw classifier answers what happens to each sampled initial condition, but not how
+          important that condition is in a real population. I therefore map the outcomes onto
+          normalized F(v<sub>⊥</sub>,v<sub>∥</sub>) distributions so the confined and lost
+          components are weighted by the source rather than treating every velocity bin equally.
+        </p>
+        <p>
+          These maps make the loss cone, confined core, and lower-weight radial-loss regions
+          visible in the same coordinate system. They also provide a foundation for following
+          how an initially isotropic distribution evolves once collisions and additional loss
+          physics are included.
+        </p>
+      </div>
+
+      <div class="technical-figure-grid">
+        <figure class="technical-figure">
+          <a href="orbits_documentation/F_maps_conventional_axes_hard_boundary_vth_1p0_HQ_41x80_s10.png" target="_blank" rel="noopener noreferrer">
+            <img src="orbits_documentation/F_maps_conventional_axes_hard_boundary_vth_1p0_HQ_41x80_s10.png" alt="Weighted initial, confined, axial-loss, and hard-radial-loss velocity distributions">
+          </a>
+          <figcaption class="project-caption">Weighted distribution components using the hard-boundary source at v<sub>th</sub> = 1.0.</figcaption>
+        </figure>
+        <figure class="technical-figure">
+          <a href="orbits_documentation/F_maps_conventional_axes_limiter_plus_1mm_vth_1p0_HQ_41x80_s10.png" target="_blank" rel="noopener noreferrer">
+            <img src="orbits_documentation/F_maps_conventional_axes_limiter_plus_1mm_vth_1p0_HQ_41x80_s10.png" alt="Weighted initial, confined, axial-loss, and limiter-crossing velocity distributions">
+          </a>
+          <figcaption class="project-caption">Weighted distribution components using the limiter-plus-1 mm source at the same thermal-speed normalization.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <div class="section-label">Current Direction</div>
+      <div class="project-text-block">
+        <h2>Adding the next layer of physics</h2>
+        <p>
+          The current workflow produces position- and velocity-space maps for confined,
+          axially lost, radially lost, and limiter-crossing populations. The next development
+          step is to introduce collisions so that pitch-angle scattering can repopulate the
+          loss cone over time rather than leaving each orbit permanently collisionless.
+        </p>
+        <p>
+          I am also extending the model toward the 20–25 keV deuterium ions created by WHAM's
+          neutral-beam system. Charge exchange, limiter geometry, and a self-consistent
+          electrostatic potential are longer-term directions once the collision operator and
+          energetic source are validated.
+        </p>
+      </div>
+
+      <div class="project-grid two-col">
+        <div class="project-card"><h3>Near term</h3><ul class="project-list"><li>Validate pitch-angle scattering and collision timescales</li><li>Finalize weighted F(v<sub>⊥</sub>,v<sub>∥</sub>) evolution</li><li>Compare limiter and fast-ion flux boundaries</li></ul></div>
+        <div class="project-card"><h3>Longer term</h3><ul class="project-list"><li>Model energetic neutral-beam deuterium</li><li>Calculate charge-exchange loss directions and magnitudes</li><li>Evaluate electric-field and Pastukhov-potential effects</li></ul></div>
+      </div>
+    </section>
+
+    <section class="project-section project-footer-note">
+      <div class="section-label">Takeaway</div>
+      <p>
+        I am an engineer first and naturally gravitate toward hardware, but this project has
+        added computational depth that I value. More importantly, the computation is not
+        detached from the device: it uses WHAM's actual fields and addresses questions that
+        matter to an operating fusion experiment.
+      </p>
+      <p>
+        The work has required me to connect plasma theory, numerical methods, software design,
+        validation, and physical interpretation in one sustained project.
+      </p>
+      <p><a href="plasma.html">View the related LaB<sub>6</sub> cathode hardware project →</a></p>
+    </section>
+  </main>
+
+  <script src="space.js"></script>
+</body>
+</html>

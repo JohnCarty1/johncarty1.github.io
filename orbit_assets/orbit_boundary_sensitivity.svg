@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 690" role="img" aria-labelledby="title desc">
+<title id="title">Radial loss sensitivity to boundary definition</title><desc id="desc">Bar chart of radial loss percentages for limiter and hard-boundary definitions.</desc>
+<rect width="1200" height="690" rx="28" fill="#080b14"/>
+<text x="600" y="62" text-anchor="middle" fill="#f5f7ff" font-family="Arial" font-size="34" font-weight="700">Radial-loss sensitivity to boundary definition</text>
+<text x="600" y="96" text-anchor="middle" fill="#aeb9d5" font-family="Arial" font-size="19">Collisionless pilot sweep across the same velocity-space sample</text>
+<g transform="translate(155 135)" font-family="Arial">
+  <line x1="0" y1="430" x2="900" y2="430" stroke="#5f6d8d" stroke-width="2"/>
+  <line x1="0" y1="0" x2="0" y2="430" stroke="#5f6d8d" stroke-width="2"/>
+  <g fill="#8794b2" font-size="17" text-anchor="end"><text x="-18" y="436">0%</text><text x="-18" y="329">5%</text><text x="-18" y="222">10%</text><text x="-18" y="115">15%</text><text x="-18" y="8">20%</text></g>
+  <g stroke="#28334f" stroke-width="1"><line x1="0" y1="323" x2="900" y2="323"/><line x1="0" y1="215" x2="900" y2="215"/><line x1="0" y1="108" x2="900" y2="108"/></g>
+  <g>
+    <rect x="70" y="415.6" width="125" height="14.4" rx="7" fill="#91aaff"/><rect x="285" y="415.6" width="125" height="14.4" rx="7" fill="#91aaff"/><rect x="500" y="408.5" width="125" height="21.5" rx="7" fill="#91aaff"/><rect x="715" y="21.5" width="125" height="408.5" rx="10" fill="#c7d4ff"/>
+    <g fill="#f2f5ff" font-size="22" font-weight="700" text-anchor="middle"><text x="132" y="396">0.67%</text><text x="347" y="396">0.67%</text><text x="562" y="389">1.00%</text><text x="777" y="10">19.00%</text></g>
+    <g fill="#b5bfd8" font-size="17" text-anchor="middle"><text x="132" y="467"><tspan x="132">Limiter</tspan><tspan x="132" dy="23">surface</tspan></text><text x="347" y="467"><tspan x="347">Limiter</tspan><tspan x="347" dy="23">+ 1 mm</tspan></text><text x="562" y="467"><tspan x="562">Limiter</tspan><tspan x="562" dy="23">+ 1 cm</tspan></text><text x="777" y="467"><tspan x="777">Geometric</tspan><tspan x="777" dy="23">hard wall</tspan></text></g>
+  </g>
+</g>
+<rect x="150" y="610" width="900" height="1" fill="#26314d"/>
+<text x="600" y="644" text-anchor="middle" fill="#9faac6" font-family="Arial" font-size="18">The inferred radial-loss fraction depends strongly on whether the boundary follows WHAM flux geometry or a simple cylindrical wall.</text>
+</svg>

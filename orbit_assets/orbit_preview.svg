@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+<title id="title">Magnetic mirror particle orbit schematic</title>
+<desc id="desc">A charged-particle trajectory bouncing between two magnetic mirror regions.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#11182d"/><stop offset="1" stop-color="#050812"/></linearGradient>
+  <radialGradient id="g"><stop stop-color="#a7bdff" stop-opacity=".46"/><stop offset="1" stop-color="#6e8bff" stop-opacity="0"/></radialGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="960" height="540" rx="28" fill="url(#bg)"/>
+<ellipse cx="220" cy="270" rx="150" ry="225" fill="url(#g)"/>
+<ellipse cx="740" cy="270" rx="150" ry="225" fill="url(#g)"/>
+<g fill="none" stroke="#8da8ff" stroke-opacity=".34" stroke-width="3">
+  <path d="M80 90 C300 210 660 210 880 90"/><path d="M80 150 C300 235 660 235 880 150"/>
+  <path d="M80 210 C300 255 660 255 880 210"/><path d="M80 270 C300 270 660 270 880 270"/>
+  <path d="M80 330 C300 285 660 285 880 330"/><path d="M80 390 C300 305 660 305 880 390"/>
+  <path d="M80 450 C300 330 660 330 880 450"/>
+</g>
+<g fill="none" stroke="#d6e2ff" stroke-width="15" opacity=".62"><ellipse cx="190" cy="270" rx="46" ry="205"/><ellipse cx="770" cy="270" rx="46" ry="205"/></g>
+<path d="M235 270 C270 225 300 315 340 270 S410 225 450 270 S520 315 560 270 S630 225 670 270 S710 310 725 270 C710 230 680 230 650 270 S580 310 540 270 S470 230 430 270 S360 310 320 270 S255 230 235 270" fill="none" stroke="#b8c9ff" stroke-width="7" filter="url(#glow)" stroke-linecap="round"/>
+<circle cx="235" cy="270" r="10" fill="#fff" filter="url(#glow)"/><circle cx="725" cy="270" r="10" fill="#fff" filter="url(#glow)"/>
+<text x="480" y="74" text-anchor="middle" fill="#f3f6ff" font-family="Arial, sans-serif" font-size="34" font-weight="700">Full-orbit modeling in WHAM fields</text>
+<text x="480" y="486" text-anchor="middle" fill="#abb9d9" font-family="Arial, sans-serif" font-size="23">Confinement • axial escape • radial loss</text>
+</svg>
