@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Engineering and astrophysics portfolio of John Carty, featuring plasma hardware, charged-particle modeling, robotics, and controls.">
-  <title>John Carty | Engineering & Astrophysics</title>
+  <meta name="description" content="Engineering and astrophysics portfolio of John Carty, featuring plasma hardware, charged-particle modeling, robotics, and spacecraft dynamics.">
+  <title>John Carty | Engineering Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,30 +12,47 @@
   <div class="page-overlay"></div>
 
   <main class="site">
-    <header class="hero">
-      <p class="kicker">John Carty</p>
+    <div class="home-topbar">
+      <a class="home-wordmark" href="index.html" aria-label="John Carty home">John Carty</a>
+      <nav class="home-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.linkedin.com/in/john-carty2/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+
+    <header class="hero home-hero">
+      <p class="kicker">Engineering &amp; Astrophysics · Swarthmore College</p>
       <h1 class="glow">Engineering Portfolio</h1>
-      <p class="hero-subtitle">Experimental hardware • plasma systems • robotics • controls</p>
       <p class="hero-text">
-        I am an Engineering and Astrophysics student at Swarthmore College interested in
-        developing space systems. My work combines mechanical design, experimental testing,
-        computational physics, and controls to turn physical ideas into working systems.
+        I am drawn to problems where understanding the physics is inseparable from building
+        the system. My work spans high-temperature plasma hardware, charged-particle simulation,
+        mechanical design, embedded systems, and spacecraft dynamics—with the long-term goal of
+        contributing to technologies that expand what we can explore in space.
       </p>
+      <div class="hero-links" aria-label="Contact links">
+        <a href="mailto:jackcarty8@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/john-carty2/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+      </div>
     </header>
 
-    <section class="home-section about-section">
-      <div class="section-label">About Me</div>
-      <div class="about-layout">
+    <section class="home-section about-section" id="about" aria-labelledby="about-heading">
+      <div class="about-home-grid">
+        <h2 class="home-section-title" id="about-heading">About Me</h2>
         <div class="about-text">
           <p>
-            I am most interested in multidisciplinary projects where engineering decisions
-            remain grounded in the underlying physics. From high-temperature cathode hardware
-            to charged-particle simulations and biomimetic robots, I have pursued work that
-            expands both my practical range and my understanding of the systems I build.
+            Most of my projects begin with a physical question: how can a device survive and
+            operate near 2000 K, what determines whether an ion remains confined in a magnetic
+            mirror, or how can a biological stroke be translated into a repeatable mechanism?
+            I enjoy moving between equations, simulation, CAD, fabrication, and testing until
+            the full system makes sense.
           </p>
           <p>
-            Ultimately, I want to contribute to technologies that expand what we are capable
-            of exploring and understanding in space.
+            Space exploration is what first pulled me toward engineering and physics, and it
+            remains the direction connecting the work documented here. I am especially interested
+            in multidisciplinary systems where the physics is demanding, the hardware matters,
+            and careful engineering can make a new experiment or mission possible.
           </p>
         </div>
         <div class="about-photo-wrap">
@@ -44,8 +61,10 @@
       </div>
     </section>
 
-    <section class="home-section projects-section">
-      <div class="section-label">Selected Projects</div>
+    <section class="home-section projects-section" id="projects" aria-labelledby="projects-heading">
+      <div class="projects-heading-grid">
+        <h2 class="home-section-title" id="projects-heading">Projects</h2>
+      </div>
 
       <a class="project-row featured" href="plasma.html">
         <div class="project-meta">May 2026 – Present<br>Experimental plasma</div>
@@ -82,7 +101,7 @@
       </a>
 
       <a class="project-row" href="orbits.html">
-        <div class="project-meta">May 2026 - Present<br>Computational plasma</div>
+        <div class="project-meta">Summer 2026<br>Computational plasma</div>
         <div class="project-main">
           <h2>Fast-Ion Orbit Modeling in WHAM Fields</h2>
           <p>
@@ -130,10 +149,20 @@
       </a>
     </section>
 
-    <section class="home-section contact-section">
-      <div class="section-label">Contact</div>
-      <p>Email: <a href="mailto:jackcarty8@gmail.com">jackcarty8@gmail.com</a><br>
-      <a href="https://www.linkedin.com/in/john-carty2/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+    <section class="home-section contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="contact-home-grid">
+        <h2 class="home-section-title" id="contact-heading">Contact Me</h2>
+        <div class="contact-copy">
+          <p>
+            Questions about the work—or a shared interest in space systems, plasma physics,
+            robotics, and physical systems—are always welcome.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:jackcarty8@gmail.com">jackcarty8@gmail.com</a>
+            <a href="https://www.linkedin.com/in/john-carty2/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
