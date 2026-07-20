@@ -1,18 +1,17 @@
-PLASMA PAGE UPDATE — JULY 20, 2026
+CORRECTED PLASMA PAGE UPDATE — SUSTAINED 50 A OPERATION
 
-Replace:
-- plasma.html
+Copy this folder's contents into the root of johncarty1.github.io:
 
-Add this folder to the website root:
-- plasma_media/
+1. Replace plasma.html with the included plasma.html.
+2. Replace index.html with the included index.html.
+3. Add the included plasma_media folder to the repository root.
 
-Changes:
-- Updated the project milestone from first plasma at 40 A to operation at 46 A.
-- Reworked the commissioning section to document the July 20 high-current run.
-- Replaced the original 40 A result video with the clearest new axial probe video.
-- Replaced the older three-image results gallery with three new run photos:
-  exterior viewport context, axial probe geometry, and the purple source-end view.
-- Optimized the selected images and video for web delivery.
+This update intentionally preserves the original commissioning context:
+- The original, higher-quality first_plasma_axial.mp4 remains the main video.
+- The completed-cathode photo remains on the page.
+- The In LiPD installation photo remains on the page.
+- The LiPD setup and power-supply photo remains on the page.
 
-The original 40 A video and poster can remain in the repository because index.html still
-uses them for the homepage project preview. They are no longer referenced by plasma.html.
+The page now presents sustained 50 A operation as the established milestone and adds three supporting high-current-operation photos below the original assembly and installation media.
+
+No changes to style.css are required.

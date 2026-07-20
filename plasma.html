@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Design, analysis, fabrication, and commissioning of a 1000 W LaB6 cathode for the Swarthmore LiPD plasma device.">
+  <meta name="description" content="Design, analysis, fabrication, and sustained 50 A operation of a 1000 W LaB6 cathode for the Swarthmore LiPD plasma device.">
   <title>LaB6 Cathode Development | John Carty</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -21,16 +21,17 @@
       <p class="project-subtitle">May 2026 – Present</p>
       <p class="project-lead">
         I designed, analyzed, fabricated, and commissioned a high-temperature cathode
-        assembly for Swarthmore's LiPD plasma device. The system integrates a LaB<sub>6</sub>
-        emitter, a 1000 W heater circuit, refractory materials, thermal shielding, vacuum
-        interfaces, and the existing experimental hardware.
+        assembly for Swarthmore's LiPD plasma device. The completed system integrates a
+        LaB<sub>6</sub> emitter, a 1000 W heater circuit, refractory materials, thermal shielding,
+        vacuum interfaces, and the existing experimental hardware, and has demonstrated sustained
+        operation at the full 50 A heater-current design point.
       </p>
     </header>
 
     <section class="project-facts" aria-label="Project at a glance">
       <div class="project-fact"><span>Role</span><strong>Mechanical &amp; thermal design</strong><p>CAD, analysis, fabrication, assembly, and test integration.</p></div>
       <div class="project-fact"><span>System</span><strong>LiPD electron source</strong><p>High-temperature LaB<sub>6</sub> cathode mounted through a CF flange.</p></div>
-      <div class="project-fact"><span>Milestone</span><strong>Operated at 46 A</strong><p>New high-current record during plasma characterization.</p></div>
+      <div class="project-fact"><span>Milestone</span><strong>Sustained operation at 50 A</strong><p>Full heater-current design point reached with a bright argon discharge.</p></div>
       <div class="project-fact"><span>Tools</span><strong>SolidWorks + FEA</strong><p>Thermal modeling, resistance sizing, machining, and vacuum hardware.</p></div>
     </section>
 
@@ -311,34 +312,33 @@
 
     <!-- RESULTS -->
     <section class="project-section">
-      <div class="section-label">Commissioning &amp; Characterization</div>
+      <div class="section-label">Commissioning &amp; High-Current Operation</div>
 
       <div class="project-split-wide results-split">
         <div>
           <div class="project-text-block">
-            <h2>High-Current Plasma Operation</h2>
+            <h2>Sustained Operation at the Full Design Current</h2>
             <p>
               On July 17, 2026, the completed LaB<sub>6</sub> cathode produced its first
-              visible plasma at 40 A of heater current. Three days later, we increased the
-              heater current to 46 A—the highest current reached with the new assembly to
-              date—and sustained a bright argon discharge while documenting the plasma from
-              both the exterior and axial viewports.
+              visible plasma at 40 A after fabrication, assembly, and installation in LiPD.
+              Commissioning then progressed to sustained operation at the full 50 A
+              heater-current design point, with a bright argon discharge visible through
+              the device's axial and exterior viewports.
             </p>
             <p>
-              The 46 A run moved the cathode close to its 50 A design operating point and
-              further tested the thermal, electrical, mechanical, and vacuum interfaces under
-              higher loading. We also positioned an axial Langmuir probe for voltage-current
-              characterization. Visible brightness fluctuations appeared during portions of
-              the run and are being investigated alongside cathode resistance, pressure,
-              discharge bias, and power-supply behavior.
+              Reaching 50 A established that the thermal, electrical, mechanical, and vacuum
+              interfaces could operate together under the assembly's intended current load.
+              During high-current runs, we also positioned an axial Langmuir probe for
+              voltage-current characterization and documented changes in plasma structure
+              and brightness while varying source and device conditions.
             </p>
           </div>
 
-          <div class="plasma-result-banner" aria-label="Highest heater-current milestone">
-            <div class="plasma-result-value">46 A</div>
+          <div class="plasma-result-banner" aria-label="Full-current cathode operating milestone">
+            <div class="plasma-result-value">50 A</div>
             <div>
-              <div class="plasma-result-label">Highest heater current to date</div>
-              <p>Reached on July 20, 2026, four amperes above the first-plasma run.</p>
+              <div class="plasma-result-label">Sustained full-current operation</div>
+              <p>Established at the cathode's intended heater-current design point.</p>
             </div>
           </div>
         </div>
@@ -346,17 +346,33 @@
         <figure class="plasma-video-card">
           <div class="plasma-video-frame">
             <video class="plasma-result-video" muted autoplay loop playsinline preload="metadata"
-              poster="plasma_media/2026-07-20_LiPD_axial_probe_diffuse_plasma_view_poster.jpg"
-              aria-label="Axial view of the plasma and Langmuir probe during the 46 ampere run">
-              <source src="plasma_media/2026-07-20_LiPD_axial_probe_diffuse_plasma_view.mp4" type="video/mp4">
+              poster="first_plasma_axial_poster.jpg"
+              aria-label="Axial view of the first purple plasma produced by the LaB6 cathode">
+              <source src="first_plasma_axial.mp4" type="video/mp4">
               Your browser does not support embedded MP4 video.
             </video>
           </div>
           <figcaption class="project-caption">
-            Axial view during the 46 A run, with the Langmuir probe and surrounding chamber
-            geometry visible against the diffuse purple plasma.
+            Axial view of the initial visible purple discharge during commissioning at 40 A.
+            This remains the clearest footage of the source and is cropped and slowed slightly
+            to make the discharge easier to see through the viewport.
           </figcaption>
         </figure>
+      </div>
+
+      <div class="plasma-photo-grid plasma-photo-grid-three">
+        <figure class="plasma-photo-card"><div class="plasma-photo-frame"><img src="cathode%20photos/Full%20Assembly%204%20%281%29.jpg" alt="Completed LaB6 cathode assembly with heat shield installed" loading="lazy" decoding="async"></div><figcaption class="project-caption">Completed LaB<sub>6</sub> cathode assembly with the heat shield installed.</figcaption></figure>
+        <figure class="plasma-photo-card"><div class="plasma-photo-frame"><img src="cathode%20photos/In%20LiPD.jpg" alt="Cathode assembly installed in the LiPD plasma device" loading="lazy" decoding="async"></div><figcaption class="project-caption">Cathode assembly installed through the LiPD flange and positioned inside the device.</figcaption></figure>
+        <figure class="plasma-photo-card"><div class="plasma-photo-frame"><img src="cathode%20photos/LiPD%20Power%20Supply%20View.jpg" alt="LiPD experimental setup and cathode power supply" loading="lazy" decoding="async"></div><figcaption class="project-caption">LiPD experimental setup during cathode integration and powered testing.</figcaption></figure>
+      </div>
+
+      <div class="project-text-block plasma-note">
+        <h2>High-Current Operation and Diagnostics</h2>
+        <p>
+          High-current runs provided a clearer view of the plasma within the larger LiPD system.
+          The exterior viewport shows the discharge filling the chamber, while the axial views
+          document the probe geometry and concentrated source region used during characterization.
+        </p>
       </div>
 
       <div class="plasma-photo-grid plasma-photo-grid-three">
@@ -364,14 +380,14 @@
           <div class="plasma-photo-frame">
             <img
               src="plasma_media/2026-07-20_LiPD_viewport_exterior_plasma_glow.jpg"
-              alt="Exterior viewport of the LiPD device glowing blue and purple during the 46 ampere plasma run"
+              alt="Exterior viewport of the LiPD device glowing blue and purple during high-current plasma operation"
               loading="lazy"
               decoding="async"
             >
           </div>
           <figcaption class="project-caption">
-            Exterior view of the LiPD vacuum hardware during the 46 A run, with blue-purple
-            plasma filling the viewport.
+            Exterior view of the LiPD vacuum hardware during a high-current run, with
+            blue-purple plasma filling the viewport.
           </figcaption>
         </figure>
 
@@ -394,14 +410,14 @@
           <div class="plasma-photo-frame">
             <img
               src="plasma_media/2026-07-20_LiPD_purple_plasma_source_end_view.jpg"
-              alt="Purple argon plasma viewed from the source end of the LiPD device during the 46 ampere run"
+              alt="Purple argon plasma viewed from the source end of the LiPD device during sustained high-current operation"
               loading="lazy"
               decoding="async"
             >
           </div>
           <figcaption class="project-caption">
-            Source-end view of the bright emission region surrounded by diffuse purple argon
-            plasma during high-current operation.
+            Source-end view of the intense cathode emission region surrounded by diffuse
+            purple argon plasma during sustained high-current operation.
           </figcaption>
         </figure>
       </div>
@@ -430,24 +446,25 @@
     <section class="project-section project-footer-note">
       <div class="section-label">Acknowledgements &amp; Takeaways</div>
       <p>
-        I am grateful for the opportunity to work on a project that connects plasma physics,
-        thermal analysis, and hardware design. It has been my first professional experience at
-        the intersection of engineering and space-relevant plasma physics, and the skills I
-        have developed in SolidWorks, FEA, thermal analysis, experimental integration, and
-        particle modeling will carry into future work on plasma systems, aerospace hardware,
-        and other physics-driven technologies.
+        I am grateful for the opportunity to work on a project that connects plasma physics, thermal analysis, and hardware design. It has been my first professional
+        experience at the intersection of engineering and space-relevant plasma physics,
+        and the skills I have developed in SolidWorks, FEA, thermal analysis, experimental
+        integration, and particle modeling will carry into future work on plasma systems,
+        aerospace hardware, and other physics-driven technologies.
       </p>
+
       <p>
         I would especially like to thank Dr. Michael Brown, who has been an incredibly
         supportive and knowledgeable advisor, as well as my friend and colleague Isaac
         Wright-Muller, without whom this work would not have progressed nearly as far.
       </p>
+
       <p>
         I do not take for granted the rare opportunity I have had as an undergraduate to
-        develop projects across their full life cycle, test my ideas, and iterate until they
-        become working systems. I look forward to continuing to pursue projects that expand
-        my technical range, remain grounded in physical theory, and translate ideas into
-        functioning hardware.
+        develop projects across their full life cycle, test my ideas, and iterate until
+        they become working systems. I look forward to continuing to pursue projects that
+        expand my technical range, remain grounded in physical theory, and translate ideas
+        into functioning hardware.
       </p>
     </section>
   </main>
@@ -455,7 +472,6 @@
   <script src="space.js"></script>
   <script>
     const plasmaResultVideo = document.querySelector(".plasma-result-video");
-
     if (plasmaResultVideo && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       plasmaResultVideo.pause();
       plasmaResultVideo.removeAttribute("autoplay");
