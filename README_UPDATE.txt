@@ -27,3 +27,9 @@ The orbit video files were renamed for accuracy:
 The old inaccurate filenames can be removed from the repository if they were previously added:
 - orbit_assets/confined_orbit_wham.mp4
 - orbit_assets/confined_orbit_wham_poster.jpg
+
+
+LAYOUT FIX V2
+- Reworked the 19% → <1% result into three separately sized grid elements.
+- Increased the result column width and stacks the banner below 920 px.
+- This prevents the number from entering the explanatory text at desktop and tablet widths.
