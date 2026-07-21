@@ -1657,3 +1657,26 @@ h1 {
   text-transform: uppercase;
   backdrop-filter: blur(6px);
 }
+
+.home-nav,
+.hero-links,
+.contact-links {
+  align-items: baseline;
+}
+
+.home-nav a,
+.hero-links a,
+.contact-links a {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.home-nav a span,
+.hero-links a span,
+.contact-links a span {
+  position: relative;
+  top: 0.08em;
+  margin-left: 0.18em;
+  font-size: 0.82em;
+  line-height: 1;
+}
