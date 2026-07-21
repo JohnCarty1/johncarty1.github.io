@@ -1,14 +1,18 @@
-REACTION WHEEL PAGE UPDATE
+JOHN CARTY PORTFOLIO — RÉSUMÉ LINK UPDATE
 
-Replace the existing reaction.html in the repository root with the included reaction.html.
-Add the included reaction_media folder to the repository root.
+Replace the repository-root index.html with the included index.html.
 
-No changes to style.css, index.html, or space.js are required.
+Export the final résumé PDF using this exact filename:
+    John_Carty_Resume.pdf
 
-Included media:
-- reaction_media/reaction_wheel_stabilization.mp4
-- reaction_media/reaction_wheel_stabilization_poster.jpg
-- reaction_media/reaction_wheel_spinup.mp4
-- reaction_media/reaction_wheel_spinup_poster.jpg
+Place John_Carty_Resume.pdf in the repository root, alongside index.html.
 
-The page deliberately describes the project as active development and distinguishes simulation visualizations from experimental hardware data.
+The homepage now links to the résumé from:
+- The top navigation
+- The main hero/contact buttons
+- The Contact Me section
+
+For every future résumé revision, export the new file with the same exact
+filename and replace the old PDF. No HTML edits will be needed.
+
+No CSS or JavaScript changes are required.
