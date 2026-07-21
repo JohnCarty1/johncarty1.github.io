@@ -1602,3 +1602,22 @@ h1 {
     white-space: normal;
   }
 }
+
+
+/* Clarifies that the homepage orbit animation is conceptual, while the project data use WHAM fields. */
+.project-preview-label {
+  position: absolute;
+  left: 9px;
+  bottom: 9px;
+  z-index: 2;
+  padding: 5px 8px;
+  border: 1px solid rgba(210, 222, 255, 0.20);
+  border-radius: 999px;
+  color: rgba(241, 245, 255, 0.88);
+  background: rgba(5, 8, 16, 0.76);
+  font-size: 0.61rem;
+  font-weight: 600;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+}

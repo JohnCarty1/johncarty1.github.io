@@ -1,12 +1,29 @@
-FAST-ION ORBIT PAGE REVISION
+ORBIT PAGE — FIREBIRD / HPC REVISION
+========================================
 
 Replace these files in the repository root:
 - index.html
 - orbits.html
 - style.css
 
-Add these files under orbit_assets/:
-- confined_orbit_wham.mp4
-- confined_orbit_wham_poster.jpg
+Add/replace this folder in the repository root:
+- orbit_assets/
 
-The revision keeps the existing orbit documentation and technical figures. It adds the trapped-particle animation to the homepage and project page, makes boundary sensitivity the central result, moves the densest supporting plots into an expandable section, and tightens the writing without removing the technical story.
+Important correction:
+- The animation is now identified as a conceptual magnetic-mirror orbit, not a trajectory produced from the imported WHAM fields.
+- The quantitative figures and production results are explicitly described as coming from the separate full-orbit model using actual WHAM magnetic-field data.
+
+New project information included:
+- Parallelized independent orbit integrations
+- Production parameter sweeps on Swarthmore's Firebird HPC cluster
+- 41,310-orbit spatial birth-location scan
+- 65,600 velocity-space integrations across two boundary/source cases
+- More than 100,000 full-orbit integrations across those two production studies
+
+The orbit video files were renamed for accuracy:
+- orbit_assets/conceptual_mirror_orbit.mp4
+- orbit_assets/conceptual_mirror_orbit_poster.jpg
+
+The old inaccurate filenames can be removed from the repository if they were previously added:
+- orbit_assets/confined_orbit_wham.mp4
+- orbit_assets/confined_orbit_wham_poster.jpg

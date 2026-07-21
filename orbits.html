@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Full-orbit charged-particle modeling in actual WHAM magnetic fields, including confinement, loss-cone validation, boundary sensitivity, and velocity-space distributions.">
+  <meta name="description" content="Parallelized full-orbit charged-particle modeling in actual WHAM magnetic fields, including Firebird HPC sweeps, confinement validation, boundary sensitivity, and velocity-space distributions.">
   <title>Fast-Ion Orbit Modeling | John Carty</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -21,15 +21,17 @@
       <p class="project-lead">
         I am developing a full-orbit simulation pipeline in Python that evaluates energetic
         ion motion in actual WHAM magnetic-field data and classifies confinement, axial
-        escape, and radial loss across position and velocity space.
+        escape, and radial loss across position and velocity space. I parallelized the
+        independent orbit calculations and moved the largest production sweeps to Firebird,
+        Swarthmore's high-performance computing cluster.
       </p>
     </header>
 
     <section class="project-facts" aria-label="Project at a glance">
       <div class="project-fact"><span>Role</span><strong>Computational model development</strong><p>Field interpolation, orbit integration, classifier design, validation, analysis, and visualization.</p></div>
       <div class="project-fact"><span>System</span><strong>WHAM fast-ion confinement</strong><p>Full particle trajectories in axisymmetric B<sub>r</sub>(r,z) and B<sub>z</sub>(r,z) fields exported from COMSOL.</p></div>
-      <div class="project-fact"><span>Milestone</span><strong>Validated population classifier</strong><p>Resolved confined, axial-loss, hard-radial-loss, and limiter-crossing populations.</p></div>
-      <div class="project-fact"><span>Tools</span><strong>Python + numerical integration</strong><p>Boris particle pusher, interpolation, large parameter sweeps, weighted distributions, and plotting.</p></div>
+      <div class="project-fact"><span>Scale</span><strong>Firebird HPC production sweeps</strong><p>More than 100,000 full-orbit integrations across high-resolution spatial and velocity-space studies.</p></div>
+      <div class="project-fact"><span>Tools</span><strong>Python + parallel computing</strong><p>Boris particle pusher, field interpolation, distributed parameter sweeps, weighted distributions, and plotting.</p></div>
     </section>
 
     <section class="project-section">
@@ -50,20 +52,23 @@
           or across a harder fast-ion radial boundary.
         </p>
         <p>
-          The animation shows one representative particle trapped between the two mirror
-          regions. The same model is then applied across large populations to address questions
-          our WHAM collaborators care about, including energetic deuterium confinement and the
-          eventual calculation of charge-exchange losses.
+          The animation is a conceptual representation of a particle trapped between two
+          magnetic-mirror regions. It is included to make the confinement mechanism intuitive,
+          but it is not generated from the imported WHAM field. The quantitative results below
+          come from the separate full-orbit model using actual WHAM magnetic-field data and are
+          applied across large populations to address questions our collaborators care about,
+          including energetic deuterium confinement and the eventual calculation of
+          charge-exchange losses.
         </p>
       </div>
 
       <figure class="project-media-card orbit-video-card">
         <div class="orbit-video-frame">
-          <video class="orbit-video" autoplay muted loop playsinline controls preload="metadata" poster="orbit_assets/confined_orbit_wham_poster.jpg">
-            <source src="orbit_assets/confined_orbit_wham.mp4" type="video/mp4">
+          <video class="orbit-video" autoplay muted loop playsinline controls preload="metadata" poster="orbit_assets/conceptual_mirror_orbit_poster.jpg">
+            <source src="orbit_assets/conceptual_mirror_orbit.mp4" type="video/mp4">
           </video>
         </div>
-        <figcaption class="project-caption">A representative collisionless ion reverses near the mirror regions and remains trapped in the imported WHAM magnetic field.</figcaption>
+        <figcaption class="project-caption"><strong>Conceptual visualization:</strong> a particle reverses near two mirror regions and remains trapped. This animation illustrates the mechanism; the production simulations below use imported WHAM fields.</figcaption>
       </figure>
 
       <figure class="technical-figure technical-figure-wide">
@@ -86,9 +91,10 @@
         </p>
         <p>
           The same orbit engine is reused across position scans, pitch-angle studies,
-          velocity-space sweeps, and weighted distribution calculations. This keeps the physical
-          model consistent while allowing conclusions to be tested across large populations
-          rather than a few visually appealing trajectories.
+          velocity-space sweeps, and weighted distribution calculations. I structured the
+          workflow so the independent trajectories could be distributed in parallel without
+          changing the underlying physical model, allowing conclusions to be tested across large
+          populations rather than a few visually appealing trajectories.
         </p>
       </div>
 
@@ -102,6 +108,33 @@
         <div class="project-card"><h3>Orbit integration</h3><p>Advance full particle gyromotion with the Boris algorithm rather than relying only on a guiding-center approximation.</p></div>
         <div class="project-card"><h3>Classification</h3><p>Separate confined particles from axial escape, hard radial loss, limiter-surface crossing, and unresolved cases.</p></div>
         <div class="project-card"><h3>Population analysis</h3><p>Repeat across v<sub>⊥</sub>, v<sub>∥</sub>, position, and gyro phase, then weight the outcomes with a physical source distribution.</p></div>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <div class="section-label">High-Performance Computing</div>
+      <div class="project-text-block">
+        <h2>Scaling from single orbits to production sweeps</h2>
+        <p>
+          A single trajectory is useful for debugging and visualization, but the questions we
+          care about depend on how confinement changes across an entire population. Because the
+          particle integrations are independent, I parallelized the workflow and ran the largest
+          parameter sweeps on Firebird, Swarthmore's high-performance computing cluster. I then
+          combined the batch outputs into outcome maps and weighted distributions.
+        </p>
+        <p>
+          The current production studies include a 41,310-orbit spatial birth-location scan
+          (81 axial positions × 51 radial positions × 10 samples) and 65,600 velocity-space
+          integrations across two boundary/source cases. Between those two studies alone, the
+          model has completed more than 100,000 full-orbit integrations using the actual WHAM
+          field geometry.
+        </p>
+      </div>
+
+      <div class="project-grid three-col">
+        <div class="project-card stat-card"><div class="card-label">Spatial scan</div><div class="card-value">41,310 orbits</div><p>High-resolution sampling across axial and radial birth location, with 10 samples at each grid point.</p></div>
+        <div class="project-card stat-card"><div class="card-label">Velocity-space sweep</div><div class="card-value">65,600 orbits</div><p>Two 41 × 80 velocity grids with 10 samples per bin, used to compare source and radial-boundary definitions.</p></div>
+        <div class="project-card stat-card"><div class="card-label">Compute platform</div><div class="card-value">Firebird HPC</div><p>Parallel production runs turned the orbit engine into a population-level simulation tool.</p></div>
       </div>
     </section>
 
@@ -261,8 +294,8 @@
         I am an engineer first and naturally gravitate toward hardware, but this project has
         added computational depth that I value while remaining directly connected to the device.
         It uses WHAM's actual fields and has required me to connect plasma theory, numerical
-        methods, software design, validation, and physical interpretation around questions that
-        matter to an operating fusion experiment.
+        methods, parallel computing, software design, validation, and physical interpretation
+        around questions that matter to an operating fusion experiment.
       </p>
       <p><a href="plasma.html">View the related LaB<sub>6</sub> cathode hardware project →</a></p>
     </section>
