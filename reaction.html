@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A reaction-wheel attitude-control project connecting rigid-body dynamics, simulation, actuator sizing, and a planned physical testbed.">
+  <meta name="description" content="An active reaction-wheel attitude-control project connecting rigid-body dynamics simulations with a 3D-printed, IMU-equipped single-axis prototype.">
   <title>Reaction Wheel Attitude Control | John Carty</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -17,116 +17,130 @@
     <header class="project-hero">
       <p class="project-kicker">Spacecraft Dynamics &amp; Controls</p>
       <h1 class="glow">Reaction Wheel Attitude Control</h1>
-      <p class="project-subtitle">Personal project • In development</p>
+      <p class="project-subtitle">Personal project • Active development</p>
       <p class="project-lead">
-        A spacecraft-oriented project connecting rigid-body dynamics, reaction-wheel
-        simulation, actuator sizing, sensing, and a planned physical attitude-control
-        demonstrator.
+        A developing single-axis attitude-control testbed that grew from my Analytical
+        Dynamics work. I first modeled rigid-body and reaction-wheel motion in Python and
+        MATLAB, then built an initial 3D-printed prototype integrating an IMU and preliminary
+        control electronics.
       </p>
     </header>
 
     <section class="project-facts" aria-label="Project at a glance">
-      <div class="project-fact"><span>Role</span><strong>Independent development</strong><p>Dynamics modeling, simulation, architecture, component trade studies, and planned testing.</p></div>
-      <div class="project-fact"><span>System</span><strong>Reaction-wheel testbed</strong><p>A compact platform intended to demonstrate internal-torque attitude control.</p></div>
-      <div class="project-fact"><span>Milestone</span><strong>Rigid-body simulation complete</strong><p>Euler-equation and reaction-wheel models established before hardware development.</p></div>
-      <div class="project-fact"><span>Tools</span><strong>Python + MATLAB</strong><p>Numerical dynamics, visualization, control development, and future embedded integration.</p></div>
+      <div class="project-fact">
+        <span>Role</span>
+        <strong>Independent development</strong>
+        <p>Dynamics modeling, simulation, mechanical prototyping, sensor integration, and planned testing.</p>
+      </div>
+      <div class="project-fact">
+        <span>System</span>
+        <strong>Single-axis testbed</strong>
+        <p>A compact reaction-wheel platform intended to demonstrate internal-torque attitude control.</p>
+      </div>
+      <div class="project-fact">
+        <span>Status</span>
+        <strong>First prototype established</strong>
+        <p>The simulation framework and initial IMU-equipped hardware are complete; closed-loop testing is next.</p>
+      </div>
+      <div class="project-fact">
+        <span>Tools</span>
+        <strong>Python + MATLAB</strong>
+        <p>Rigid-body simulation, visualization, CAD, 3D printing, IMU sensing, and control development.</p>
+      </div>
     </section>
 
     <section class="project-section">
       <div class="section-label">Overview</div>
       <div class="project-text-block">
-        <h2>Turning internal momentum into attitude motion</h2>
+        <h2>Building outward from the dynamics</h2>
         <p>
-          Reaction wheels control spacecraft orientation by exchanging angular momentum with
-          the vehicle. Accelerating the wheel produces an equal and opposite torque on the
-          spacecraft body, allowing attitude changes without expelling propellant.
+          Reaction wheels change spacecraft orientation by exchanging angular momentum with
+          the body. Accelerating the wheel produces an equal and opposite response in the
+          surrounding structure, allowing attitude changes without expelling propellant.
         </p>
         <p>
-          I began this project while studying analytical dynamics, using Euler's equations to
-          model rigid-body rotation and then adding a reaction wheel as an internal actuator.
-          The long-term goal is to carry that work into a physical platform where the simulated
-          dynamics, actuator limits, sensor data, and controller can be compared directly.
+          I began the project for my Analytical Dynamics final presentation, using Euler's
+          equations, the inertia tensor, and conservation of angular momentum to simulate
+          rotational motion. The current goal is to carry that work into a measured physical
+          system and compare the prototype's response with the numerical model.
         </p>
       </div>
     </section>
 
     <section class="project-section">
-      <div class="section-label">Dynamics Foundation</div>
-      <div class="project-split">
-        <div class="project-text-block">
-          <h2>Modeling rotational response</h2>
-          <p>
-            The simulation tracks the coupled motion of the spacecraft body and reaction
-            wheel through angular momentum and Euler's rigid-body equations. It provides a
-            way to explore how inertia distribution, initial rotation, wheel torque, and
-            saturation affect the achievable response.
-          </p>
-          <p>
-            This stage is important because a small demonstrator can easily look active while
-            still being poorly sized. The model helps determine whether a candidate wheel and
-            motor can produce an observable, controllable attitude change rather than simply
-            spinning rapidly inside the frame.
-          </p>
-        </div>
+      <div class="section-label">Simulation Foundation</div>
+      <div class="project-text-block">
+        <h2>From rigid-body motion to reaction-wheel control</h2>
+        <p>
+          The model explores how inertia distribution, initial rotation, wheel torque, and
+          wheel speed affect the body's response. These animations are simulation
+          visualizations from the dynamics work, rather than experimental hardware data.
+        </p>
+      </div>
 
-        <figure class="reaction-visual">
-          <img src="phase_space.gif" alt="Animated rigid-body dynamics visualization for the reaction-wheel project">
-          <figcaption class="project-caption">Simulation visualization developed while building the rigid-body dynamics model.</figcaption>
+      <div class="project-media-grid">
+        <figure class="project-media-card">
+          <video class="project-video" autoplay muted loop playsinline preload="metadata"
+            poster="reaction_media/reaction_wheel_stabilization_poster.jpg">
+            <source src="reaction_media/reaction_wheel_stabilization.mp4" type="video/mp4">
+          </video>
+          <figcaption class="project-caption">
+            Three-dimensional model of body reorientation as an internal reaction wheel exchanges angular momentum with the structure.
+          </figcaption>
+        </figure>
+
+        <figure class="project-media-card">
+          <video class="project-video" autoplay muted loop playsinline preload="metadata"
+            poster="reaction_media/reaction_wheel_spinup_poster.jpg">
+            <source src="reaction_media/reaction_wheel_spinup.mp4" type="video/mp4">
+          </video>
+          <figcaption class="project-caption">
+            Simplified single-axis visualization showing the equal-and-opposite body response as wheel speed changes.
+          </figcaption>
         </figure>
       </div>
     </section>
 
     <section class="project-section">
-      <div class="section-label">Engineering Trade Space</div>
-      <div class="project-grid two-col">
-        <div class="project-card">
-          <h3>Wheel inertia</h3>
-          <p>The wheel must store enough angular momentum to create a visible body response without becoming unnecessarily large or difficult to accelerate.</p>
-        </div>
-        <div class="project-card">
-          <h3>Motor capability</h3>
-          <p>Available torque controls the attitude acceleration, while speed limits determine momentum storage and saturation behavior.</p>
-        </div>
-        <div class="project-card">
-          <h3>Structure and friction</h3>
-          <p>The frame, bearings, wiring, and test support must minimize disturbances that could dominate the reaction-wheel torque.</p>
-        </div>
-        <div class="project-card">
-          <h3>Sensing and control</h3>
-          <p>An IMU and closed-loop controller will be needed to move from open-loop demonstrations to measurable attitude regulation.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section">
-      <div class="section-label">Current Direction</div>
+      <div class="section-label">Current Status</div>
       <div class="project-text-block">
-        <h2>From simulation to hardware</h2>
+        <h2>An initial hardware platform</h2>
         <p>
-          The next phase is to finalize the mechanical architecture, choose a motor and wheel
-          combination from the simulated torque and momentum requirements, and build the
-          sensor and control stack around that hardware.
-        </p>
-        <p>
-          The first physical objective is a clean one-axis demonstration with well-documented
-          open-loop response. From there, the platform can support feedback control, attitude
-          estimation, and eventually a more complete multi-axis system.
+          Since the original simulation work, I designed and 3D-printed a first reaction-wheel
+          testbed and integrated an IMU with preliminary control electronics. The hardware is
+          still early, but it establishes the physical platform needed for sensor calibration,
+          open-loop characterization, and eventual feedback control.
         </p>
       </div>
 
       <div class="project-grid two-col">
-        <div class="project-card"><h3>Completed</h3><ul class="project-list"><li>Rigid-body dynamics formulation</li><li>Reaction-wheel simulation framework</li><li>Python and MATLAB visualizations</li><li>Initial actuator and inertia trade studies</li></ul></div>
-        <div class="project-card"><h3>Next</h3><ul class="project-list"><li>Mechanical layout and CAD</li><li>Motor, driver, and wheel selection</li><li>IMU integration and calibration</li><li>Open-loop testing followed by feedback control</li></ul></div>
+        <div class="project-card">
+          <h3>Completed so far</h3>
+          <ul class="project-list">
+            <li>Euler-equation and angular-momentum model</li>
+            <li>Python and MATLAB simulation visualizations</li>
+            <li>Initial 3D-printed testbed</li>
+            <li>IMU and preliminary control-electronics integration</li>
+          </ul>
+        </div>
+        <div class="project-card">
+          <h3>Next steps</h3>
+          <ul class="project-list">
+            <li>Refine the wheel, motor, and structural layout</li>
+            <li>Calibrate the IMU and establish reliable data logging</li>
+            <li>Measure open-loop rotational response</li>
+            <li>Implement feedback control and compare tests with simulation</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <section class="project-section project-footer-note">
       <div class="section-label">Takeaway</div>
       <p>
-        This project gives me a direct way to connect the rotational dynamics I enjoy studying
-        with spacecraft hardware and controls. I am deliberately building from the physics
-        outward so that the eventual prototype is not only visually convincing, but also a
-        useful, measurable attitude-control system.
+        This project remains in active development. I am keeping the first hardware scope
+        intentionally focused: a clean, measurable one-axis system that connects the
+        rotational dynamics I studied with real sensor data, actuator limits, and control.
       </p>
     </section>
   </main>
