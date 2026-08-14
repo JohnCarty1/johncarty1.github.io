@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Parallelized full-orbit charged-particle modeling in actual WHAM magnetic fields, including Firebird HPC sweeps, confinement validation, boundary sensitivity, and velocity-space distributions.">
+  <meta name="description" content="Parallelized full-orbit charged-particle modeling in actual WHAM magnetic fields, including Firebird HPC sweeps, 25 keV NBI pitch-angle scattering studies, confinement validation, boundary sensitivity, and velocity-space distributions.">
   <title>Fast-Ion Orbit Modeling | John Carty</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -30,15 +30,17 @@
         ion motion in actual WHAM magnetic-field data and classifies confinement, axial
         escape, and radial loss across position and velocity space. I parallelized the
         independent orbit calculations and moved the largest production sweeps to Firebird,
-        Swarthmore's high-performance computing cluster.
+        Swarthmore's high-performance computing cluster. The model now includes a 500,000-particle
+        scan of 25 keV neutral-beam deuterium to study how pitch-angle scattering and birth
+        location change fast-ion confinement.
       </p>
     </header>
 
     <section class="project-facts" aria-label="Project at a glance">
       <div class="project-fact"><span>Role</span><strong>Computational model development</strong><p>Field interpolation, orbit integration, classifier design, validation, analysis, and visualization.</p></div>
       <div class="project-fact"><span>System</span><strong>WHAM fast-ion confinement</strong><p>Full particle trajectories in axisymmetric B<sub>r</sub>(r,z) and B<sub>z</sub>(r,z) fields exported from COMSOL.</p></div>
-      <div class="project-fact"><span>Scale</span><strong>Firebird HPC production sweeps</strong><p>More than 100,000 full-orbit integrations across high-resolution spatial and velocity-space studies.</p></div>
-      <div class="project-fact"><span>Tools</span><strong>Python + parallel computing</strong><p>Boris particle pusher, field interpolation, distributed parameter sweeps, weighted distributions, and plotting.</p></div>
+      <div class="project-fact"><span>Scale</span><strong>600,000+ full-orbit integrations</strong><p>High-resolution spatial, velocity-space, and 25 keV NBI scattering studies run on Firebird HPC.</p></div>
+      <div class="project-fact"><span>Tools</span><strong>Python + parallel computing</strong><p>Boris particle pusher, field interpolation, distributed parameter sweeps, pitch-angle scattering, weighted distributions, and plotting.</p></div>
     </section>
 
     <section class="project-section">
@@ -130,18 +132,18 @@
           combined the batch outputs into outcome maps and weighted distributions.
         </p>
         <p>
-          The current production studies include a 41,310-orbit spatial birth-location scan
-          (81 axial positions × 51 radial positions × 10 samples) and 65,600 velocity-space
-          integrations across two boundary/source cases. Between those two studies alone, the
-          model has completed more than 100,000 full-orbit integrations using the actual WHAM
-          field geometry.
+          The production studies now include a 41,310-orbit spatial birth-location scan
+          (81 axial positions × 51 radial positions × 10 samples), 65,600 velocity-space
+          integrations across two boundary/source cases, and a 500,000-particle 25 keV NBI
+          scattering scan. Together, these studies have pushed the model past 600,000 full-orbit
+          integrations in the actual WHAM field geometry.
         </p>
       </div>
 
       <div class="project-grid three-col">
         <div class="project-card stat-card"><div class="card-label">Spatial scan</div><div class="card-value">41,310 orbits</div><p>High-resolution sampling across axial and radial birth location, with 10 samples at each grid point.</p></div>
         <div class="project-card stat-card"><div class="card-label">Velocity-space sweep</div><div class="card-value">65,600 orbits</div><p>Two 41 × 80 velocity grids with 10 samples per bin, used to compare source and radial-boundary definitions.</p></div>
-        <div class="project-card stat-card"><div class="card-label">Compute platform</div><div class="card-value">Firebird HPC</div><p>Parallel production runs turned the orbit engine into a population-level simulation tool.</p></div>
+        <div class="project-card stat-card"><div class="card-label">NBI scattering scan</div><div class="card-value">500,000 particles</div><p>Four scattering strengths across a simplified 25 keV neutral-beam source, distributed over 512 compute chunks.</p></div>
       </div>
     </section>
 
@@ -183,6 +185,77 @@
           <figcaption class="project-caption">Velocity-space classification reveals the numerical loss-cone structure across the sampled population.</figcaption>
         </figure>
       </div>
+    </section>
+
+    <section class="project-section">
+      <div class="section-label">NBI Scattering Study</div>
+      <div class="project-text-block">
+        <h2>Pitch-angle scattering sharply changes 25 keV fast-ion confinement</h2>
+        <p>
+          To move beyond the collisionless baseline, I added pitch-angle scattering and launched
+          25 keV D<sup>+</sup> ions from a simplified neutral-beam source: a uniform 50 cm × 8 cm × 8 cm
+          prism following a 45° injection path toward the central cell. I swept normalized
+          scattering values ν = 0, 10<sup>−5</sup>, 10<sup>−4</sup>, and 10<sup>−3</sup> across 500,000 particles.
+          All 512 compute chunks completed with zero unresolved outcomes.
+        </p>
+        <p>
+          The response was strong and monotonic. In the collisionless case, 74.0% of the beam ions
+          remained confined to the end of the integration, 26.0% reached the hard radial boundary,
+          and essentially none escaped axially. At ν = 10<sup>−4</sup>, confinement fell to 51.4%; at
+          ν = 10<sup>−3</sup>, only 8.1% remained confined, while 62.9% were lost radially and 29.0%
+          escaped axially. The scan shows that the modeled fast-ion population can be highly
+          sensitive to pitch-angle scattering.
+        </p>
+      </div>
+
+      <div class="orbit-result-banner" aria-label="NBI scattering sensitivity result">
+        <div class="orbit-result-value" aria-label="74 percent to 8.1 percent confined">
+          <span class="orbit-result-from">74.0%</span>
+          <span class="orbit-result-arrow" aria-hidden="true">→</span>
+          <span class="orbit-result-to">8.1%</span>
+        </div>
+        <div class="orbit-result-copy">
+          <div class="orbit-result-label">Confined fraction across the scattering scan</div>
+          <p>As normalized ν increased from 0 to 10<sup>−3</sup>, confinement collapsed while both axial escape and hard-radial loss grew.</p>
+        </div>
+      </div>
+
+      <div class="project-grid three-col">
+        <div class="project-card stat-card"><div class="card-label">Particles</div><div class="card-value">500,000</div><p>High-statistics 25 keV D<sup>+</sup> neutral-beam population.</p></div>
+        <div class="project-card stat-card"><div class="card-label">Scattering scan</div><div class="card-value">4 values of ν</div><p>Collisionless through ν = 10<sup>−3</sup>, using the same source and field geometry.</p></div>
+        <div class="project-card stat-card"><div class="card-label">Numerical completion</div><div class="card-value">0 unresolved</div><p>All 512 distributed compute chunks completed successfully.</p></div>
+      </div>
+
+      <figure class="technical-figure technical-figure-wide">
+        <a href="orbits_documentation/outcome_fractions_vs_nu.png" target="_blank" rel="noopener noreferrer">
+          <img src="orbits_documentation/outcome_fractions_vs_nu.png" alt="25 keV neutral-beam ion confinement, axial escape, and hard radial loss fractions across four pitch-angle scattering strengths">
+        </a>
+        <figcaption class="project-caption"><strong>Population-level result:</strong> increasing the normalized scattering parameter shifts the 25 keV beam population from predominantly confined to predominantly lost, with both axial escape and hard-radial loss becoming important.</figcaption>
+      </figure>
+
+      <div class="project-text-block">
+        <h2>Birth position along the beam is a second strong control</h2>
+        <p>
+          The same run also revealed a pronounced dependence on where an ion is born along the
+          modeled beam path. In the collisionless case, particles born closer to the central-cell
+          target are nearly all confined, while births farther upstream are dominated by radial
+          loss. Increasing the scattering strength progressively degrades confinement even for
+          near-center births and broadens the region of the source that feeds losses.
+        </p>
+        <p>
+          This matters because it connects the loss picture directly to injection geometry rather
+          than treating the neutral beam as one uniform population. The next step is to calibrate
+          ν against physical collision timescales; at this stage it is a normalized sensitivity
+          parameter, not a claimed physical collision rate for WHAM.
+        </p>
+      </div>
+
+      <figure class="technical-figure technical-figure-wide">
+        <a href="orbits_documentation/confinement_vs_source_s_by_nu.png" target="_blank" rel="noopener noreferrer">
+          <img src="orbits_documentation/confinement_vs_source_s_by_nu.png" alt="Neutral-beam ion confinement fraction versus birth position along the beam for four normalized pitch-angle scattering strengths">
+        </a>
+        <figcaption class="project-caption"><strong>Source-position dependence:</strong> collisionless ions born near the central-cell target are almost entirely confined, while upstream births are strongly loss-dominated. Stronger scattering shifts and suppresses that confinement transition.</figcaption>
+      </figure>
     </section>
 
     <section class="project-section">
@@ -283,29 +356,31 @@
     <section class="project-section">
       <div class="section-label">Current Direction</div>
       <div class="project-text-block">
-        <h2>Adding the next layer of physics</h2>
+        <h2>Turning the sensitivity scan into a physical collision model</h2>
         <p>
-          The current workflow provides a validated collisionless baseline for confined,
-          axially lost, radially lost, and limiter-crossing populations. The next step is to
-          introduce collisions so pitch-angle scattering can repopulate the loss cone over time,
-          then extend the model toward the 20–25 keV deuterium ions produced by WHAM's
-          neutral-beam system.
+          The 25 keV NBI scan provides a high-statistics first look at how pitch-angle scattering
+          changes confinement, but ν is still normalized rather than tied to a physical collision
+          frequency. The immediate work is therefore to validate the scattering operator and map
+          it onto realistic collision timescales, then carry that physics into weighted source
+          distributions and charge-exchange calculations.
         </p>
       </div>
 
       <div class="project-grid two-col">
-        <div class="project-card"><h3>Near term</h3><ul class="project-list"><li>Validate pitch-angle scattering and collision timescales</li><li>Finalize weighted F(v<sub>⊥</sub>,v<sub>∥</sub>) evolution</li><li>Compare limiter and fast-ion flux boundaries</li></ul></div>
-        <div class="project-card"><h3>Longer term</h3><ul class="project-list"><li>Model energetic neutral-beam deuterium</li><li>Calculate charge-exchange loss directions and magnitudes</li><li>Evaluate electric-field and Pastukhov-potential effects</li></ul></div>
+        <div class="project-card"><h3>Near term</h3><ul class="project-list"><li>Calibrate ν against physical collision timescales</li><li>Verify timestep and scattering-operator convergence</li><li>Fold scattering into weighted F(v<sub>⊥</sub>,v<sub>∥</sub>) populations</li></ul></div>
+        <div class="project-card"><h3>Longer term</h3><ul class="project-list"><li>Refine neutral-beam source geometry and weighting</li><li>Calculate charge-exchange loss directions and magnitudes</li><li>Evaluate electric-field and Pastukhov-potential effects</li></ul></div>
       </div>
     </section>
 
     <section class="project-section project-footer-note">
       <div class="section-label">Takeaway</div>
       <p>
-        This project added a computational dimension to my experimental plasma work while
-        remaining tied to a real device. Using WHAM's actual fields has required me to connect
-        plasma theory, numerical methods, parallel computing, validation, and physical
-        interpretation around questions that matter to an operating fusion experiment.
+        This project has grown from a single-particle orbit model into a population-level
+        numerical experiment tied to a real device. Using WHAM's actual fields has required me
+        to connect plasma theory, numerical methods, parallel computing, validation, source
+        geometry, and pitch-angle scattering. The 500,000-particle NBI scan is especially useful
+        because it turns the code into a way to test how specific physical assumptions change
+        confinement, rather than simply visualize trajectories.
       </p>
       <p><a href="plasma.html">View the related LaB<sub>6</sub> cathode hardware project →</a></p>
     </section>
