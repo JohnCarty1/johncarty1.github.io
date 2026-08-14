@@ -482,6 +482,11 @@ h1 {
 }
 
 /* Shared project-page composition */
+.project-topbar {
+  width: min(100%, var(--project));
+  margin: 0 auto 28px;
+}
+
 .back-link,
 .project-hero,
 .project-facts,

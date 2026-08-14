@@ -12,7 +12,14 @@
   <div class="page-overlay"></div>
 
   <main class="site project-shell">
-    <a class="back-link" href="index.html">← Back to Home</a>
+    <div class="home-topbar project-topbar">
+      <a class="home-wordmark" href="index.html" aria-label="John Carty home">John Carty</a>
+      <nav class="home-nav" aria-label="Project navigation">
+        <a href="index.html#projects">Projects</a>
+        <a href="John_Carty_Resume.pdf" target="_blank" rel="noopener noreferrer">Résumé <span aria-hidden="true">↗</span></a>
+        <a href="https://www.linkedin.com/in/john-carty2/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
 
     <!-- HERO -->
     <header class="project-hero">
@@ -21,10 +28,9 @@
       <p class="project-subtitle">May 2026 – Present</p>
       <p class="project-lead">
         I designed, analyzed, fabricated, and commissioned a high-temperature cathode
-        assembly for Swarthmore's LiPD plasma device. The completed system integrates a
-        LaB<sub>6</sub> emitter, a 1000 W heater circuit, refractory materials, thermal shielding,
-        vacuum interfaces, and the existing experimental hardware, and has demonstrated sustained
-        operation at the full 50 A heater-current design point.
+        assembly for Swarthmore's LiPD plasma device. The system combines a LaB<sub>6</sub> emitter,
+        1000 W heater circuit, refractory materials, thermal shielding, and vacuum interfaces,
+        and has demonstrated sustained operation at the full 50 A heater-current design point.
       </p>
     </header>
 
@@ -42,24 +48,18 @@
       <div class="project-text-block">
         <h2>Building a Higher-Performance Electron Source</h2>
         <p>
-          My work has focused on upgrading the electron source for the Little Plasma
-          Device (LiPD) at Swarthmore College. LiPD is an approximately quarter-scale
-          device that shares important geometric and operating characteristics with WHAM,
-          making it a useful local platform for studying physics relevant to the larger
-          fusion experiment. The existing source used a hot tungsten filament, which
-          produced limited electron beam current and plasma density. The goal of this
-          project was to develop a more robust LaB<sub>6</sub> cathode capable of producing
-          substantially greater thermionic emission.
+          My work focused on upgrading the electron source for Swarthmore's Little Plasma
+          Device (LiPD), an approximately quarter-scale device that shares important geometric
+          and operating characteristics with WHAM. The existing hot-tungsten source limited
+          electron beam current and plasma density, so the goal was to develop a more robust
+          LaB<sub>6</sub> cathode with substantially greater thermionic emission.
         </p>
 
         <p>
-          LaB<sub>6</sub> is useful in plasma sources because it has a lower work function
-          than tungsten and emits strongly at temperatures around 2000 K. By increasing
-          thermionic emission and plasma density in LiPD, the upgraded cathode allows us
-          to study plasma behavior in a regime more relevant to the questions our
-          collaborators are asking about WHAM. The engineering challenge was not simply
-          choosing the material, but designing a structure that could heat it effectively,
-          support it mechanically, and survive inside the device.
+          LaB<sub>6</sub> has a lower work function than tungsten and emits strongly near
+          2000 K. Reaching that regime required more than choosing the emitter material: the
+          assembly had to heat it efficiently, support it mechanically, remain electrically
+          reliable, and survive inside the vacuum device.
         </p>
       </div>
     </section>
@@ -72,21 +72,16 @@
         <h2>LaB<sub>6</sub> Cathode Assembly</h2>
 
         <p>
-          The cathode assembly was designed in SolidWorks around a central goal:
-          heating the LaB<sub>6</sub> emitter efficiently enough to support strong
-          thermionic emission while still allowing the hardware to be mechanically
-          supported, electrically connected, and integrated into the existing LiPD
-          plasma device through a CF flange interface.
+          I designed the cathode assembly in SolidWorks around one central requirement:
+          heat the LaB<sub>6</sub> emitter efficiently while keeping it mechanically supported,
+          electrically connected, and compatible with LiPD's existing CF-flange interface.
         </p>
 
         <p>
-          The design had to function as a coupled thermal, electrical, and mechanical
-          system. Current enters through the LiPD connector, passes through custom
-          copper and molybdenum components into a graphite contact holding the
-          LaB<sub>6</sub>, then continues through the tungsten heater wrapped around
-          the boron nitride sleeve. The heat shield also serves a dual role by reflecting
-          radiative heat back toward the emitter while helping complete the electrical
-          return path.
+          The same components often served several functions. Copper and molybdenum pieces
+          carry current and support the assembly; a graphite contact holds the LaB<sub>6</sub>;
+          a tungsten heater wraps a boron-nitride sleeve; and the heat shield both reduces
+          radiative loss and helps complete the electrical return path.
         </p>
       </div>
 
@@ -119,13 +114,10 @@
         </p>
 
         <p>
-          Because many components served multiple thermal, electrical, and mechanical
-          functions, material selection and integration were critical. At emission
-          temperatures, parts can melt, sublime, soften, create heat-loss paths, or introduce
-          electrical failure points. Each support rod, contact, insulator, shield, and
-          interface therefore had to be evaluated as part of the complete assembly so the
-          cathode could heat efficiently, avoid shorts, survive installation, and operate
-          reliably inside LiPD.
+          Material selection was therefore inseparable from integration. At emission
+          temperatures, components can soften, sublime, create heat-loss paths, or introduce
+          electrical failure points, so each support, contact, insulator, shield, and interface
+          had to be evaluated as part of the complete assembly.
         </p>
       </div>
 
@@ -169,26 +161,21 @@
       <div class="project-text-block">
         <h2>From Disk to Cylindrical Emitters</h2>
         <p>
-          The cathode design began with disk-shaped LaB<sub>6</sub> emitter concepts.
-          These early designs helped define the project's basic constraints: the emitter
-          needed mechanical support, electrical heating, and enough thermal isolation to
-          reach the temperature range required for strong thermionic emission.
+          The design began with disk-shaped LaB<sub>6</sub> emitters, which helped establish
+          the basic constraints: mechanical support, electrical heating, and enough thermal
+          isolation to reach strong-emission temperatures.
         </p>
 
         <p>
-          As the design developed, we shifted toward a cylindrical LaB<sub>6</sub>
-          geometry. A cylindrical sleeve allowed tungsten heater wire to wrap around the
-          emitter region, increasing the contact area between the heater and LaB<sub>6</sub>.
-          It was the first geometry in our thermal simulations to produce temperatures
-          above 2000 K and became a major turning point in the project.
+          We then shifted to a cylindrical geometry that allowed the tungsten heater to wrap
+          around the emitter region and increase thermal contact. It was the first geometry in
+          our simulations to exceed 2000 K and became the basis of the final design.
         </p>
 
         <p>
-          Prior LaB<sub>6</sub> cathode work also suggested that, after a discharge is
-          established, plasma bombardment can help maintain the emission temperature even
-          after heater power is reduced. This made the cylindrical emitter especially
-          interesting because it connected the cathode's mechanical geometry to the plasma
-          behavior it was intended to produce.
+          Prior LaB<sub>6</sub> cathode work also suggested that plasma bombardment can help
+          maintain emission temperature after a discharge is established, linking the heater
+          geometry directly to the plasma behavior the source was intended to produce.
         </p>
       </div>
 
@@ -227,18 +214,16 @@
         <h2>Designing for 2000 K Operation</h2>
 
         <p>
-          Using SolidWorks FEA, I evaluated whether the assembly could bring the
-          LaB<sub>6</sub> emitter into the temperature range needed for strong thermionic
-          emission without pushing surrounding materials beyond their operating limits.
-          The heater had to deliver sufficient power to the emitter while support rods,
-          contacts, shielding, and surrounding hardware created competing heat-loss paths.
+          Using SolidWorks FEA, I evaluated whether the heater could bring the LaB<sub>6</sub>
+          into its strong-emission temperature range without pushing surrounding materials
+          beyond their limits. Supports, contacts, shielding, and interfaces all created
+          competing conductive and radiative heat-loss paths.
         </p>
 
         <p>
-          The central design target was approximately 2000 K near the LaB<sub>6</sub>
-          source. The disk-shaped emitter could not be heated sufficiently within the
-          assembly, while the cylindrical heater improved thermal contact and produced the
-          first simulation results above 2000 K.
+          The central target was approximately 2000 K at the emitter. The disk design fell
+          short, while the cylindrical heater produced the first simulated temperatures above
+          2000 K.
         </p>
       </div>
 
@@ -247,8 +232,7 @@
           <div class="card-label">Target Temperature</div>
           <div class="card-value">~2000 K</div>
           <p>
-            A design target associated with strong LaB<sub>6</sub> emission and an approximately 100-fold
-            increase in achievable plasma density.
+            Target temperature range for strong LaB<sub>6</sub> thermionic emission.
           </p>
         </div>
 
@@ -319,12 +303,10 @@
               the axial and exterior viewports.
             </p>
             <p>
-              Operation at the design current confirmed that the heater circuit, refractory
-              assembly, electrical contacts, support structure, and vacuum interface could
-              function together under the intended load while sustaining the discharge.
-              During high-current runs, we also positioned an axial Langmuir probe for
-              voltage-current sweeps and plasma-column characterization while varying source
-              and device conditions.
+              Reaching the design current showed that the heater circuit, refractory assembly,
+              electrical contacts, support structure, and vacuum interface could function together
+              under the intended load. We also positioned an axial Langmuir probe for voltage-current
+              sweeps and plasma-column characterization while varying source and device conditions.
             </p>
           </div>
 
@@ -363,10 +345,8 @@
       <div class="project-text-block plasma-note">
         <h2>High-Current Operation and Diagnostics</h2>
         <p>
-          These high-current runs also provided better documentation of the plasma within
-          the full LiPD system. The exterior viewport shows the discharge filling the chamber,
-          while the axial views record the probe geometry, concentrated source region, and
-          visible changes in plasma structure as operating conditions were varied.
+          High-current runs also documented the discharge throughout LiPD, including the
+          axial probe geometry, concentrated source region, and broader plasma column.
         </p>
       </div>
 
@@ -441,14 +421,10 @@
     <section class="project-section project-footer-note">
       <div class="section-label">Acknowledgements &amp; Takeaways</div>
       <p>
-        This project gave me experience developing a high-temperature plasma component
-        across its full engineering life cycle, from electrical sizing and thermal
-        simulation through fabrication, vacuum integration, and commissioning. It
-        strengthened my interest in hardware development for plasma, aerospace, and other
-        physics-driven systems while expanding my experience in SolidWorks, FEA, thermal
-        analysis, experimental integration, and particle modeling. I do not take for
-        granted the opportunity to test ideas, iterate, and carry a system from physical
-        theory into working hardware.
+        This project took a high-temperature plasma component from electrical sizing and
+        thermal simulation through fabrication, vacuum integration, and commissioning. More
+        than any individual tool, I valued the process of testing ideas, finding where the
+        real hardware disagreed with the design, and iterating until the full system worked.
       </p>
 
       <p>
