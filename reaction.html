@@ -28,12 +28,11 @@
           <h1 class="glow">Reaction Wheel Attitude Control</h1>
           <p class="project-subtitle">Independent personal project • Completed August 2026</p>
           <p class="project-lead">
-            A single-axis attitude-control testbed developed from first-principles rigid-body
-            dynamics through a finished closed-loop hardware demonstration. I modeled the
-            angular-momentum exchange, designed and fabricated the rotating platform and
-            reaction-wheel assembly, integrated sensing, power, motor drive, and Bluetooth
-            communication, and developed feedback control that repeatedly commanded the body
-            to approximately ±30°.
+            I built a single-axis reaction-wheel testbed, starting with a rigid-body dynamics model
+            and eventually getting closed-loop control working on the physical hardware. I designed
+            the rotating platform and wheel, assembled the electronics, and wrote the control and
+            wireless communication code. The final setup could command attitude changes of roughly
+            ±30°.
           </p>
         </div>
 
@@ -48,8 +47,8 @@
     <section class="project-facts rw-facts" aria-label="Project at a glance">
       <div class="project-fact">
         <span>Scope</span>
-        <strong>End-to-end personal project</strong>
-        <p>Dynamics, CAD, fabrication, electronics, embedded control, communications, commissioning, and validation.</p>
+        <strong>Independent build</strong>
+        <p>Simulation, CAD, 3D printing, electronics, embedded code, and testing.</p>
       </div>
       <div class="project-fact rw-result-fact">
         <span>Measured result</span>
@@ -63,7 +62,7 @@
       </div>
       <div class="project-fact">
         <span>Status</span>
-        <strong>Complete &amp; demonstrated</strong>
+        <strong>Tested and documented</strong>
         <p>Wireless command, live telemetry, bidirectional closed-loop attitude changes, and a recorded final demo.</p>
       </div>
     </section>
@@ -72,18 +71,15 @@
       <div class="section-label">Final Demonstration</div>
       <div class="project-split-wide rw-demo-grid">
         <div class="project-text-block">
-          <h2>Closing the loop on the physical system</h2>
+          <h2>The final test</h2>
           <p>
-            The finished controller accepts attitude commands wirelessly from a desktop,
-            measures body angle with an AS5600 magnetic encoder, uses gyroscope rate feedback
-            for damping, and drives the internal reaction wheel until the platform approaches
-            the commanded orientation.
+            The desktop sends a target angle over Bluetooth. An AS5600 encoder measures the platform
+            angle, an IMU supplies angular-rate feedback, and the Arduino adjusts the wheel motor to
+            bring the body toward the target.
           </p>
           <p>
-            In final testing, a <strong>30° target settled at 28.74°</strong> and a
-            <strong>25° target settled at 23.55°</strong>. The recorded demo shows the
-            physical platform responding while measured angle and commanded target are plotted
-            live on the monitor behind it.
+            A 30° command settled at 28.74°, and a 25° command settled at 23.55°. The video shows the
+            platform moving while the measured and commanded angles are plotted behind it.
           </p>
           <div class="rw-metric-row" aria-label="Measured closed-loop results">
             <div class="rw-metric">
@@ -118,11 +114,10 @@
     <section class="project-section">
       <div class="section-label">System Architecture</div>
       <div class="project-text-block">
-        <h2>A complete controls chain, not just a spinning wheel</h2>
+        <h2>How the controller works</h2>
         <p>
-          The project only became useful as an attitude-control testbed once the mechanical,
-          sensing, actuation, power, and communications subsystems worked as one system. The
-          command path and feedback loop below reflect the final architecture.
+          The control loop runs from a wireless target command to the Arduino, motor driver,
+          reaction wheel, and sensors. The diagram below shows the setup I used in the final test.
         </p>
       </div>
 
@@ -182,24 +177,15 @@
       <div class="section-label">Mechanical Design</div>
       <div class="project-split rw-mechanical-split">
         <div class="project-text-block">
-          <h2>Designing for reaction torque, low body inertia, and serviceability</h2>
+          <h2>Designing the platform</h2>
           <p>
-            The platform rotates about a central shaft and bearing support while the reaction
-            wheel is driven internally by a geared DC motor. I used a bolt-weighted wheel to
-            increase rotational inertia and enclosed it with a removable printed guard for
-            normal operation.
+            The body rotates on a central shaft and bearing, with a geared DC motor spinning the
+            weighted reaction wheel inside it. I added bolts to the wheel for more inertia and a
+            removable 3D-printed guard around it.
           </p>
           <p>
-            Battery placement became a meaningful design variable because the batteries made
-            up a large fraction of the moving body's mass. An early layout concentrated cells
-            near the platform edge; I replaced it with three two-cell holders distributed
-            closer to the rotation axis to reduce body moment of inertia and improve the
-            wheel-to-body authority.
-          </p>
-          <p>
-            The final structure remained intentionally modular: the wheel guard removes for
-            inspection, electronics stay accessible from above, and the central bearing/shaft
-            assembly can be reached independently of the control hardware.
+            I kept the guard removable, the electronics accessible from above, and the bearing
+            assembly separate so I could keep making changes without tearing everything apart.
           </p>
         </div>
 
@@ -235,12 +221,11 @@
         </figure>
 
         <div class="project-text-block">
-          <h2>Measured angle, rate damping, and wireless commanding</h2>
+          <h2>Sensors and wireless control</h2>
           <p>
-            An AS5600 magnetic encoder provides absolute platform angle while the IMU supplies
-            angular-rate information. The controller combines attitude error with rate damping,
-            then maps the result into signed motor commands with minimum-drive compensation,
-            output limiting, and slew-rate limiting.
+            The AS5600 measures absolute angle, and the IMU gives angular rate for damping. I mapped
+            the controller output to signed motor commands, with minimum drive, output limits, and
+            slew-rate limiting.
           </p>
           <p>
             A SparkFun BlueSMiRF v2 provides the final wireless serial link on the Nano's D9/D10
@@ -288,19 +273,16 @@
     </section>
 
     <section class="project-section">
-      <div class="section-label">Simulation Foundation</div>
+      <div class="section-label">Early simulations</div>
       <div class="project-text-block">
-        <h2>Starting with the rigid-body dynamics</h2>
+        <h2>Starting with the dynamics</h2>
         <p>
-          The project began as an Analytical Dynamics study using Euler's equations, inertia
-          tensors, and conservation of angular momentum. I used Python and MATLAB to explore how
-          wheel torque, wheel speed, initial body rotation, and inertia distribution affect the
-          resulting body motion before committing to the hardware architecture.
+          This started as an Analytical Dynamics study of Euler’s equations, inertia tensors, and
+          angular momentum. I wrote Python and MATLAB simulations to see how wheel torque, wheel
+          speed, and inertia distribution affected body motion before building anything.
         </p>
         <p>
-          These animations are simulation visualizations from that work rather than experimental
-          data. I kept them in the final project because they show the physical model that guided
-          the later testbed.
+          These are simulations from the early modeling work, not footage of the testbed.
         </p>
       </div>
 
@@ -332,47 +314,42 @@
     <section class="project-section">
       <div class="section-label">Commissioning &amp; Iteration</div>
       <div class="project-text-block">
-        <h2>The engineering work was in the integration</h2>
+        <h2>Problems I ran into</h2>
         <p>
-          Once the first hardware existed, most progress came from isolating one subsystem at a
-          time, measuring what it was actually doing, and changing the design based on that
-          evidence. A few examples capture how the project evolved.
+          A lot of the build came down to testing parts separately and figuring out what was
+          actually going wrong. Three problems took most of my attention:
         </p>
       </div>
 
       <div class="project-grid rw-iteration-grid">
         <article class="project-card">
           <span class="rw-card-index">01</span>
-          <h3>Reduced body inertia</h3>
+          <h3>Moving the batteries inward</h3>
           <p>
-            Reworked the battery layout from mass concentrated near the perimeter to three
-            two-cell packs arranged closer to the axis. Because the batteries dominated the
-            body mass, this directly improved the mechanical leverage available from the same
-            reaction wheel.
+            The original battery layout put too much mass near the edge. I moved the cells inward
+            into three two-cell packs to lower the body’s moment of inertia.
           </p>
         </article>
 
         <article class="project-card">
           <span class="rw-card-index">02</span>
-          <h3>Debugged the wireless path by isolation</h3>
+          <h3>Getting Bluetooth working</h3>
           <p>
-            Verified the Bluetooth radio with a direct TX/RX loopback, then measured the signal
-            arriving at the Nano from repeated serial zeroes. A ~520 μs five-bit low pulse
-            identified the module's UART rate as approximately 9600 baud. The full
-            desktop → Bluetooth → Arduino → Bluetooth → desktop path then passed clean text
-            bidirectionally.
+            I tested the Bluetooth module with a TX/RX loopback, then measured the serial waveform
+            reaching the Nano. A roughly 520 μs low pulse across five zero bits pointed to 9600 baud.
+            After fixing that, the desktop and Arduino could exchange commands and telemetry in both
+            directions.
           </p>
         </article>
 
         <article class="project-card">
           <span class="rw-card-index">03</span>
-          <h3>Identified reaction-wheel saturation</h3>
+          <h3>Hitting the wheel limit</h3>
           <p>
-            Large closed-loop commands initially moved the platform and then stalled while the
-            wheel continued spinning. That behavior matched the physics: once wheel angular
-            acceleration approached zero, the wheel was storing momentum but no longer producing
-            meaningful additional body torque. I used that result to define a realistic final
-            control envelope rather than tuning around a physical limit.
+            On larger commands, the body would begin turning and then stall even as the wheel kept
+            spinning. Once wheel acceleration fell toward zero, it was no longer supplying much
+            torque. That was a real momentum-storage limit, not something I could fix by tuning the
+            controller.
           </p>
         </article>
       </div>
@@ -381,18 +358,15 @@
     <section class="project-section">
       <div class="section-label">Performance</div>
       <div class="project-text-block">
-        <h2>Characterizing what the hardware could actually do</h2>
+        <h2>Testing and limits</h2>
         <p>
-          Early open-loop tests established that the platform had substantial transient rotational
-          authority, including roughly a full revolution in high-energy pulse testing. Closed-loop
-          testing exposed the more important practical constraint: a single reaction wheel has
-          finite momentum storage, so large sustained attitude changes eventually saturate the
-          actuator.
+          In early open-loop pulse tests, the body could rotate roughly a full turn. Closed-loop
+          tests were more limited: without a way to unload wheel momentum, the actuator eventually
+          saturates on larger sustained moves.
         </p>
         <p>
-          I therefore treated approximately ±30° as the useful closed-loop demonstration envelope
-          for this hardware configuration. Within that range, the system produced repeatable,
-          visually clear attitude changes with degree-scale final error.
+          I settled on about ±30° as the practical closed-loop range for this version. Within that
+          range, I could repeatedly command changes with degree-scale final error.
         </p>
       </div>
 
@@ -429,12 +403,10 @@
     <section class="project-section">
       <div class="section-label">Possible Extensions</div>
       <div class="project-text-block">
-        <h2>Where I would take the system next</h2>
+        <h2>Next steps</h2>
         <p>
-          The present testbed is intentionally simple: one controlled rotational axis, a single
-          reaction wheel, and no dedicated momentum-unloading mechanism. That makes the current
-          ±30° closed-loop envelope useful for demonstrating the core dynamics while also making
-          the next design questions fairly clear.
+          This version has one controlled axis and no momentum unloading. If I return to it, these
+          are the main changes I would make.
         </p>
       </div>
 
@@ -471,41 +443,6 @@
       </div>
     </section>
 
-    <section class="project-section project-footer-note rw-ownership">
-      <div class="section-label">Engineering Ownership</div>
-      <div class="rw-ownership-grid">
-        <div>
-          <h2>Carrying an open-ended technical goal to a finished result</h2>
-          <p>
-            This was my first substantial personal engineering project, and unlike a class project
-            it came without a supplied architecture, build procedure, or definition of done. I
-            owned the complete path from the initial dynamics model through CAD, fabrication,
-            electronics, embedded software, communications, troubleshooting, controls, and final
-            validation.
-          </p>
-          <p>
-            The most important outcome is not any single component. It is the integrated system:
-            a first-principles idea translated into hardware, debugged across mechanical,
-            electrical, and software boundaries, characterized against its physical limits, and
-            carried through to a measured demonstration. That end-to-end execution is the standard
-            I want to bring to future engineering work.
-          </p>
-        </div>
-
-        <div class="rw-owned-list">
-          <span>Owned end-to-end</span>
-          <ul class="project-list">
-            <li>Rigid-body and reaction-wheel simulation</li>
-            <li>Mechanical architecture and CAD</li>
-            <li>3D printing, assembly, and iterative rework</li>
-            <li>Power, sensing, actuation, and wiring integration</li>
-            <li>Embedded control and wireless command interface</li>
-            <li>Systematic fault isolation and commissioning</li>
-            <li>Closed-loop testing, limitation identification, and final demo</li>
-          </ul>
-        </div>
-      </div>
-    </section>
   </main>
 
   <script src="space.js"></script>

@@ -27,32 +27,29 @@
       <h1 class="glow">Gesture-Controlled Robotic Arm</h1>
       <p class="project-subtitle">November 2025 – January 2026</p>
       <p class="project-lead">
-        A collaborative embedded-systems project that translated hand orientation from a
-        Bluetooth-connected glove into yaw, pitch, and gripping motion on a custom two-axis
-        robotic arm.
+        I worked on a robotic arm controlled by a Bluetooth glove. Tilting the glove moved the
+        arm in yaw and pitch, and a separate input opened or closed the gripper.
       </p>
     </header>
 
     <section class="project-facts" aria-label="Project at a glance">
       <div class="project-fact"><span>Role</span><strong>Mechanical &amp; controls integration</strong><p>CAD, servo mechanism design, embedded logic, assembly, testing, and debugging.</p></div>
       <div class="project-fact"><span>System</span><strong>Wireless gesture-controlled arm</strong><p>A glove sends orientation and grip commands to a three-servo robotic platform.</p></div>
-      <div class="project-fact"><span>Milestone</span><strong>Responsive working prototype</strong><p>Demonstrated BLE pairing, two-axis tracking, and remotely commanded gripping.</p></div>
+      <div class="project-fact"><span>Milestone</span><strong>Working prototype</strong><p>Demonstrated BLE pairing, two-axis tracking, and remotely commanded gripping.</p></div>
       <div class="project-fact"><span>Tools</span><strong>CAD + embedded Python</strong><p>Accelerometer processing, BLE UART, servo mapping, filtering, and mechanism design.</p></div>
     </section>
 
     <section class="project-section">
       <div class="section-label">Overview</div>
       <div class="project-text-block">
-        <h2>Hand rotation to arm movement</h2>
+        <h2>The glove and arm</h2>
         <p>
-          The system explored gesture-based control as a more intuitive alternative to a
-          joystick. A glove-mounted sensor board measured hand orientation, filtered the
-          readings, and transmitted commands wirelessly to the arm.
+          A sensor board on the glove measured hand orientation, filtered the readings, and sent
+          them to the arm over Bluetooth. The idea was to control the arm by moving your hand
+          rather than using a joystick.
         </p>
         <p>
-          The receiving board converted those commands into yaw, pitch, and claw positions.
-          The final demonstration therefore depended on reliable interaction between sensing,
-          wireless communication, embedded software, servo control, and the mechanical design.
+          The receiver mapped those readings to the yaw and pitch servos and used the grip command to move the claw.
         </p>
       </div>
     </section>
@@ -60,7 +57,7 @@
     <section class="project-section">
       <div class="section-label">Mechanical System</div>
       <div class="project-text-block">
-        <h2>Two-axis arm and servo-driven claw</h2>
+        <h2>Mechanical design</h2>
         <p>
           One TowerPro MG92B servo in the base controlled yaw, while a second controlled
           pitch through the upper joint. A removable shaft simplified assembly and made the
@@ -93,17 +90,12 @@
       <div class="section-label">Integrated Demonstration</div>
       <div class="project-split">
         <div class="project-text-block">
-          <h2>From glove input to physical motion</h2>
+          <h2>Testing the complete system</h2>
           <p>
-            The demonstration begins with the glove and arm pairing over Bluetooth. Once
-            connected, hand rotation is mapped into arm movement while a separate input
-            controls the gripper.
+            Once the glove and arm paired over Bluetooth, rotating the glove moved the arm, while a
+            separate command controlled the gripper.
           </p>
-          <p>
-            This was the central milestone of the project: combining the glove input,
-            wireless link, control logic, and servo-driven mechanism into a responsive system
-            rather than validating each subsystem only in isolation.
-          </p>
+          
         </div>
 
         <figure class="project-media-wrap media-medium">
@@ -118,16 +110,15 @@
     <section class="project-section">
       <div class="section-label">Software Control</div>
       <div class="project-text-block">
-        <h2>Accelerometer-based gesture mapping</h2>
+        <h2>Reading and sending the glove motion</h2>
         <p>
           A three-axis accelerometer estimated glove pitch and roll. An exponential moving
           average reduced noise before the orientation values and grip state were sent over a
           BLE UART connection.
         </p>
         <p>
-          On the arm, the receiver parsed each packet and mapped the filtered angles into
-          safe servo ranges. Keeping the sensing and actuation logic separate made the system
-          easier to test and helped isolate communication, calibration, and mechanical issues.
+          The arm parsed each BLE packet and mapped the filtered angles into safe servo ranges.
+          Keeping the sender and receiver logic separate helped with testing and calibration.
         </p>
       </div>
 
@@ -161,19 +152,6 @@ else:
       <p class="project-caption">Simplified control flow showing how glove orientation was converted into servo motion.</p>
     </section>
 
-    <section class="project-section project-footer-note">
-      <div class="section-label">Takeaways</div>
-      <p>
-        This project gave me practical experience integrating sensing, wireless communication,
-        embedded control, and mechanical actuation into one working device. It reinforced that
-        a mechatronic system is only as useful as the interfaces between its subsystems.
-      </p>
-      <p>
-        It was also an effective introduction to embedded controls that now informs my reaction
-        wheel attitude-control work, where the same themes of sensing, filtering, actuator
-        commands, and physical response appear in a more spacecraft-oriented setting.
-      </p>
-    </section>
   </main>
 
   <script src="space.js"></script>

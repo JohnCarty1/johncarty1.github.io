@@ -1685,3 +1685,15 @@ h1 {
   font-size: 0.82em;
   line-height: 1;
 }
+
+/* Incoming internship: understated and clearly future-tense */
+.incoming-role {
+  margin: 18px 0 0;
+  color: #c7d2ea;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+.incoming-role span {
+  color: var(--muted);
+  margin-right: 10px;
+}

@@ -27,17 +27,16 @@
       <h1 class="glow">Nauplius-Inspired Swimming Robot</h1>
       <p class="project-subtitle">October 2024 – January 2026</p>
       <p class="project-lead">
-        Working with Nathan Brewer under Professor Carr Everbach, I helped translate the
-        propulsion strategy of a barnacle nauplius into a controllable mechanical system.
-        The final prototype coordinated three limb pairs, enclosed its electronics in a
-        waterproof biologically informed housing, and could be activated remotely by light.
+        I worked with Nathan Brewer and Professor Carr Everbach on a robot based on the swimming
+        stroke of a barnacle nauplius. We built a single-motor mechanism to drive three pairs of
+        limbs, then packaged it with waterproof electronics and a light-activated control system.
       </p>
     </header>
 
     <section class="project-facts" aria-label="Project at a glance">
       <div class="project-fact"><span>Role</span><strong>Mechanical design &amp; integration</strong><p>Mechanism development, CAD, prototyping, fabrication, enclosure design, and testing.</p></div>
       <div class="project-fact"><span>System</span><strong>Three-pair swimming mechanism</strong><p>A single motor drives coordinated periodic strokes through a geared linkage system.</p></div>
-      <div class="project-fact"><span>Milestone</span><strong>Working integrated prototype</strong><p>Demonstrated phase-controlled limb motion, waterproof packaging, and light activation.</p></div>
+      <div class="project-fact"><span>Milestone</span><strong>Working prototype</strong><p>Demonstrated phase-controlled limb motion, waterproof packaging, and light activation.</p></div>
       <div class="project-fact"><span>Tools</span><strong>Fusion 360 + fabrication</strong><p>CAD, mechanism design, 3D printing, electronics packaging, assembly, and iteration.</p></div>
     </section>
 
@@ -45,7 +44,7 @@
       <div class="section-label">Motivation</div>
       <div class="project-split">
         <div class="project-text-block">
-          <h2>Why biomimetic motion?</h2>
+          <h2>Why a nauplius?</h2>
           <p>
             The barnacle nauplius uses an asymmetric, phased swimming stroke to move through
             a highly viscous environment near the Stokes-flow regime. At that scale, inertia
@@ -73,15 +72,12 @@
       <div class="project-text-block">
         <h2>One motor, six coordinated limbs</h2>
         <p>
-          A single motor input is transmitted through a custom gear train and linkage system
-          to generate coordinated, periodic motion across three pairs of limbs. The central
-          design challenge was reproducing both the angular sweep of each limb and the phase
-          offset between pairs.
+          One motor drives all six limbs through a gear train and linkages. The main challenge was
+          matching both the angular stroke of each limb and the timing between the three pairs.
         </p>
         <p>
-          Pivot locations, linkage lengths, and gear timing were iterated together. The design
-          also had to remain compact enough to preserve the approximate appendage spacing and
-          overall proportions of the biological system.
+          We adjusted pivot positions, linkage lengths, and gear timing together, while keeping the
+          mechanism small enough to resemble the nauplius’s proportions.
         </p>
       </div>
 
@@ -116,17 +112,12 @@
         </figure>
 
         <div class="project-text-block">
-          <h2>First functioning mechanism</h2>
+          <h2>First working mechanism</h2>
           <p>
-            This test was the first confirmation that the clockwork concept worked as a
-            physical system. Continuous motor rotation produced coordinated periodic strokes
-            across the limb pairs without the timing collapsing under real assembly tolerances.
+            This was the first version that moved all three limb pairs together. The motor could run
+            continuously while the strokes stayed in phase despite real assembly tolerances.
           </p>
-          <p>
-            Because propulsion depends on the phase relationship between the limbs, this was
-            more than a basic motion test. It validated the central kinematic idea behind the
-            robot and gave us a stable platform for adding the final appendages and enclosure.
-          </p>
+          
         </div>
       </div>
     </section>
@@ -134,12 +125,11 @@
     <section class="project-section">
       <div class="section-label">Mechanism Detail</div>
       <div class="project-text-block">
-        <h2>Packaging the transmission</h2>
+        <h2>Inside the mechanism</h2>
         <p>
-          The completed mechanism required the gear train, linkages, supports, and limb pivots
-          to coexist in a compact volume while remaining accessible enough to assemble and
-          repair. These views show how motion is distributed from the motor through the stacked
-          transmission and into the appendage linkages.
+          The stacked gears, supports, and limb pivots had to fit into a small space without
+          becoming impossible to assemble or repair. These photos show how the motor’s motion
+          reaches the limbs.
         </p>
       </div>
 
@@ -159,18 +149,15 @@
       <div class="section-label">Build &amp; Integration</div>
       <div class="project-split">
         <div class="project-text-block">
-          <h2>From mechanism to complete system</h2>
+          <h2>Putting the robot together</h2>
           <p>
-            Integrating the mechanism into a complete robot introduced new constraints that
-            could not be solved independently. The electronics needed to remain dry, the
-            housing had to fit the transmission, and the external shape needed to preserve a
-            biologically meaningful carapace geometry for fluid testing.
+            Once the mechanism worked, we still had to fit the electronics inside a waterproof
+            housing and keep the outside shape close enough to the nauplius for fluid tests.
           </p>
           <p>
-            The final assembly combined the clockwork mechanism, structural supports,
-            waterproof electronics enclosure, control hardware, and appendages into one
-            testable prototype. Reaching this stage required repeated full-system builds;
-            several integration problems only became visible after the entire robot was assembled.
+            The finished prototype brought the transmission, supports, appendages, and control
+            electronics into one assembly. We went through several builds to sort out problems that
+            were not obvious when the parts were tested separately.
           </p>
         </div>
 
@@ -192,37 +179,23 @@
         </figure>
 
         <div class="project-text-block">
-          <h2>Light-activated operation</h2>
+          <h2>Starting it with light</h2>
           <p>
             Direct access to the robot is limited during viscous-fluid testing, so the control
             system uses a light sensor as a simple non-invasive trigger. Applying a flashlight
             activates the motor; removing the light stops it.
           </p>
-          <p>
-            Although the control behavior is simple, it solved an important system-level
-            problem: how to start and stop an enclosed, submerged robot without compromising
-            the test environment or waterproof housing.
-          </p>
+          
         </div>
       </div>
     </section>
 
     <section class="project-section project-footer-note">
-      <div class="section-label">Takeaways</div>
+      <div class="section-label">Project status</div>
+      
+      
       <p>
-        This project gave me sustained experience across the full design-and-build cycle:
-        translating a physical behavior into requirements, developing a mechanism, packaging
-        electronics, fabricating parts, assembling the system, and discovering problems that
-        only appear when every subsystem is combined.
-      </p>
-      <p>
-        The most rewarding part was translating a strange biological motion into hardware and
-        then balancing mechanism geometry, waterproofing, electronics, biological fidelity, and
-        test constraints until the full system behaved as intended.
-      </p>
-      <p>
-        My direct involvement has concluded, but the project remains active at Swarthmore and
-        continues to be developed by later student researchers.
+        My part of the project ended in January 2026. Other students at Swarthmore have continued developing it.
       </p>
     </section>
   </main>

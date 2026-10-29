@@ -27,10 +27,10 @@
       <h1 class="glow">LaB<sub>6</sub> Cathode Development</h1>
       <p class="project-subtitle">May 2026 – Present</p>
       <p class="project-lead">
-        I designed, analyzed, fabricated, and commissioned a high-temperature cathode
-        assembly for Swarthmore's LiPD plasma device. The system combines a LaB<sub>6</sub> emitter,
-        1000 W heater circuit, refractory materials, thermal shielding, and vacuum interfaces,
-        and has demonstrated sustained operation at the full 50 A heater-current design point.
+        I designed and built a LaB<sub>6</sub> cathode for Swarthmore’s Little Plasma Device
+        (LiPD). The assembly uses a 1000 W heater circuit, refractory materials, and a CF-flange
+        vacuum interface. It produced its first plasma at 40 A and later ran at the full 50 A
+        heater-current design point.
       </p>
     </header>
 
@@ -46,20 +46,17 @@
       <div class="section-label">Overview</div>
 
       <div class="project-text-block">
-        <h2>Building a Higher-Performance Electron Source</h2>
+        <h2>Why LaB<sub>6</sub>?</h2>
         <p>
-          My work focused on upgrading the electron source for Swarthmore's Little Plasma
-          Device (LiPD), an approximately quarter-scale device that shares important geometric
-          and operating characteristics with WHAM. The existing hot-tungsten source limited
-          electron beam current and plasma density, so the goal was to develop a more robust
-          LaB<sub>6</sub> cathode with substantially greater thermionic emission.
+          LiPD is a roughly quarter-scale plasma device with similarities to WHAM. Its existing
+          hot-tungsten electron source limited beam current and plasma density, so we wanted to try
+          a LaB<sub>6</sub> emitter with higher thermionic emission.
         </p>
 
         <p>
-          LaB<sub>6</sub> has a lower work function than tungsten and emits strongly near
-          2000 K. Reaching that regime required more than choosing the emitter material: the
-          assembly had to heat it efficiently, support it mechanically, remain electrically
-          reliable, and survive inside the vacuum device.
+          LaB<sub>6</sub> has a lower work function than tungsten and emits strongly near 2000 K.
+          The harder part was getting the emitter that hot without losing heat through the supports
+          or compromising the electrical and vacuum connections.
         </p>
       </div>
     </section>
@@ -69,19 +66,18 @@
       <div class="section-label">Cathode Design</div>
 
       <div class="project-text-block">
-        <h2>LaB<sub>6</sub> Cathode Assembly</h2>
+        <h2>Assembly and materials</h2>
 
         <p>
-          I designed the cathode assembly in SolidWorks around one central requirement:
-          heat the LaB<sub>6</sub> emitter efficiently while keeping it mechanically supported,
-          electrically connected, and compatible with LiPD's existing CF-flange interface.
+          I modeled the assembly in SolidWorks around LiPD’s existing CF-flange connection. The
+          emitter needed to sit close to the heater while staying supported and electrically
+          isolated where necessary.
         </p>
 
         <p>
-          The same components often served several functions. Copper and molybdenum pieces
-          carry current and support the assembly; a graphite contact holds the LaB<sub>6</sub>;
-          a tungsten heater wraps a boron-nitride sleeve; and the heat shield both reduces
-          radiative loss and helps complete the electrical return path.
+          Copper and molybdenum parts carry current and support the assembly. A graphite contact
+          holds the LaB<sub>6</sub>, a tungsten heater wraps a boron-nitride sleeve, and the heat
+          shield reduces radiative losses while forming part of the electrical return path.
         </p>
       </div>
 
@@ -106,18 +102,15 @@
 
       <div class="project-text-block plasma-note">
         <p>
-          The heater geometry was constrained by the available 50 A, 20 V power supply.
-          To draw the full current and deliver the maximum 1000 W of heater power,
-          the total circuit resistance needed to be 0.4 Ω. This meant the heater
-          length, cross-sectional area, material resistivity, and contact geometry had
-          to be designed around both electrical resistance and heat transfer.
+          The available supply was rated for 50 A at 20 V, so the full 1000 W design point required
+          a total heater-circuit resistance of 0.4 Ω. I sized the tungsten wire and its electrical
+          contacts with that resistance and the heat transfer in mind.
         </p>
 
         <p>
-          Material selection was therefore inseparable from integration. At emission
-          temperatures, components can soften, sublime, create heat-loss paths, or introduce
-          electrical failure points, so each support, contact, insulator, shield, and interface
-          had to be evaluated as part of the complete assembly.
+          At these temperatures, the supports and contacts can become major paths for heat loss,
+          and material compatibility matters. I had to account for conduction, radiation,
+          electrical isolation, and the behavior of each component at temperature.
         </p>
       </div>
 
@@ -159,17 +152,15 @@
       <div class="section-label">Design Evolution</div>
 
       <div class="project-text-block">
-        <h2>From Disk to Cylindrical Emitters</h2>
+        <h2>Changing the emitter geometry</h2>
         <p>
-          The design began with disk-shaped LaB<sub>6</sub> emitters, which helped establish
-          the basic constraints: mechanical support, electrical heating, and enough thermal
-          isolation to reach strong-emission temperatures.
+          I started with disk-shaped LaB<sub>6</sub> emitters to work out the support, heating, and insulation geometry.
         </p>
 
         <p>
-          We then shifted to a cylindrical geometry that allowed the tungsten heater to wrap
-          around the emitter region and increase thermal contact. It was the first geometry in
-          our simulations to exceed 2000 K and became the basis of the final design.
+          We then switched to a cylindrical emitter region with the tungsten heater wrapped around
+          it. That geometry was the first to exceed 2000 K in the thermal simulations, so it became
+          the basis of the final design.
         </p>
 
         <p>
@@ -211,20 +202,15 @@
       <div class="section-label">Thermal Analysis</div>
 
       <div class="project-text-block">
-        <h2>Designing for 2000 K Operation</h2>
+        <h2>Thermal analysis</h2>
 
         <p>
-          Using SolidWorks FEA, I evaluated whether the heater could bring the LaB<sub>6</sub>
-          into its strong-emission temperature range without pushing surrounding materials
-          beyond their limits. Supports, contacts, shielding, and interfaces all created
-          competing conductive and radiative heat-loss paths.
+          I used SolidWorks thermal FEA to estimate emitter temperature and heat loss through the
+          surrounding hardware. The target was roughly 2000 K at the LaB<sub>6</sub>, without
+          overheating the contacts and supports.
         </p>
 
-        <p>
-          The central target was approximately 2000 K at the emitter. The disk design fell
-          short, while the cylindrical heater produced the first simulated temperatures above
-          2000 K.
-        </p>
+        
       </div>
 
       <div class="project-grid two-col">
@@ -294,19 +280,15 @@
       <div class="project-split-wide results-split">
         <div>
           <div class="project-text-block">
-            <h2>Sustained Operation at the Full Design Current</h2>
+            <h2>First plasma and commissioning</h2>
             <p>
-              On July 17, 2026, the completed LaB<sub>6</sub> cathode produced its first
-              visible plasma at 40 A after fabrication, assembly, and installation in LiPD.
-              Commissioning then progressed to sustained operation at the full 50 A
-              heater-current design point, with a bright argon discharge visible through
-              the axial and exterior viewports.
+              The cathode produced its first visible plasma on July 17, 2026, at 40 A heater current.
+              After further commissioning, it ran continuously at the intended 50 A heater current,
+              with a bright argon discharge visible through LiPD’s viewports.
             </p>
             <p>
-              Reaching the design current showed that the heater circuit, refractory assembly,
-              electrical contacts, support structure, and vacuum interface could function together
-              under the intended load. We also positioned an axial Langmuir probe for voltage-current
-              sweeps and plasma-column characterization while varying source and device conditions.
+              We also installed an axial Langmuir probe for voltage-current sweeps and plasma-column
+              measurements while varying source and device conditions.
             </p>
           </div>
 
@@ -343,10 +325,9 @@
       </div>
 
       <div class="project-text-block plasma-note">
-        <h2>High-Current Operation and Diagnostics</h2>
+        <h2>Plasma and diagnostics</h2>
         <p>
-          High-current runs also documented the discharge throughout LiPD, including the
-          axial probe geometry, concentrated source region, and broader plasma column.
+          These views show the source, the broader plasma column, and the axial probe during high-current testing.
         </p>
       </div>
 
@@ -406,10 +387,8 @@
           <p class="related-eyebrow">Computational plasma physics</p>
           <h2>Fast-Ion Orbit Modeling in WHAM Fields</h2>
           <p>
-            Alongside the cathode hardware, I developed a separate full-orbit modeling
-            workflow using actual WHAM magnetic-field data. The project classifies ion
-            confinement, axial escape, and radial loss across velocity space and now has
-            its own project page.
+            I also worked on a separate Python model of fast-ion orbits in WHAM magnetic fields. That
+            project has its own page.
           </p>
           <span class="related-link">Explore the orbit-modeling project →</span>
         </div>
@@ -419,18 +398,12 @@
 
     <!-- TAKEAWAYS -->
     <section class="project-section project-footer-note">
-      <div class="section-label">Acknowledgements &amp; Takeaways</div>
-      <p>
-        This project took a high-temperature plasma component from electrical sizing and
-        thermal simulation through fabrication, vacuum integration, and commissioning. More
-        than any individual tool, I valued the process of testing ideas, finding where the
-        real hardware disagreed with the design, and iterating until the full system worked.
-      </p>
+      <div class="section-label">Acknowledgements</div>
+      
 
       <p>
-        I would especially like to thank Dr. Michael Brown, who has been an incredibly
-        supportive and knowledgeable advisor, as well as my friend and colleague Isaac
-        Wright-Muller, without whom this work would not have progressed nearly as far.
+        Thanks to Professor Michael Brown for his guidance, and to Isaac Wright-Muller for the
+        work we did together on this project.
       </p>
     </section>
   </main>
